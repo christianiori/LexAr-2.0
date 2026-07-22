@@ -1075,6 +1075,48 @@ async function getTermsFromTEI(xmlPath, maxWords = 30) {
 
     return sortedWords;
 }
+
+// API locale: il TEI viene letto e indicizzato dal backend invece che dal browser.
+async function loadWorkContent(workSlug) {
+    const teiContainer = document.getElementById("tei-content");
+    if (!teiContainer) return;
+
+    try {
+        const response = await fetch(`/api/works/${encodeURIComponent(workSlug)}/speeches`);
+        if (!response.ok) throw new Error(`Errore API: ${response.status}`);
+        const payload = await response.json();
+        const fragment = document.createDocumentFragment();
+
+        payload.speeches.forEach((speech) => {
+            const speechElement = document.createElement("div");
+            speechElement.className = "tei-speech";
+            if (speech.speaker) {
+                const speakerElement = document.createElement("strong");
+                speakerElement.className = "tei-speaker";
+                speakerElement.textContent = speech.speaker;
+                speechElement.appendChild(speakerElement);
+            }
+            speech.lines.forEach((line) => {
+                const lineElement = document.createElement("div");
+                lineElement.className = "tei-line";
+                lineElement.textContent = line;
+                speechElement.appendChild(lineElement);
+            });
+            fragment.appendChild(speechElement);
+        });
+        teiContainer.replaceChildren(fragment);
+    } catch (error) {
+        console.error("Errore nel caricamento del testo dall'API:", error);
+        teiContainer.textContent = "Impossibile caricare il testo. Avvia il server con: python server.py";
+    }
+}
+
+async function getTermsFromAPI(workSlug, maxWords = 30) {
+    const response = await fetch(`/api/terms?work=${encodeURIComponent(workSlug)}&limit=${maxWords}`);
+    if (!response.ok) throw new Error(`Errore API: ${response.status}`);
+    const payload = await response.json();
+    return payload.terms;
+}
 let bubblesChart = d3.selectAll("#d3-bubble-chart .bubble");
 bubblesChart
     .attr("data-bs-toggle", "tooltip")
@@ -1102,7 +1144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (acarnesiButton) {
         acarnesiButton.addEventListener("click", () => {
             console.log("📥 Bottone Acarnesi cliccato. Avvio caricamento TEI...");
-            loadTEIContent("../xml/ach.xml");
+            loadWorkContent("acarnesi");
         });
     } else {
         console.warn('⚠️ Elemento con data-bs-target="#testo-Acarnesi" non trovato.');
@@ -1118,7 +1160,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (!bubbleContainer) return;
 
     const maxWords = window.innerWidth < 600 ? 15 : 30;
-    const termData = (await getTermsFromTEI("../xml/ach.xml")).slice(0, maxWords);
+    const termData = await getTermsFromAPI("acarnesi", maxWords);
 
     if (termData.length === 0) {
         console.warn("⚠️ Nessun termine trovato.");
