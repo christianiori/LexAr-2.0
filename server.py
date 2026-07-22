@@ -29,20 +29,21 @@ WORKS = {
         "tei": ROOT / "xml" / "ach.xml",
         "metadata": ROOT / "xml" / "metach.xml",
         "page": "item/acarnesi.html",
+        "year": -425,
     }
-    , "cavalieri": {"title": "I Cavalieri", "tei": None, "page": "item/cavalieri.html"}
-    , "nuvole": {"title": "Le Nuvole", "tei": None, "page": "item/nuvole.html"}
-    , "vespe": {"title": "Le Vespe", "tei": None, "page": "item/vespe.html"}
-    , "pace": {"title": "La Pace", "tei": None, "page": "item/pace.html"}
-    , "uccelli": {"title": "Gli Uccelli", "tei": None, "page": "item/uccelli.html"}
+    , "cavalieri": {"title": "I Cavalieri", "tei": None, "page": "item/cavalieri.html", "year": -424}
+    , "nuvole": {"title": "Le Nuvole", "tei": None, "page": "item/nuvole.html", "year": -423}
+    , "vespe": {"title": "Le Vespe", "tei": None, "page": "item/vespe.html", "year": -422}
+    , "pace": {"title": "La Pace", "tei": None, "page": "item/pace.html", "year": -421}
+    , "uccelli": {"title": "Gli Uccelli", "tei": None, "page": "item/uccelli.html", "year": -414}
     , "tesmoforie": {
         "title": "Le Donne alle Tesmoforie", "tei": None,
-        "metadata": ROOT / "xml" / "mettesm.xml", "page": "item/tesmoforie.html"
+        "metadata": ROOT / "xml" / "mettesm.xml", "page": "item/tesmoforie.html", "year": -411
     }
-    , "lisistrata": {"title": "Lisistrata", "tei": None, "page": "item/lisistrata.html"}
-    , "rane": {"title": "Le Rane", "tei": None, "page": "item/rane.html"}
-    , "donne": {"title": "Le Donne al Parlamento", "tei": None, "page": "item/donne.html"}
-    , "pluto": {"title": "Il Pluto", "tei": None, "page": "item/pluto.html"}
+    , "lisistrata": {"title": "Lisistrata", "tei": None, "page": "item/lisistrata.html", "year": -411}
+    , "rane": {"title": "Le Rane", "tei": None, "page": "item/rane.html", "year": -405}
+    , "donne": {"title": "Le Donne al Parlamento", "tei": None, "page": "item/donne.html", "year": -392}
+    , "pluto": {"title": "Il Pluto", "tei": None, "page": "item/pluto.html", "year": -388}
 }
 
 
@@ -192,6 +193,7 @@ def public_work(work: dict) -> dict:
     return {
         **work,
         "page": source["page"],
+        "year": source["year"],
         "has_tei": bool(source.get("tei")),
         "has_metadata": bool(source.get("metadata")),
     }

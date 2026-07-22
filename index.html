@@ -1,210 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-	<head>
-		<title>LexAr-Il lessico nelle commedie aristofanee</title>
-		<link rel="icon" type="image/x-icon" href="img/aristofane.jpg">
-		<meta charset="UTF-8"  />
-		<meta name="description" content="Sito dedicato al lessico di Aristofane"  />
-		<meta name="keywords" content="Commedie, lessico, testi" />
-		<meta name="author" content="Christian Iori"  />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="DC.Title" content="LexAr-Commedie aristofanee">
-		<meta name="DC.Creator" content="Christian Iori">
-		<meta name="DC.Subject" content="Testi drammatici">
-		<meta name="DC.Subject" content="Commedie">
-		<meta name="DC.Description" content="Raccolta di testi di Aristofane in formato digitale">
-		<meta name="DC.Publisher" content="Università di Bologna">
-		<meta name="DC.Date" content="2024">
-		<meta name="DC.Type" content="Text">
-		<meta name="DC.Format" content="HTML">
-		<meta name="DC.Identifier" content="tbd">
-		<meta name="DC.Coverage" content="Bologna">
-		<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"   />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-		<link rel="stylesheet" type="text/css" href="style/style.css" />
-		<script src="script/script.js" defer></script>
-	</head>
-	<body>
-		<!--Navbar !-->
-		<nav class="navbar navbar-expand-lg navbar-light desktop-navbar d-none d-lg-flex">
-  			<div class="container-fluid">
-  				<a class="navbar-brand" href="#">LexAr</a>
-  				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  				<span class="navbar-toggler-icon"></span>
-				</button>
-    			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-      				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        				<li class="nav-item">
-          				<a class="nav-link paginacorrente" aria-current="page" href="#">Home</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="infogen/intro.html">Introduzione</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="infogen/timeline.html">Linea del tempo</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="infogen/autore.html">Autore</a>
-        				</li>
-        				<li class="nav-item">
-                        <a class="nav-link" href="infogen/glossario.html">Glossario</a>
-                        </li>
-        				<li class="nav-item dropdown">
-          					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            				Lessico
-          					</a>
-          					<ul class="dropdown-menu">
-          						<li><a class="dropdown-item" href="lessico/lessicogen.html">Lessico generale</a></li>
-            					<li><a class="dropdown-item" href="lessico/vocaboli.html">Tutti i vocaboli</a></li>
-            					<li><a class="dropdown-item" href="lessico/lesamb.html">Esplora per campo semantico</a></li>
-            					<li><a class="dropdown-item" href="lessico/radici.html">Esplora per radice</a></li>
-          					</ul>
-        				</li>
-        				<li class="nav-item dropdown">
-          					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            				Testi
-          					</a>
-          					<ul class="dropdown-menu">
-            					<li><a class="dropdown-item" href="item/pluto.html">Ultimo testo inserito</a></li>
-            					<li><a class="dropdown-item" href="catalogo/catalogo1.html">Catalogo testi</a></li>
-          					</ul>
-        				</li>
-      				</ul>
-    			</div>
-  			</div>
-		</nav>
-		<button id="toggleMenu" class="toggle-button mobile-navbar d-lg-none">
-                        <span>&#9664;</span>
-                    </button>
-            <div class="sidebar" id="mobileSidebar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="infogen/intro.html">Introduzione</a></li>
-                    <li class="nav-item"><a class="nav-link" href="infogen/timeline.html">Linea del tempo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="infogen/autore.html">Autore</a></li>
-                    <li class="nav-item"><a class="nav-link" href="infogen/glossario.html">Glossario</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link paginacorrente dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Lessico
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="lessico/lessicogen.html">Lessico generale</a></li>
-                            <li><a class="dropdown-item" href="lessico/vocaboli.html">Tutti i vocaboli</a></li>
-                            <li><a class="dropdown-item" href="lessico/lesamb.html">Campo semantico</a></li>
-                            <li><a class="dropdown-item" href="lessico/radici.html">Radice</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="catalogo/catalogo1.html">Catalogo testi</a></li>
-                </ul>
-            </div>
-		<div class="container-fluid">
-			<div class="hero-image">
-  				<div class="hero-text">
-    				<h1 class="hero-title" style="font-family: 'Marck Script', cursive; font-size: 10rem; color: azure;">LexAr</h1>
-    				<p>Un modo nuovo di studiare il lessico</p>
-    				<button class="bottone" onclick="window.location.href='infogen/intro.html';"><span>Scopri di più</span></button>
-				</div>
- 			</div>
-		</div>
-		<div class="container-fluid">
-  			<div class="row justify-content-center">
-  				<div class="col-lg-3 col-md-4">
-  					<div class="idea">
-						<h2 style="font-family: 'Marck Script', cursive; font-size: 3rem;">L'idea</h2>
-						<p> Il progetto nasce con l'idea di avvicinare gli studenti delle superiori -e non solo- allo studio del lessico, una parte fondamentale della lingua greca. L'obiettivo principale è, quindi, fornire uno strumento digitale che permetta l'analisi testuale e che divida il lessico per ambiti in modo da facilitarne l'apprendimento. I testi presi in esame sono, al momento, le commedie di Aristofane, ma non si esclude un ampliamento futuro del database testuale all'intero teatro attico. La scelta aristofanea è dettata sia dalla varietà di sfere semantiche interessate dalla prolifica e creativa attività del commediografo, sia per il significato, spesso divertente dei termini. Infine, viene evidenziato l'utilizzo di hapax e di neologismi, oltre ad i meccanismi di formazione messi in atto.
-						</p>
-						<a href="infogen/intro.html" class="btn btn-info">Vai all'introduzione</a>
-					</div>
-					<div class="idea">
-						<h2 style="font-family: 'Marck Script', cursive; font-size: 3rem;" class="mt-4">L'autore</h2>
-						<p> La scelta dell'autore preso in esame ricade su Aristofane per molteplici motivi: in primis, il commediografo è una delle principali fonti per quanto riguarda il registro popolare dell'Atene di V sec.; in secundis, la molteplicità di ambiti abbracciati dalla produzione aristofanea permette di mostrare un ventaglio ampio di situazioni in cui stessi termini vengono utilizzati; infine l'autore del sito crede profondamente che la scelta di una fonte umoristica aiuti maggiormente a stimolare la memorizzazione e l'apprendimento di nuovo lessico.
-						</p>
-						<a href="infogen/autore.html" class="btn btn-info mb-3">Vai alla sezione autore</a>
-					</div>
-				</div>
-    			<div class="col-lg-6 col-md-4">
-					<div class="esplora">
-						<h3 style="font-family: 'Marck Script', cursive; font-size: 3rem;">Esplora il catalogo</h3>
-						<button class="accordion">Gli Acarnesi</button>
-							<div class="panel">
-  								<p>Gli Acarnesi è la commedia aristofanea integra più antica pervenuta,vincitrice delle Lenee del 425 a.C. ed è ambientata durante la guerra del Peloponneso. Il protagonista è Diceopoli, cittadino ateniese, che, stanco della guerra, pur di far pace con Sparta, stipula una tregua privata coi Lacedemoni. Una commedia piena di riferimenti paratragici e parodie, soprattutto, alle tragedie euripidee: Euripide stesso è portato in scena come una persona la cui mente è in aria e assente e rimane sospeso finché in scena grazie all'ausilio della mekanè. Il confronto finale tra Diceopoli che si prepara ad un banchetto e Lamaco, soldato fanfarone, che torna ferito e gemente dalla guerra mette in chiaro la posizione di Aristofane nei confronti della guerra in atto.</p><a class="btn pill" href="item/acarnesi.html" role="button">Vai al testo</a>
-							</div>
-						<button class="accordion">I Cavalieri</button>
-							<div class="panel">
-  								<p>Vincitrice delle Lenee del 424 a.C., i Cavalieri è una feroce critica diretta a Cleone, personaggio di spicco della politica ateniese del tempo sostenuto dalle classi sociali più basse e perciò ostile ai cavalieri del titolo. Due servi di Popolo, parodie di Nicia e Demostene, si lamentano di Paflagone e di come abbia ottenuto i favori del padrone in modo disonesto ed ipocrita; l'aiuto di un oracolo, la figura del salsicciaio rivale di Paflagone e la risoluzione dettata da Popolo portano al lieto fine sperato: Popolo ringiovanito dal salsicciaio, il quale  è ora  divenuto cittadino onesto, sposa Tregua, mentre Paflagone, dietro cui si nasconde Cleone stesso, finisce a fare il lavoro umile del rivale.</p><a class="btn pill" href="item/cavalieri.html" role="button">Vai al testo</a>
-							</div>
-						<button class="accordion">Le Nuvole</button>
-							<div class="panel">
-  								<p>Le Nuvole andata in scena nel 423 a.C. non ottenne successo, tanto che nella parabasi delle Vespe Aristofane stesso rimprovera il pubblico per non averne capito la novità e averne decretato l'insuccesso; il testo che ci è giunto è quasi sicuramente una seconda stesura successiva, forse non portata in scena da Aristofane. Strepsiade, un vecchio contadino indebitatosi a causa della dipendenza per le corse dei cavalli del figlio Filippide, decide di mandarlo al Pensatoio di Socrate per imparare la retorica necessaria ad aver ragione dei debitori. Poiché inizialmente Filippide non intende imparare, Strepsiade va al suo posto, ma si rivela troppo ottuso per capire le argomentazioni sottili e fumose di Socrate. Filippide, sentito il racconto del padre, si risolve ad andare ed assiste al dibattito tra Discorso Migliore e Discorso Peggiore e, imparate le tecniche persuasive del Discorso Peggiore, manda via due creditori, ma continua ad usare la retorica a discapito del padre che viene picchiato da Filippide stesso mentre gli dimostra di non star facendo nulla di sbagliato. Strepsiade, irato e disperato, mette a fuoco e fiamme il Pensatoio di Socrate.</p><a class="btn pill" href="item/nuvole.html" role="button">Vai al testo</a>
-  							</div>
-  						<button class="accordion">Le Vespe</button>
-							<div class="panel">
-  								<p>Le Vespe prende di mira la mania dei processi che stava dilagando al tempo di Aristofane: le vespe del titolo sono, infatti, i giudici popolari, sempre pronti a punger col loro pungiglione i malcapitati, esercitando il loro poco potere. Schifacleone, figlio di Filocleone, decide di mettere sotto chiave il padre affinché non passi tutto il giorno a partecipare ai processi come giudice popolare; Filocleone con l'aiuto del Coro, costituito da altri come lui, tenta la fuga più volte, mentre il figlio tenta di smascherare il poco potere decisionale che hanno, essendo solo strumenti utilizzati a loro piacimento da chi detiene davvero il potere nella polis. Schifacleone, per accontentare il bisogno di processi del padre, intenta un finto processo in casa propria: il cane viene accusato di aver mangiato un pezzo di formaggio e, mentre Filocleone avrebbe voluto condannarlo, Schifacleone lo inganna e lo spinge a mettere la pietruzza del voto nell'urna dell'assoluzione. Filocleone, sconvolto dal risultato, decide di smettere coi processi, ma, condotto ad un simposio dal figlio, combina solo guai ed irrita i convitati. La rissa viene scongiurata, però, e tutti escono dal simposio danzando in coro. </p><a class="btn pill" href="item/vespe.html" role="button">Vai al testo</a>
-  							</div>
-  						<button class="accordion">La Pace</button>
-							<div class="panel">
-  								<p>La Pace andata in scena nel 421 a.C. ha come protagonista il vignaiolo Trigeo che decide di andare a cercare gli dei sull'Olimpo affinché liberino Pace che metta fine alla devastazione della guerra. Arrivato in cima cavalcando uno scarabeo stercorario, viene avvisato da Ermes che gli dei hanno tutti abbandonato il monte per le nefandezze e le cattiverie compiute dagli uomini; Trigeo, dopo aver visto gli scempi compiuti dal gigante Guerra e dal servo Tumulto che hanno rapito e messo sotto terra Pace, aspetta il momento per agire. Guerra e Tumulto vogliono triturare in un grande mortaio le poleis, ma non riescono a trovare pestelli abbastanza forti, anche se un tempo abbondavano in Grecia( il riferimento qui è a Cleone, soppranominato Pestello e a Brasida, entrambi morti da poco). Trigeo, approfittando dell'impossibilità del gigante ad agire chiama a raccolta i Greci e libera Pace; Pace esce dalla terra con Pluto in braccio ed insieme a Opora, il raccolto, e Festa. Trigeo ed Opora, a sorpresa, dichiarano di volersi sposare e così tutti si lasciano andare in un komos nuziale.</p> <a class="btn pill" href="item/pace.html" role="button">Vai al testo</a>
-  							</div>
-  						<button class="accordion">Gli Uccelli</button>
-							<div class="panel">
-  								<p>Nel 414 a.C. Aristofane ottiene il secondo posto alle Grandi Dionisie con Gli Uccelli. I protagonisti, Pisetero e Evelpide, sono stanchi della propria città e si recano perciò da Upupa-Tereo per chiedere agli uccelli di fondare una città insieme in cielo, Nubicuculia. Il coro di uccelli è inizialmente restio perché non si fida degli uomini, ma viene avviata comunque la costruzione. Gli uccelli, inorgogliti dall'ottima posizione della città, esattamente a metà tra gli dei e gli uomini, dichiarano guerra agli dei e rubano e tengono per sé i fumi dei sacrifici umani; gli dei, affamati, non hanno altra scelta che mandare due ambascerie presso gli uccelli per contrattare una tregua. Gli dei vengono sostituiti del tutto dagli uccelli nelle preghiere degli uomini e Pisetero spodesta Zeus e sposa Regina, la custode delle folgori di Zeus.</p><a class="btn pill" href="item/uccelli.html" role="button">Vai al testo</a>
-  							</div>
-  						<button class="accordion">Le Donne alle Tesmoforie</button>
-							<div class="panel">
-  								<p>Le Donne alle Tesmoforie o Tesmoforiazuse ha come protagonista Euripide, il quale è preoccupato che le donne siano irritate per come le ritrae nelle sue opere e che vogliano tramare qualcosa contro di lui mentre si tengono i riti in onore di Demetra. Poiché la partecipazione ai riti del secondo giorno è solamente femminile, Euripide va insieme ad un Parente a casa di Agattone per chiedergli di travestirsi da donna e prendere le sue difese durante la festa. Poiché Agatone rifiuta, il Parente si presta alla farsa e, dopo essere stato depilato e vestito da donna, si infiltra in assemblea. Sentendo effettive minacce alla vita di Euripide, il parente ne prende le difese, screditando però il genere femminile e dando l'opportunità a Clistene di scoprire il trucco. Il Parente tenta di salvarsi prendendo una bimba come ostaggio, ma si rivela essere una damigiana di vino ed Euripide è costretto ad intervenire in aiuto del Parente travestendosi prima da Menelao e poi da Perseo; il salvatggio riesce, ma euripide è costretto dalle donne a diminuire la sua misoginia e a non raccontare agli uomini le malefatte che le donne compiono.</p><a class="btn pill" href="item/tesmoforie.html" role="button">Vai al testo</a>
-							</div>
-							<button class="accordion">Lisistrata</button>
-							<div class="panel">
-  								<p>Lisistrata è del 411 a.C. e ha come protagonista Lisistrata, una donna ateniese che chiama in assemblea tutte le donne di Atene per mandare un ultimatum ai mariti che guerreggiano: le donne avrebbero fatto uno sciopero collettivo del sesso finché gli uomini non avessero firmato la pace. Dopo una discussione animata, le donne giurano tutte ed occupano l'acropoli per togliere agli uomini anche i finanziamenti per la guerra. Gli uomini mandano un emissario per trattare con le donne, ma Lisistrata smaschera la sua ignoranza e rifiuta il dialogo. L'astinenza è dura anche per le donne, ma Lisistrata le tiene a freno sull'acropoli: solo Mirrina viene mandata a casa dal marito Cinesia per eccitarlo senza che lei si conceda. Cinesia, pesantemente messo alle strette dall'astinenza, incontra un emissario spartano nelle stesse condizioni e risolvono di mandare ambasciatori pronti per la pace e di informare le proprie patrie. Lisistrata tesse allora un discorso pacifista e che ricorda la radice comune dei greci, i semicori di vecchi e vecchie si riconciliano e le donne tornano dai mariti tra danze e feste.</p><a class="btn pill" href="item/lisistrata.html" role="button">Vai al testo</a>
-							</div>
-							<button class="accordion">Le Rane</button>
-							<div class="panel">
-  								<p>Le Rane, rappresentata nel 405 a.C. è una commedia dal forte sapore nostalgico e che mette in luce il declino della potenza di Atene sotto ogni punto di vista, anche quello teatrale. I tre grandi tragediografi sono tutti morti e Dioniso, il dio del teatro, affronta un viaggio insieme al suo servo Xantia per riportare in auge il teatro riportando in vita Euripide. Dopo aver ricevuto le informazioni su quale strada sia più conveniente prendere per l'Ade da Eracle, Dioniso e Xantia attraversano la palude acherontea, il primo sulla barca di Caronte, il secondo a piedi; durante la traversata delle rane intonano un coro in onore di Dioniso, non sapendo di averlo di fronte, finché il dio si infastidisce per il loro gracidare. Giunti alle porte dell'Ade, Xantia viene scambiato da un defunto, Eaco, per Eracle e, minacciato, si scambia d'abiti con Dioniso, non ottenendo altro che botte per entrambi. Infine, giunti da Euripide, i due lo trovano mentre gareggia contro Eschilo per chi sia il miglior tragediografo. Dioniso, offrendosi come giudice, alla fine decreta che Eschilo è il miglior tragediografo perché i suoi versi sono più "pesanti" e perché ha dato il consiglio più utile per Atene e decide, quindi, di riportare in vita lui invece di Euripide.</p><a class="btn pill" href="item/rane.html" role="button">Vai al testo</a>
-							</div>
-							<button class="accordion">Le Donne al parlamento</button>
-							<div class="panel">
-  								<p> Le Donne al Parlamento ha come tema, ancora una volta, il rovesciamento totale dell'ordine sociale: un gruppo di donne, guidate da Prassagora, intende convincere gli uomini a lasciare a loro il governo perché gli uomini stavano rovinando Atene. Durante la votazione, molti uomini votano a favore perché pare l'unica strada non ancora percorsa e, inoltre, alcune donne si camuffano da uomini e votano a loro volta. Elette al potere, Prassagora delibera che tutti i beni andassero messi in comune perché le donne potessero meglio amministrarli, inclusi i rapporti sessuali; tuttavia, poiché non si voleva favorire troppo le donne belle, si delibera anche che un uomo prima di avere un rapporto sessuale con una bella donna, dovesse averne altri con donne brutte e viceversa. Un giovane, però, in questo modo si ritriva conteso tra tre brutte vecchie che fannoa gara per i suoi favori. La commedia finisce con un banchetto cittadino.</p><a class="btn pill" href="item/donne.html" role="button">Vai al testo</a>
-							</div>
-							<button class="accordion">Pluto</button>
-							<div class="panel">
-  								<p> Il Pluto racconta di un povero, ma onesto cittadino, Cremilo, che insieme al suo servo Carione va a chiedere all'oracolo di Delfi se anche il proprio figlio rimaarrà povero, vista l'ingiusta distribuzione delle ricchezze nel mondo. La risosta indica a Cremilo di seguire la prima persona che avesse incontrato fuori dall'oracolo. Incontrato un vecchio cieco, Cremilo comincia a seguirlo ed aiutarlo finché non si scopre che si tratta proprio di Pluto, dio della ricchezza; Cremilo si offre quindi di aiutare il dio a farlo guarire, credendo che fosse la cecità del dio a causare la diseguale distribuzione delle ricchezze tra disonesti e onesti. La Povertà tenta di convincere Cremilo che è un bene che Pluto sia cieco, perché è proprio la povertà che sprona gli uomini a essere lavoratori e onesti, altrimenti da ricchi tutti sarebbero molli e disonesti; Cremilo non dà ascolto alla dea e, grazie all'intervento di Asclepio, cura la cecità di Pluto. A questo punto, tutti, senza distinzioni, diventano ricchi, ma questo fa nascere molte lamentele: il sicofante si lamenta di non poter denunciatre più nessuno, la vecchia che non trova giovani disposti a soddisfarla per soldi, Zeus che i mortali non fanno più offerte agli dei perché non serve più nulla, Ermes ha addirittura perso il lavoro. I dissapori si placano infine nella processione che tutti fanno per portare Pluto nel Partenone.</p><a class="btn pill" href="item/pluto.html" role="button">Vai al testo</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4">
-						<div class="card cardhome mt-5 mb-3 d-none d-md-block">
-  							<img src="img/timeline.png" alt="timeline">
-  								<div class="container">
-  									<h5>Guarda le opere in ordine cronologico</h5>
-    								<a class="btn btn-info mb-2" href="infogen/timeline.html" role="button">Vai alla linea del tempo</a>
-  								</div>
-						</div>
-						<span></span>	
-						<div class="card cardhome mb-3 d-none d-md-block">
-  							<img src="img/radice.png" alt="radice">
-  								<div class="container">
-  									<h5>Esplora il lessico per radici</h5>
-    								<a class="btn btn-info mb-2" href="lessico/radici.html" role="button">Lessico/Radici</a>
-  								</div>
-						</div>
-						<div class="card cardhome mb-3 d-none d-md-block">
-  							<img src="img/insiemi.png" alt="insiemi">
-  								<div class="container">
-  									<h5>Esplora il lessico per campo semantico</h5>
-    								<a class="btn btn-info mb-2" href="lessico/lesamb.html" role="button">Lessico/Ambito</a>
-  								</div>
-						</div>			
-    				</div>
-				</div>
-			</div> 
-		<div class="pre-footer"> &#128210; <a class="link" href="#">Credits</a> | <a class="link" href="http://creativecommons.org/licenses/by/4.0/">Licenze</a> &#128210;</div>
-		<footer>
-			<div class="footer">&copy; Christian Iori&#128511; 2024- corso di Digital Humanities e Patrimonio Culturale </div>
-		</footer>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LexAr: esplora il lessico nelle commedie di Aristofane.">
+  <meta name="author" content="Christian Iori">
+  <title>LexAr — Lessico e commedie di Aristofane</title>
+  <link rel="icon" type="image/x-icon" href="img/aristofane.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Poppins:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style/home.css">
+  <script src="script/home.js" defer></script>
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#contenuto">Salta al contenuto</a>
 
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-	</body>
+  <header class="home-header">
+    <nav class="home-nav" aria-label="Navigazione principale">
+      <a class="home-brand" href="index.html" aria-label="LexAr, home">LexAr</a>
+      <div class="home-nav-links">
+        <a aria-current="page" href="index.html">Home</a>
+        <a href="infogen/intro.html">Il progetto</a>
+        <a href="catalogo/catalogo1.html">Opere</a>
+        <a href="lessico/lessicogen.html">Lessico</a>
+      </div>
+      <a class="nav-action" href="lessico/vocaboli.html"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Cerca</a>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="home-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Archivio digitale · Aristofane</p>
+          <h1 id="hero-title">Leggere il greco,<br><em>oltre la parola.</em></h1>
+          <p class="hero-lead">LexAr mette in relazione testi, lessico e contesto per esplorare la lingua viva delle commedie aristofanee.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#opere">Esplora le opere <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="button button-quiet" href="lessico/lessicogen.html">Vai al lessico</a>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="Focus del progetto">
+          <p class="note-greek" lang="grc">κωμῳδία</p>
+          <p>Un percorso di studio tra parole, radici e campi semantici.</p>
+          <a href="infogen/intro.html">Come nasce LexAr <span aria-hidden="true">↗</span></a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="home-stats" aria-label="Il corpus LexAr">
+      <div class="home-shell stats-grid">
+        <div><strong>11</strong><span>commedie nel catalogo</span></div>
+        <div><strong>1</strong><span>testo TEI già interrogabile</span></div>
+        <div><strong>V–IV sec. a.C.</strong><span>l’arco cronologico del corpus</span></div>
+      </div>
+    </section>
+
+    <section class="home-section home-shell pathways" aria-labelledby="percorsi-title">
+      <div class="section-heading">
+        <p class="eyebrow">Tre modi per iniziare</p>
+        <h2 id="percorsi-title">Scegli il tuo percorso</h2>
+      </div>
+      <div class="pathway-grid">
+        <a class="pathway-card pathway-texts" href="#opere">
+          <span class="pathway-number">01</span>
+          <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+          <h3>Leggi le opere</h3>
+          <p>Dal catalogo al testo, con informazioni e materiali collegati.</p>
+          <span class="card-link">Apri il corpus <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="pathway-card pathway-lexicon" href="lessico/lessicogen.html">
+          <span class="pathway-number">02</span>
+          <i class="fa-solid fa-spell-check" aria-hidden="true"></i>
+          <h3>Interroga il lessico</h3>
+          <p>Cerca vocaboli, radici e connessioni tra le parole.</p>
+          <span class="card-link">Esplora il lessico <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="pathway-card pathway-time" href="infogen/timeline.html">
+          <span class="pathway-number">03</span>
+          <i class="fa-solid fa-timeline" aria-hidden="true"></i>
+          <h3>Segui il tempo</h3>
+          <p>Colloca ogni commedia nel suo momento storico e teatrale.</p>
+          <span class="card-link">Apri la linea del tempo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <section id="opere" class="works-section" aria-labelledby="opere-title">
+      <div class="home-shell">
+        <div class="section-heading section-heading-row">
+          <div>
+            <p class="eyebrow">Il corpus</p>
+            <h2 id="opere-title">Commedie da esplorare</h2>
+          </div>
+          <a class="text-link" href="catalogo/catalogo1.html">Vedi il catalogo completo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div id="home-works" class="works-grid" aria-live="polite">
+          <p class="works-loading">Caricamento delle opere…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-shell project-callout" aria-labelledby="progetto-title">
+      <div>
+        <p class="eyebrow">Un progetto di ricerca</p>
+        <h2 id="progetto-title">Un archivio pensato per imparare a vedere le parole.</h2>
+      </div>
+      <div>
+        <p>Il progetto nasce per avvicinare allo studio del greco attraverso il lessico di Aristofane: una lingua creativa, concreta e sorprendentemente contemporanea.</p>
+        <a class="button button-dark" href="infogen/intro.html">Scopri il progetto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="home-shell footer-content">
+      <a class="home-brand" href="index.html">LexAr</a>
+      <p>Lessico nelle commedie aristofanee · Christian Iori</p>
+      <a href="http://creativecommons.org/licenses/by/4.0/">Licenza CC BY 4.0</a>
+    </div>
+  </footer>
+</body>
 </html>
