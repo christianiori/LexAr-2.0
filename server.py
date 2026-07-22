@@ -197,7 +197,8 @@ def frequent_terms(slug: str, limit: int) -> list[dict]:
 
 def main() -> None:
     initialise_database()
-    host = os.environ.get("HOST", "127.0.0.1")
+    # Render deve poter raggiungere il processo dall'esterno del container.
+    host = os.environ.get("HOST", "0.0.0.0")
     port = int(os.environ.get("PORT", "8000"))
     server = ThreadingHTTPServer((host, port), LexArHandler)
     print(f"LexAr disponibile su http://{host}:{port}/")
