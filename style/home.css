@@ -1,14 +1,12 @@
 :root {
-  --ink: #173247;
-  --muted: #5b6f7d;
-  --paper: #f8f3e9;
-  --sky: #d9f1f4;
-  --aqua: #207f91;
-  --aqua-dark: #125666;
-  --coral: #ef8b69;
-  --line: #d9e1dc;
-}
-
+  --ink: #083946;
+--muted: #4d7380;
+--paper: #ccf5ff;
+--aqua: #0e8fa1;
+--aqua-dark: #075f70;
+--coral: #54d9cf;
+--line: #c2e6e2;
+  }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body.home-page { margin: 0; background: var(--paper); color: var(--ink); font-family: Poppins, sans-serif; }
