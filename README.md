@@ -25,7 +25,7 @@ un database persistente (PostgreSQL).
 API iniziali:
 
 - `GET /api/health`
-- `GET /api/works`
+- `GET /api/works` (catalogo completo con disponibilità di TEI e metadati)
 - `GET /api/works/acarnesi`
 - `GET /api/works/acarnesi/speeches`
 - `GET /api/terms?work=acarnesi&limit=30`

@@ -28,7 +28,21 @@ WORKS = {
         "title": "Gli Acarnesi",
         "tei": ROOT / "xml" / "ach.xml",
         "metadata": ROOT / "xml" / "metach.xml",
+        "page": "item/acarnesi.html",
     }
+    , "cavalieri": {"title": "I Cavalieri", "tei": None, "page": "item/cavalieri.html"}
+    , "nuvole": {"title": "Le Nuvole", "tei": None, "page": "item/nuvole.html"}
+    , "vespe": {"title": "Le Vespe", "tei": None, "page": "item/vespe.html"}
+    , "pace": {"title": "La Pace", "tei": None, "page": "item/pace.html"}
+    , "uccelli": {"title": "Gli Uccelli", "tei": None, "page": "item/uccelli.html"}
+    , "tesmoforie": {
+        "title": "Le Donne alle Tesmoforie", "tei": None,
+        "metadata": ROOT / "xml" / "mettesm.xml", "page": "item/tesmoforie.html"
+    }
+    , "lisistrata": {"title": "Lisistrata", "tei": None, "page": "item/lisistrata.html"}
+    , "rane": {"title": "Le Rane", "tei": None, "page": "item/rane.html"}
+    , "donne": {"title": "Le Donne al Parlamento", "tei": None, "page": "item/donne.html"}
+    , "pluto": {"title": "Il Pluto", "tei": None, "page": "item/pluto.html"}
 }
 
 
@@ -66,7 +80,15 @@ def initialise_database() -> None:
             """
         )
         for slug, work in WORKS.items():
-            import_work(connection, slug, work)
+            if work.get("tei"):
+                import_work(connection, slug, work)
+            else:
+                connection.execute(
+                    """INSERT INTO works (slug, title, tei_path, imported_at)
+                       VALUES (?, ?, '', CURRENT_TIMESTAMP)
+                       ON CONFLICT(slug) DO UPDATE SET title = excluded.title""",
+                    (slug, work["title"]),
+                )
 
 
 def import_work(connection: sqlite3.Connection, slug: str, work: dict[str, object]) -> None:
@@ -125,7 +147,7 @@ class LexArHandler(SimpleHTTPRequestHandler):
             return self.send_json({"status": "ok", "work_count": work_count})
         if parsed.path == "/api/works":
             with database_connection() as connection:
-                works = [dict(row) for row in connection.execute("SELECT slug, title, imported_at FROM works ORDER BY title")]
+                works = [public_work(dict(row)) for row in connection.execute("SELECT slug, title, imported_at FROM works ORDER BY title")]
             return self.send_json({"works": works})
         if parsed.path == "/api/terms":
             slug = query.get("work", ["acarnesi"])[0]
@@ -160,9 +182,19 @@ def work_summary(slug: str) -> dict:
         work = connection.execute("SELECT slug, title, imported_at FROM works WHERE slug = ?", (slug,)).fetchone()
         if not work:
             raise KeyError
-        result = dict(work)
+        result = public_work(dict(work))
         result["line_count"] = connection.execute("SELECT COUNT(*) FROM lines WHERE work_slug = ?", (slug,)).fetchone()[0]
     return result
+
+
+def public_work(work: dict) -> dict:
+    source = WORKS[work["slug"]]
+    return {
+        **work,
+        "page": source["page"],
+        "has_tei": bool(source.get("tei")),
+        "has_metadata": bool(source.get("metadata")),
+    }
 
 
 def speeches_for(slug: str) -> list[dict]:
