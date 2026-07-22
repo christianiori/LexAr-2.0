@@ -27,7 +27,7 @@ a { color: inherit; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; align-items: end; gap: 4rem; }
 .eyebrow { margin: 0 0 .8rem; color: var(--aqua); font-size: .73rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .home-hero .eyebrow { color: #a9dde3; }
-.hero-copy h1, .section-heading h2, .project-callout h2 { margin: 0; font-family: Spectral, Georgia, serif; font-size: clamp(3.2rem, 7vw, 6.3rem); line-height: .93; letter-spacing: -.04em; }
+.hero-copy h1, .section-heading h2, .project-callout h2 { margin: 0; font: "Marck Script", cursive; font-size: clamp(3.2rem, 7vw, 6.3rem); line-height: .93; letter-spacing: -.04em; }
 .hero-copy h1 em { color: #c9eef0; font-weight: 500; }
 .hero-lead { max-width: 590px; margin: 2rem 0; font-size: 1.05rem; line-height: 1.75; color: #e4f3f4; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
@@ -37,14 +37,14 @@ a { color: inherit; }
 .button-quiet { border: 1px solid rgba(255,255,255,.6); color: #fff; }
 .button-dark { background: var(--ink); color: #fff; }
 .hero-note { padding: 1.8rem; border: 1px solid rgba(255,255,255,.35); background: rgba(3,44,58,.25); backdrop-filter: blur(5px); }
-.note-greek { margin: 0 0 .9rem; color: #cbf1f3; font: 2.45rem/1 Spectral, Georgia, serif; }
+.note-greek { margin: 0 0 .9rem; color: #cbf1f3; font: 2.45rem/1 "Marck Script", cursive; }
 .hero-note p:not(.note-greek) { margin: 0 0 1.2rem; font-size: .9rem; line-height: 1.65; }
 .hero-note a { color: white; font-size: .82rem; font-weight: 700; }
 .home-stats { border-bottom: 1px solid var(--line); background: #fffdf8; }
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .stats-grid div { display: flex; flex-direction: column; gap: .2rem; min-height: 122px; justify-content: center; padding: 1.5rem 2rem; border-left: 1px solid var(--line); }
 .stats-grid div:last-child { border-right: 1px solid var(--line); }
-.stats-grid strong { font: 600 clamp(1.55rem, 3vw, 2.3rem)/1 Spectral, Georgia, serif; }
+.stats-grid strong { font: 600 clamp(1.55rem, 3vw, 2.3rem)/1 "Marck Script", cursive; }
 .stats-grid span { color: var(--muted); font-size: .78rem; }
 .home-section { padding: 104px 0; }
 .section-heading h2 { font-size: clamp(2.3rem, 4vw, 3.8rem); }
@@ -53,10 +53,10 @@ a { color: inherit; }
 .pathway-card:hover { transform: translateY(-5px); box-shadow: 0 16px 24px rgba(20,63,74,.15); }
 .pathway-texts { background: var(--ink); color: white; }
 .pathway-lexicon { background: #c9e8e8; }
-.pathway-time { background: #f4c7a6; }
+.pathway-time { background: #4ed0da; }
 .pathway-number { display: block; font-size: .73rem; font-weight: 700; letter-spacing: .1em; opacity: .72; }
 .pathway-card > i { margin-top: 2.9rem; font-size: 1.5rem; }
-.pathway-card h3 { margin: .9rem 0 .45rem; font: 600 1.8rem/1 Spectral, Georgia, serif; }
+.pathway-card h3 { margin: .9rem 0 .45rem; font: 600 1.8rem/1 S"Marck Script", cursive; }
 .pathway-card p { max-width: 260px; margin: 0; font-size: .83rem; line-height: 1.6; }
 .card-link { position: absolute; bottom: 1.65rem; font-size: .78rem; font-weight: 700; }
 .works-section { padding: 92px 0 104px; background: #e6f3f3; }
@@ -66,7 +66,7 @@ a { color: inherit; }
 .work-card { position: relative; min-height: 164px; padding: 1.25rem; border: 1px solid #d0e1df; background: rgba(255,255,255,.76); color: var(--ink); text-decoration: none; transition: transform .2s, border-color .2s; }
 .work-card:hover { border-color: var(--aqua); transform: translateY(-3px); }
 .work-year { color: var(--aqua-dark); font-size: .73rem; font-weight: 700; }
-.work-card h3 { max-width: 80%; margin: .8rem 0; font: 600 1.55rem/1 Spectral, Georgia, serif; }
+.work-card h3 { max-width: 80%; margin: .8rem 0; font: 600 1.55rem/1 "Marck Script", cursive; }
 .work-status { color: var(--muted); font-size: .7rem; }
 .work-status.is-available { color: #087162; font-weight: 700; }
 .work-arrow { position: absolute; right: 1.25rem; bottom: 1rem; color: var(--aqua-dark); font-size: 1.3rem; }
