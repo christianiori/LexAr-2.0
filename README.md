@@ -13,6 +13,15 @@ python server.py
 
 Apri quindi `http://localhost:8000/` nel browser.
 
+## Deploy su Render
+
+La configurazione in `render.yaml` crea un Web Service Python e usa
+`/api/health` come controllo di integrità. Render assegna la variabile `PORT`,
+che il server legge automaticamente. Il database SQLite viene ricreato dal TEI
+ad ogni avvio: finché LexAr resta in sola lettura non richiede un disco
+persistente. Prima di aggiungere utenti o annotazioni condivise, sarà necessario
+un database persistente (PostgreSQL).
+
 API iniziali:
 
 - `GET /api/health`

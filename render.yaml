@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: lexar
+    runtime: python
+    plan: free
+    buildCommand: python -m py_compile server.py
+    startCommand: python server.py
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit

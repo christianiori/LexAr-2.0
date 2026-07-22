@@ -7,6 +7,7 @@ Poi aprire http://localhost:8000/
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 import threading
 import unicodedata
@@ -103,6 +104,10 @@ class LexArHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:  # noqa: N802
         parsed = urlparse(self.path)
+        # Il database locale non deve essere esposto dal server di file statici.
+        if parsed.path == "/data" or parsed.path.startswith("/data/"):
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return
         if not parsed.path.startswith("/api/"):
             return super().do_GET()
         try:
@@ -115,7 +120,9 @@ class LexArHandler(SimpleHTTPRequestHandler):
     def handle_api(self, parsed) -> None:
         query = parse_qs(parsed.query)
         if parsed.path == "/api/health":
-            return self.send_json({"status": "ok"})
+            with database_connection() as connection:
+                work_count = connection.execute("SELECT COUNT(*) FROM works").fetchone()[0]
+            return self.send_json({"status": "ok", "work_count": work_count})
         if parsed.path == "/api/works":
             with database_connection() as connection:
                 works = [dict(row) for row in connection.execute("SELECT slug, title, imported_at FROM works ORDER BY title")]
@@ -190,8 +197,10 @@ def frequent_terms(slug: str, limit: int) -> list[dict]:
 
 def main() -> None:
     initialise_database()
-    server = ThreadingHTTPServer(("127.0.0.1", 8000), LexArHandler)
-    print("LexAr disponibile su http://localhost:8000/")
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "8000"))
+    server = ThreadingHTTPServer((host, port), LexArHandler)
+    print(f"LexAr disponibile su http://{host}:{port}/")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
