@@ -1,12 +1,12 @@
 :root {
   --ink: #083946;
---muted: #4d7380;
---paper: #ccf5ff;
---aqua: #0e8fa1;
---aqua-dark: #075f70;
---coral: #54d9cf;
---line: #c2e6e2;
-  }
+  --muted: #4d7380;
+  --paper: #ccf5ff;
+  --aqua: #0e8fa1;
+  --aqua-dark: #075f70;
+  --coral: #54d9cf;
+  --line: #c2e6e2;
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body.home-page { margin: 0; background: var(--paper); color: var(--ink); font-family: Poppins, sans-serif; }
@@ -27,7 +27,7 @@ a { color: inherit; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; align-items: end; gap: 4rem; }
 .eyebrow { margin: 0 0 .8rem; color: var(--aqua); font-size: .73rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .home-hero .eyebrow { color: #a9dde3; }
-.hero-copy h1, .section-heading h2, .project-callout h2 { margin: 0; font: "Marck Script", cursive; font-size: clamp(3.2rem, 7vw, 6.3rem); line-height: .93; letter-spacing: -.04em; }
+.hero-copy h1, .section-heading h2, .project-callout h2 { margin: 0; font-family: "Marck Script", cursive; font-size: clamp(3.2rem, 7vw, 6.3rem); line-height: .93; letter-spacing: -.04em; }
 .hero-copy h1 em { color: #c9eef0; font-weight: 500; }
 .hero-lead { max-width: 590px; margin: 2rem 0; font-size: 1.05rem; line-height: 1.75; color: #e4f3f4; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
@@ -56,7 +56,7 @@ a { color: inherit; }
 .pathway-time { background: #4ed0da; }
 .pathway-number { display: block; font-size: .73rem; font-weight: 700; letter-spacing: .1em; opacity: .72; }
 .pathway-card > i { margin-top: 2.9rem; font-size: 1.5rem; }
-.pathway-card h3 { margin: .9rem 0 .45rem; font: 600 1.8rem/1 S"Marck Script", cursive; }
+.pathway-card h3 { margin: .9rem 0 .45rem; font: 600 1.8rem/1 "Marck Script", cursive; }
 .pathway-card p { max-width: 260px; margin: 0; font-size: .83rem; line-height: 1.6; }
 .card-link { position: absolute; bottom: 1.65rem; font-size: .78rem; font-weight: 700; }
 .works-section { padding: 92px 0 104px; background: #e6f3f3; }
