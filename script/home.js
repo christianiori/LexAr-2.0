@@ -3,18 +3,17 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainMenu = document.getElementById("menu-principale");
 
 if (menuToggle && mainMenu) {
-  function setMenuOpen(isOpen) {
+  const setMenuOpen = (isOpen) => {
     mainMenu.classList.toggle("is-open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute(
       "aria-label",
       isOpen ? "Chiudi il menu" : "Apri il menu"
     );
-  }
+  };
 
   menuToggle.addEventListener("click", () => {
-    const isOpen = mainMenu.classList.contains("is-open");
-    setMenuOpen(!isOpen);
+    setMenuOpen(!mainMenu.classList.contains("is-open"));
   });
 
   document.addEventListener("keydown", (event) => {
@@ -31,30 +30,34 @@ function formatYear(year) {
 
 function renderWorks(works) {
   worksContainer.replaceChildren();
-  works.sort((first, second) => first.year - second.year).forEach((work) => {
-    const card = document.createElement("a");
-    card.className = "work-card";
-    card.href = work.page;
 
-    const year = document.createElement("span");
-    year.className = "work-year";
-    year.textContent = formatYear(work.year);
+  [...works]
+    .sort((first, second) => first.year - second.year)
+    .slice(0, 3)
+    .forEach((work) => {
+      const card = document.createElement("a");
+      card.className = `work-card ${work.has_tei ? "is-digital" : ""}`;
+      card.href = work.page;
 
-    const title = document.createElement("h3");
-    title.textContent = work.title;
+      const year = document.createElement("span");
+      year.className = "work-year";
+      year.textContent = formatYear(work.year);
 
-    const status = document.createElement("span");
-    status.className = `work-status ${work.has_tei ? "is-available" : ""}`;
-    status.textContent = work.has_tei ? "Testo digitale disponibile" : "Scheda dell’opera";
+      const title = document.createElement("h3");
+      title.textContent = work.title;
 
-    const arrow = document.createElement("span");
-    arrow.className = "work-arrow";
-    arrow.setAttribute("aria-hidden", "true");
-    arrow.textContent = "→";
+      const status = document.createElement("span");
+      status.className = `work-status ${work.has_tei ? "is-available" : ""}`;
+      status.textContent = work.has_tei ? "Testo digitale disponibile" : "Scheda dell’opera";
 
-    card.append(year, title, status, arrow);
-    worksContainer.appendChild(card);
-  });
+      const arrow = document.createElement("span");
+      arrow.className = "work-arrow";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "→";
+
+      card.append(year, title, status, arrow);
+      worksContainer.appendChild(card);
+    });
 }
 
 if (worksContainer) {
@@ -65,6 +68,6 @@ if (worksContainer) {
     })
     .then(({ works }) => renderWorks(works))
     .catch(() => {
-      worksContainer.innerHTML = "<p class=\"works-loading\">Il catalogo è momentaneamente non disponibile. <a href=\"catalogo/catalogo1.html\">Apri il catalogo classico</a>.</p>";
+      // Le tre card presenti nell'HTML restano disponibili come fallback statico.
     });
 }

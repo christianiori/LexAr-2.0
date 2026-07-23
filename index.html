@@ -9,7 +9,7 @@
   <link rel="icon" type="image/x-icon" href="img/aristofane.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Poppins:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=GFS+Didot&family=Marck+Script&family=Poppins:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="style/home.css">
   <script src="script/home.js" defer></script>
@@ -27,7 +27,7 @@
         aria-controls="menu-principale"
         aria-label="Apri il menu"
       >
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
       <div class="home-nav-links" id="menu-principale">
         <a aria-current="page" href="index.html">Home</a>
@@ -49,7 +49,7 @@
           <p class="hero-lead">LexAr mette in relazione testi, lessico e contesto per esplorare la lingua viva delle commedie aristofanee.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#opere">Esplora le opere <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            <a class="button button-quiet" href="lessico/lessicogen.html">Vai al lessico</a>
+            <a class="button button-dark" href="lessico/lessicogen.html">Vai al lessico</a>
           </div>
         </div>
         <aside class="hero-note" aria-label="Focus del progetto">
@@ -64,6 +64,7 @@
       <div class="home-shell stats-grid">
         <div><strong>11</strong><span>commedie nel catalogo</span></div>
         <div><strong>1</strong><span>testo TEI già interrogabile</span></div>
+        <div><strong>614</strong><span>vocaboli greci analizzati</span></div>
         <div><strong>V–IV sec. a.C.</strong><span>l’arco cronologico del corpus</span></div>
       </div>
     </section>
@@ -75,22 +76,19 @@
       </div>
       <div class="pathway-grid">
         <a class="pathway-card pathway-texts" href="#opere">
-          <span class="pathway-number">01</span>
-          <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+          <i class="pathway-icon fa-solid fa-book-open" aria-hidden="true"></i>
           <h3>Leggi le opere</h3>
           <p>Dal catalogo al testo, con informazioni e materiali collegati.</p>
-          <span class="card-link">Apri il corpus <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="card-link">Immergiti nel corpus <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
         </a>
         <a class="pathway-card pathway-lexicon" href="lessico/lessicogen.html">
-          <span class="pathway-number">02</span>
-          <i class="fa-solid fa-spell-check" aria-hidden="true"></i>
+          <span class="pathway-icon pathway-greek" lang="grc" aria-hidden="true">αβ</span>
           <h3>Interroga il lessico</h3>
           <p>Cerca vocaboli, radici e connessioni tra le parole.</p>
           <span class="card-link">Esplora il lessico <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
         </a>
         <a class="pathway-card pathway-time" href="infogen/timeline.html">
-          <span class="pathway-number">03</span>
-          <i class="fa-solid fa-timeline" aria-hidden="true"></i>
+          <i class="pathway-icon fa-solid fa-timeline" aria-hidden="true"></i>
           <h3>Segui il tempo</h3>
           <p>Colloca ogni commedia nel suo momento storico e teatrale.</p>
           <span class="card-link">Apri la linea del tempo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
@@ -105,10 +103,27 @@
             <p class="eyebrow">Il corpus</p>
             <h2 id="opere-title">Commedie da esplorare</h2>
           </div>
-          <a class="text-link" href="catalogo/catalogo1.html">Vedi il catalogo completo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="button button-catalogue" href="catalogo/catalogo1.html">Vedi il catalogo completo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
         <div id="home-works" class="works-grid" aria-live="polite">
-          <p class="works-loading">Caricamento delle opere…</p>
+          <a class="work-card is-digital" href="item/acarnesi.html">
+            <span class="work-year">425 a.C.</span>
+            <h3>Gli Acarnesi</h3>
+            <span class="work-status is-available">Testo digitale disponibile</span>
+            <span class="work-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="work-card" href="item/cavalieri.html">
+            <span class="work-year">424 a.C.</span>
+            <h3>I Cavalieri</h3>
+            <span class="work-status">Scheda dell’opera</span>
+            <span class="work-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="work-card" href="item/nuvole.html">
+            <span class="work-year">423 a.C.</span>
+            <h3>Le Nuvole</h3>
+            <span class="work-status">Scheda dell’opera</span>
+            <span class="work-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -120,7 +135,7 @@
       </div>
       <div>
         <p>Il progetto nasce per avvicinare allo studio del greco attraverso il lessico di Aristofane: una lingua creativa, concreta e sorprendentemente contemporanea.</p>
-        <a class="button button-dark" href="infogen/intro.html">Scopri il progetto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="button button-catalogue" href="infogen/intro.html">Scopri il progetto <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </section>
   </main>
