@@ -296,6 +296,7 @@ button:focus-visible {
     align-self: center;
     margin: 0;
     font-size: 1.9rem;
+    transform: translateY(.3rem);
   }
   .work-status {
     position: static;
