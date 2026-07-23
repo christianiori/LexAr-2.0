@@ -1,261 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-	<head>
-		<title>LexAr-Il lessico nelle commedie aristofanee</title>
-		<link rel="icon" type="image/x-icon" href="../img/aristofane.jpg">
-		<meta charset="UTF-8"  />
-		<meta name="description" content="Catalogo del sito dedicato al lessico di Aristofane"  />
-		<meta name="keywords" content="Commedie, lessico, testi" />
-		<meta name="author" content="Christian Iori"  />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="DC.Title" content="Catalogo testi"  />
-		<meta name="DC.Creator" content="Christian Iori"  />
-		<meta name="DC.Subject" content="Testi drammatici"  />
-		<meta name="DC.Subject" content="Commedie"  />
-		<meta name="DC.Description" content="Raccolta di testi di Aristofane in formato digitale"  />
-		<meta name="DC.Publisher" content="Università di Bologna"  />
-		<meta name="DC.Date" content="2024"  />
-		<meta name="DC.Type" content="Text"   />
-		<meta name="DC.Format" content="HTML"  />
-		<meta name="DC.Identifier" content="tbd"  />
-		<meta name="DC.Coverage" content="Bologna"  />
-		<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"   />
-		<link rel="stylesheet" type="text/css" href="../style/style.css" />
-        <script src="../script/script.js" defer></script>
-	</head>
-	<body class="vocab">
-		<!--Navbar !-->
-		<nav class="navbar navbar-expand-lg navbar-light desktop-navbar d-none d-lg-flex">
-  			<div class="container-fluid">
-  				<a class="navbar-brand" href="#">LexAr</a>
-  				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  				<span class="navbar-toggler-icon"></span>
-				</button>
-    			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-      				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        				<li class="nav-item">
-          				<a class="nav-link" aria-current="page" href="../index.html">Home</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="../infogen/intro.html">Introduzione</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="../infogen/timeline.html">Linea del tempo</a>
-        				</li>
-        				<li class="nav-item">
-          				<a class="nav-link" href="../infogen/autore.html">Autore</a>
-        				</li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="../infogen/glossario.html">Glossario</a>
-                        </li>
-        				<li class="nav-item dropdown">
-          					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            				Lessico
-          					</a>
-          					<ul class="dropdown-menu">
-          						<li><a class="dropdown-item" href="../lessico/lessicogen.html">Lessico generale</a></li>
-            					<li><a class="dropdown-item" href="../lessico/vocaboli.html">Tutti i vocaboli</a></li>
-            					<li><a class="dropdown-item" href="../lessico/lesamb.html">Esplora per campo semantico</a></li>
-            					<li><a class="dropdown-item" href="../lessico/radici.html">Esplora per radice</a></li>
-          					</ul>
-        				</li>
-        				<li class="nav-item dropdown paginacorrente">
-          					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            				Testi
-          					</a>
-          					<ul class="dropdown-menu">
-            					<li><a class="dropdown-item" href="../item/pluto.html">Ultimo testo inserito</a></li>
-            					<li><a class="dropdown-item" href="catalogo1.html">Catalogo testi</a></li>
-          					</ul>
-        				</li>
-      				</ul>
-    			</div>
-  			</div>
-		</nav>
-        <button id="toggleMenu" class="toggle-button mobile-navbar d-lg-none">
-            <span>&#9664;</span>
-        </button>
-        <div class="sidebar" id="mobileSidebar">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="../infogen/intro.html">Introduzione</a></li>
-                <li class="nav-item"><a class="nav-link" href="../infogen/timeline.html">Linea del tempo</a></li>
-                <li class="nav-item"><a class="nav-link" href="../infogen/autore.html">Autore</a></li>
-                <li class="nav-item"><a class="nav-link" href="../infogen/glossario.html">Glossario</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link paginacorrente dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Lessico
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../lessico/lessicogen.html">Lessico generale</a></li>
-                        <li><a class="dropdown-item" href="../lessico/vocaboli.html">Tutti i vocaboli</a></li>
-                        <li><a class="dropdown-item" href="../lessico/lesamb.html">Campo semantico</a></li>
-                        <li><a class="dropdown-item" href="../lessico/radici.html">Rradice</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="catalogo1.html">Catalogo testi</a></li>
-            </ul>
-        </div>
-        <button class="d-md-none"id="toggleFilters">Filtri</button>
-        <div class="filter-sidebar d-md-none" id="filterSidebar">
-            <button class="close-btn" id="closeFilterSidebar">✖</button>
-            <h3>Filtri ed ordinamento</h3>
-            <div class="d-flex align-items-center">
-                <input class="form-control search-bar mb-3 me-1" id="search-bar-sidebar" type="text" placeholder="Cerca un'opera...">
-                <button class="btn btn-primary mb-3" id="searchButton">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio9" autocomplete="off" data-filter="all">
-                    <label class="btn btn-outline-info" for="vbtn-radio9">Mostra tutti</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio10" autocomplete="off"data-sort="date" data-order="asc">
-                    <label class="btn btn-outline-info" for="vbtn-radio10">Ordine cronologico crescente</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio11" autocomplete="off"data-sort="date"data-order="desc">
-                    <label class="btn btn-outline-info" for="vbtn-radio11">Ordine cronologico decrescente</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio12" autocomplete="off"data-sort="alpha"data-order="asc">
-                    <label class="btn btn-outline-info" for="vbtn-radio12">Ordine alfabetico crescente</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio13" autocomplete="off"data-sort="alpha"data-order="desc">
-                    <label class="btn btn-outline-info" for="vbtn-radio13">Ordine alfabetico decrescente</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio14" autocomplete="off"data-filter="vincitrici">
-                    <label class="btn btn-outline-info" for="vbtn-radio14">Opere vincitrici</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio15" autocomplete="off"data-filter="dionisiache">
-                    <label class="btn btn-outline-info" for="vbtn-radio15">Opere dionisiache</label>
-                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio16" autocomplete="off"data-filter="lenaiche">
-                    <label class="btn btn-outline-info" for="vbtn-radio16">Opere lenaiche</label>
-            </div>
-        </div>
-		<div class="container-fluid text-center">
-  			<div class="row">
-    			<div class="col-lg-2 d-none d-lg-block colonnasx">
-      				<ul class="breadcrumb">
-  						<li><a href="../index.html">Home</a></li>
-  						<li>Catalogo</li>
-					</ul>
-                    <input class="form-control mb-2 searchInput" type="search" placeholder="Cerca un'opera..." aria-label="Search">
-					<div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio8" autocomplete="off" data-filter="all">
-  							<label class="btn btn-outline-info" for="vbtn-radio8">Mostra tutti</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off"data-sort="date" data-order="asc">
-  							<label class="btn btn-outline-info" for="vbtn-radio1">Ordine cronologico crescente</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off"data-sort="date"data-order="desc">
-  							<label class="btn btn-outline-info" for="vbtn-radio2">Ordine cronologico decrescente</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off"data-sort="alpha"data-order="asc">
-  							<label class="btn btn-outline-info" for="vbtn-radio3">Ordine alfabetico crescente</label>
-						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio4" autocomplete="off"data-sort="alpha"data-order="desc">
-  							<label class="btn btn-outline-info" for="vbtn-radio4">Ordine alfabetico decrescente</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio5" autocomplete="off"data-filter="vincitrici">
-  							<label class="btn btn-outline-info" for="vbtn-radio5">Opere vincitrici</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio6" autocomplete="off"data-filter="dionisiache">
-  							<label class="btn btn-outline-info" for="vbtn-radio6">Opere dionisiache</label>
-  						<input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio7" autocomplete="off"data-filter="lenaiche">
-  							<label class="btn btn-outline-info" for="vbtn-radio7">Opere lenaiche</label>
-					</div>
-					<div class="card cardhome mb-4 mt-4">
-  						<img src="../img/timeline.png" alt="timeline">
-  						<div class="card-body">
-  							<h5 class="card-text">Guarda le opere in ordine cronologico</h5>
-    						<a class="btn btn-info mb-2" href="../infogen/timeline.html" role="button">Vai alla linea del tempo</a>
-  						</div>
-					</div>
-					<div class="card cardhome mb-4 mt-4">
-  						<img class="card-img-top" src="../img/aristofane.jpg" alt="Aristofane">
-  						<div class="card-body">
-  							<h5 class="card-text">Scopri di più sull'autore</h5>
-    						<a class="btn btn-info mb-2" href="../infogen/autore.html" role="button">Vai alla sezione autore</a>
-  						</div>
-  					</div>
-				</div>
-    			<div class="col-lg-10 col-sm-12 colonnadx">
-    				<h1 style="font-family: 'Marck Script', cursive;font-size: 5rem;">Catalogo dei testi</h1>
-					<div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-               <div class="col"data-category="lenaiche vincitrici"data-date="425 a.C.">
-            <div class="card cardcat">
-                <img src="../img/Acarnesi.png" class="card-img-top" alt="Gli Acarnesi"style="object-position: center 30%;">
-                <div class="card-body">
-                    <h4 class="card-title">Acarnesi</h4>
-                    <p class="card-text">Lenee 425 a.C.</p>
-                    <a href="../item/acarnesi.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col"data-category="lenaiche"data-date="424 a.C.">
-            <div class="card cardcat">
-                <img src="../img/Cavalieri.jpg" class="card-img-top" alt="I Cavalieri">
-                <div class="card-body">
-                    <h4 class="card-title">Cavalieri</h4>
-                    <p class="card-text">Lenee 424 a.C.</p>
-                    <a href="../item/cavalieri.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col"data-category="dionisiache"data-date="423 a.C.">
-            <div class="card cardcat">
-                <img src="../img/Nuvole.png" class="card-img-top" alt="Le Nuvole">
-                <div class="card-body">
-                    <h4 class="card-title">Nuvole</h4>
-                    <p class="card-text">Grandi Dionisie 423 a.C.</p>
-                    <a href="../item/nuvole.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="col"data-category="lenaiche"data-date="422 a.C.">
-            <div class="card cardcat">
-                <img src="../img/Vespe.jpg" class="card-img-top" alt="Le Vespe">
-                <div class="card-body">
-                    <h4 class="card-title">Vespe</h4>
-                    <p>Lenee 422 a.C.</p>
-                    <a href="../item/vespe.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="col"data-category="lenaiche dionisiache"data-date="421 a.C." >
-            <div class="card cardcat">
-                <img src="../img/Pace.jpg" class="card-img-top" alt="La Pace"style="object-position: center 15%;">
-                <div class="card-body">
-                    <h4 class="card-title">Pace</h4>
-                    <p>421 a.C.</p>
-                    <a href="../item/pace.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="col"data-category="dionisiache"data-date="414 a.C.">
-            <div class="card cardcat">
-                <img src="../img/Uccelli.jpg" class="card-img-top" alt="Gli Uccelli">
-                <div class="card-body">
-                    <h4 class="card-title">Uccelli</h4>
-                    <p>Grandi Dionisie 414 a.C.</p>
-                    <a href="../item/uccelli.html" class="btn pill">Vai al testo</a>
-                </div>
-            </div>
-        </div>
-    </div>
-					<div class="pagination">
- 						<a href="catalogo1.html">&laquo;</a>
-  						<a href="catalogo1.html" class="paginacorrente">1</a>
-  						<a href="catalogo2.html">2</a>
-  						<a href="catalogo2.html">&raquo;</a>
-					</div>
-                </div>
-                </div>
-            </div>
-            </div>
-                <div class="pre-footer"> &#128210; <a class="link" href="#">Credits</a> | <a class="link" href="http://creativecommons.org/licenses/by/4.0/">Licenze</a> &#128210;</div>
-                    <footer>
-                    <div class="footer">&copy; Christian Iori&#128511; 2024- corso di Digital Humanities e Patrimonio Culturale </div>
-                    </footer>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catalogo completo delle undici commedie di Aristofane raccolte in LexAr.">
+  <meta name="author" content="Christian Iori">
+  <meta name="DC.Title" content="Catalogo delle commedie">
+  <meta name="DC.Creator" content="Christian Iori">
+  <meta name="DC.Subject" content="Commedie di Aristofane">
+  <meta name="DC.Description" content="Catalogo digitale delle commedie aristofanee presenti in LexAr">
+  <meta name="DC.Publisher" content="Università di Bologna">
+  <meta name="DC.Date" content="2024">
+  <meta name="DC.Type" content="Text">
+  <meta name="DC.Format" content="HTML">
+  <title>Catalogo delle commedie — LexAr</title>
+  <link rel="icon" type="image/x-icon" href="../img/aristofane.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Marck+Script&family=Poppins:wght@400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../style/catalogo.css">
+  <script src="../script/catalogo.js" defer></script>
+</head>
+<body class="catalogue-page">
+  <a class="skip-link" href="#catalogo">Salta al catalogo</a>
 
-	</body>
+  <header class="catalogue-header">
+    <nav class="catalogue-nav" aria-label="Navigazione principale">
+      <a class="catalogue-brand" href="../index.html" aria-label="LexAr, home">LexAr</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu-principale"
+        aria-label="Apri il menu"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="catalogue-nav-links" id="menu-principale">
+        <a href="../index.html">Home</a>
+        <a href="../infogen/intro.html">Il progetto</a>
+        <a aria-current="page" href="catalogo1.html">Opere</a>
+        <a href="../lessico/lessicogen.html">Lessico</a>
+      </div>
+      <a class="nav-action" href="../lessico/vocaboli.html">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        Cerca
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="catalogue-hero" aria-labelledby="catalogue-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="catalogue-shell hero-layout">
+        <div>
+          <nav class="breadcrumbs" aria-label="Percorso">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Catalogo</span>
+          </nav>
+          <p class="eyebrow">Il corpus</p>
+          <h1 id="catalogue-title">Undici commedie,<br><em>un’unica scena.</em></h1>
+          <p class="hero-lead">
+            Esplora il corpus aristofaneo per data, agone e disponibilità digitale.
+            Ogni scheda conduce all’opera e ai materiali lessicali collegati.
+          </p>
+        </div>
+        <aside class="hero-summary" aria-label="Dati del catalogo">
+          <div><strong>11</strong><span>commedie conservate integralmente</span></div>
+          <div><strong>425–388</strong><span>a.C. · arco cronologico</span></div>
+          <div><strong>1</strong><span>testo digitale interrogabile</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="catalogo" class="catalogue-content">
+      <div class="catalogue-shell">
+        <div class="catalogue-heading">
+          <div>
+            <p class="eyebrow">Esplora le opere</p>
+            <h2>Catalogo completo</h2>
+          </div>
+          <button
+            class="filters-toggle"
+            id="filters-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="catalogue-controls"
+          >
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+            Filtri e ordine
+          </button>
+        </div>
+
+        <div class="controls-backdrop" id="controls-backdrop" hidden></div>
+        <aside class="catalogue-controls" id="catalogue-controls" aria-label="Filtri e ordinamento">
+          <div class="controls-heading">
+            <div>
+              <p class="eyebrow">Affina la selezione</p>
+              <h3>Filtri e ordine</h3>
+            </div>
+            <button class="controls-close" id="controls-close" type="button" aria-label="Chiudi i filtri">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <label class="search-field" for="catalogue-search">
+            <span>Cerca un’opera</span>
+            <span class="search-input-wrap">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input id="catalogue-search" type="search" placeholder="Titolo, anno o agone…" autocomplete="off">
+            </span>
+          </label>
+
+          <fieldset class="filter-fieldset">
+            <legend>Mostra</legend>
+            <div class="filter-chips" id="filter-chips">
+              <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Tutte</button>
+              <button class="filter-chip" type="button" data-filter="lenaiche" aria-pressed="false">Lenee</button>
+              <button class="filter-chip" type="button" data-filter="dionisiache" aria-pressed="false">Dionisie</button>
+              <button class="filter-chip" type="button" data-filter="vincitrici" aria-pressed="false">Vincitrici</button>
+              <button class="filter-chip" type="button" data-filter="digitale" aria-pressed="false">Testo digitale</button>
+            </div>
+          </fieldset>
+
+          <label class="sort-field" for="catalogue-sort">
+            <span>Ordina per</span>
+            <select id="catalogue-sort">
+              <option value="date-asc">Cronologia · 425–388 a.C.</option>
+              <option value="date-desc">Più recenti</option>
+              <option value="title-asc">Titolo · A–Z</option>
+              <option value="title-desc">Titolo · Z–A</option>
+            </select>
+          </label>
+
+          <button class="reset-button" id="reset-catalogue" type="button">
+            <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
+            Reimposta
+          </button>
+        </aside>
+
+        <div class="results-bar" aria-live="polite">
+          <p id="results-count">11 opere</p>
+          <p id="active-filter-label">Catalogo completo</p>
+        </div>
+
+        <div class="catalogue-grid" id="catalogue-grid">
+          <article class="catalogue-card is-digital" data-slug="acarnesi" data-title="Gli Acarnesi" data-year="-425" data-categories="lenaiche vincitrici digitale">
+            <a class="card-image-link" href="../item/acarnesi.html" aria-label="Apri Gli Acarnesi">
+              <img src="../img/Acarnesi.png" alt="" style="object-position:center 30%">
+              <span class="year-badge">425 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span><span>Vincitrice</span></div>
+              <h3><a href="../item/acarnesi.html">Gli Acarnesi</a></h3>
+              <p>La prima commedia conservata integralmente e il testo digitale già interrogabile in LexAr.</p>
+              <div class="card-footer">
+                <span class="availability is-available"><i aria-hidden="true"></i>Testo digitale</span>
+                <a class="card-arrow" href="../item/acarnesi.html" aria-label="Vai a Gli Acarnesi">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="cavalieri" data-title="I Cavalieri" data-year="-424" data-categories="lenaiche">
+            <a class="card-image-link" href="../item/cavalieri.html" aria-label="Apri I Cavalieri">
+              <img src="../img/Cavalieri.jpg" alt="">
+              <span class="year-badge">424 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span></div>
+              <h3><a href="../item/cavalieri.html">I Cavalieri</a></h3>
+              <p>Una satira politica costruita intorno allo scontro tra il Paflagone e il Salsicciaio.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/cavalieri.html" aria-label="Vai a I Cavalieri">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="nuvole" data-title="Le Nuvole" data-year="-423" data-categories="dionisiache">
+            <a class="card-image-link" href="../item/nuvole.html" aria-label="Apri Le Nuvole">
+              <img src="../img/Nuvole.png" alt="">
+              <span class="year-badge">423 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Grandi Dionisie</span></div>
+              <h3><a href="../item/nuvole.html">Le Nuvole</a></h3>
+              <p>Il pensatoio di Socrate diventa il centro di una commedia su educazione, debiti e parola.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/nuvole.html" aria-label="Vai a Le Nuvole">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="vespe" data-title="Le Vespe" data-year="-422" data-categories="lenaiche">
+            <a class="card-image-link" href="../item/vespe.html" aria-label="Apri Le Vespe">
+              <img src="../img/Vespe.jpg" alt="">
+              <span class="year-badge">422 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span></div>
+              <h3><a href="../item/vespe.html">Le Vespe</a></h3>
+              <p>La passione giudiziaria degli Ateniesi è messa in scena attraverso un conflitto familiare.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/vespe.html" aria-label="Vai a Le Vespe">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="pace" data-title="La Pace" data-year="-421" data-categories="lenaiche dionisiache">
+            <a class="card-image-link" href="../item/pace.html" aria-label="Apri La Pace">
+              <img src="../img/Pace.jpg" alt="" style="object-position:center 15%">
+              <span class="year-badge">421 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>421 a.C.</span></div>
+              <h3><a href="../item/pace.html">La Pace</a></h3>
+              <p>Trigeo vola verso il cielo per liberare la Pace e restituirla alle città greche.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/pace.html" aria-label="Vai a La Pace">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="uccelli" data-title="Gli Uccelli" data-year="-414" data-categories="dionisiache">
+            <a class="card-image-link" href="../item/uccelli.html" aria-label="Apri Gli Uccelli">
+              <img src="../img/Uccelli.jpg" alt="">
+              <span class="year-badge">414 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Grandi Dionisie</span></div>
+              <h3><a href="../item/uccelli.html">Gli Uccelli</a></h3>
+              <p>Una città tra cielo e terra trasforma una fuga da Atene in un progetto di potere.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/uccelli.html" aria-label="Vai a Gli Uccelli">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="tesmoforie" data-title="Le Donne alle Tesmoforie" data-year="-411" data-categories="dionisiache">
+            <a class="card-image-link" href="../item/tesmoforie.html" aria-label="Apri Le Donne alle Tesmoforie">
+              <img src="../img/Tesmoforie.jpg" alt="">
+              <span class="year-badge">411 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Grandi Dionisie</span></div>
+              <h3><a href="../item/tesmoforie.html">Le Donne alle Tesmoforie</a></h3>
+              <p>Euripide tenta di difendersi dalle donne riunite durante la festa delle Tesmoforie.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/tesmoforie.html" aria-label="Vai a Le Donne alle Tesmoforie">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="lisistrata" data-title="Lisistrata" data-year="-411" data-categories="lenaiche">
+            <a class="card-image-link" href="../item/lisistrata.html" aria-label="Apri Lisistrata">
+              <img src="../img/Lisistrata.jpg" alt="" style="object-position:center 5%">
+              <span class="year-badge">411 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span></div>
+              <h3><a href="../item/lisistrata.html">Lisistrata</a></h3>
+              <p>Le donne delle città greche stringono un’alleanza per costringere gli uomini alla pace.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/lisistrata.html" aria-label="Vai a Lisistrata">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="rane" data-title="Le Rane" data-year="-405" data-categories="lenaiche vincitrici">
+            <a class="card-image-link" href="../item/rane.html" aria-label="Apri Le Rane">
+              <img src="../img/Rane.jpg" alt="" style="object-position:center 5%">
+              <span class="year-badge">405 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span><span>Vincitrice</span></div>
+              <h3><a href="../item/rane.html">Le Rane</a></h3>
+              <p>Dioniso scende nell’Ade per riportare ad Atene il poeta capace di salvarla.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/rane.html" aria-label="Vai a Le Rane">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="donne" data-title="Le Donne al Parlamento" data-year="-392" data-categories="lenaiche dionisiache">
+            <a class="card-image-link" href="../item/donne.html" aria-label="Apri Le Donne al Parlamento">
+              <img src="../img/Donne.jpg" alt="">
+              <span class="year-badge">392/391 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>392/391 a.C.</span></div>
+              <h3><a href="../item/donne.html">Le Donne al Parlamento</a></h3>
+              <p>Le Ateniesi occupano l’assemblea e affidano a Prassagora un nuovo ordinamento della città.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/donne.html" aria-label="Vai a Le Donne al Parlamento">→</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="catalogue-card" data-slug="pluto" data-title="Il Pluto" data-year="-388" data-categories="lenaiche">
+            <a class="card-image-link" href="../item/pluto.html" aria-label="Apri Il Pluto">
+              <img src="../img/Pluto.jpg" alt="" style="object-position:center 5%">
+              <span class="year-badge">388 a.C.</span>
+            </a>
+            <div class="card-content">
+              <div class="card-kicker"><span>Lenee</span></div>
+              <h3><a href="../item/pluto.html">Il Pluto</a></h3>
+              <p>La ricchezza, guarita dalla cecità, promette di cambiare la distribuzione dei beni.</p>
+              <div class="card-footer">
+                <span class="availability"><i aria-hidden="true"></i>Scheda dell’opera</span>
+                <a class="card-arrow" href="../item/pluto.html" aria-label="Vai a Il Pluto">→</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span lang="grc">οὐδέν</span>
+          <h3>Nessuna opera trovata</h3>
+          <p>Modifica la ricerca o reimposta i filtri.</p>
+          <button type="button" id="empty-reset">Mostra tutto</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue-callout">
+      <div class="catalogue-shell callout-grid">
+        <div>
+          <p class="eyebrow">Un altro punto di vista</p>
+          <h2>Preferisci seguire il tempo?</h2>
+        </div>
+        <div>
+          <p>Colloca le commedie nel loro contesto storico e teatrale attraverso la linea del tempo di LexAr.</p>
+          <a class="button-light" href="../infogen/timeline.html">
+            Apri la linea del tempo
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="catalogue-footer">
+    <div class="catalogue-shell footer-content">
+      <a class="catalogue-brand" href="../index.html">LexAr</a>
+      <p>Lessico nelle commedie aristofanee · Christian Iori</p>
+      <a href="http://creativecommons.org/licenses/by/4.0/">Licenza CC BY 4.0</a>
+    </div>
+  </footer>
+</body>
 </html>
