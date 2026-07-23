@@ -281,5 +281,35 @@ button:focus-visible {
   .project-callout { padding: 70px 0; }
   .project-callout > div:last-child { padding: 0; border-left: 0; }
   .section-heading-row, .footer-content { align-items: flex-start; flex-direction: column; }
-  .work-card { min-height: 134px; }
+  .work-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(64px, 1fr) auto;
+    align-items: center;
+    gap: .75rem 1rem;
+    min-height: 190px;
+    padding: 1.25rem;
+  }
+  .work-year { grid-column: 1 / -1; }
+  .work-card h3 {
+    grid-column: 1 / -1;
+    align-self: center;
+    margin: 0;
+    font-size: 1.9rem;
+  }
+  .work-status {
+    position: static;
+    grid-column: 1;
+    grid-row: 3;
+    justify-content: flex-start;
+    width: auto;
+    font-size: .78rem;
+    line-height: 1.35;
+    text-align: left;
+  }
+  .work-arrow {
+    position: static;
+    grid-column: 2;
+    grid-row: 3;
+  }
 }
