@@ -20,7 +20,16 @@
   <header class="home-header">
     <nav class="home-nav" aria-label="Navigazione principale">
       <a class="home-brand" href="index.html" aria-label="LexAr, home">LexAr</a>
-      <div class="home-nav-links">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu-principale"
+        aria-label="Apri il menu"
+      >
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="home-nav-links" id="menu-principale">
         <a aria-current="page" href="index.html">Home</a>
         <a href="infogen/intro.html">Il progetto</a>
         <a href="catalogo/catalogo1.html">Opere</a>

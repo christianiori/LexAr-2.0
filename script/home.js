@@ -1,4 +1,29 @@
 const worksContainer = document.getElementById("home-works");
+const menuToggle = document.querySelector(".menu-toggle");
+const mainMenu = document.getElementById("menu-principale");
+
+if (menuToggle && mainMenu) {
+  function setMenuOpen(isOpen) {
+    mainMenu.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Chiudi il menu" : "Apri il menu"
+    );
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainMenu.classList.contains("is-open");
+    setMenuOpen(!isOpen);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+}
 
 function formatYear(year) {
   return year < 0 ? `${Math.abs(year)} a.C.` : String(year);
