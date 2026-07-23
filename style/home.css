@@ -92,6 +92,20 @@ a { color: inherit; }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .footer-content p, .footer-content > a:not(.home-brand) { margin: 0; color: #b6c9cc; font-size: .73rem; }
 .footer-content > a:not(.home-brand) { color: #d5eeee; }
+.hero-copy h1 {
+  font-family: "Spectral", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.stats-grid strong {
+  font-family: "Spectral", Georgia, serif;
+}
+
+.note-greek {
+  font-family: "Spectral", Georgia, serif;
+  font-weight: 500;
+}
 @media (max-width: 760px) {
   .home-shell, .home-nav { width: min(100% - 32px, 1120px); }
   .home-nav { min-height: 68px; }
