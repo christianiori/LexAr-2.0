@@ -3,9 +3,8 @@ const mainMenu = document.getElementById("menu-principale");
 const grid = document.getElementById("catalogue-grid");
 const searchInput = document.getElementById("catalogue-search");
 const sortSelect = document.getElementById("catalogue-sort");
-const filterChips = [...document.querySelectorAll(".filter-chip")];
-const resultsCount = document.getElementById("results-count");
-const activeFilterLabel = document.getElementById("active-filter-label");
+const agoneChips = [...document.querySelectorAll("[data-agone]")];
+const featureChips = [...document.querySelectorAll("[data-feature]")];
 const resetButton = document.getElementById("reset-catalogue");
 const emptyResetButton = document.getElementById("empty-reset");
 const emptyState = document.getElementById("empty-state");
@@ -14,15 +13,8 @@ const controls = document.getElementById("catalogue-controls");
 const controlsClose = document.getElementById("controls-close");
 const controlsBackdrop = document.getElementById("controls-backdrop");
 
-const filterLabels = {
-  all: "Catalogo completo",
-  lenaiche: "Opere rappresentate alle Lenee",
-  dionisiache: "Opere rappresentate alle Dionisie",
-  vincitrici: "Opere vincitrici",
-  digitale: "Testi digitali disponibili"
-};
-
-let activeFilter = "all";
+let activeAgone = "all";
+const activeFeatures = new Set();
 let cards = grid ? [...grid.querySelectorAll(".catalogue-card")] : [];
 
 cards.forEach((card, index) => {
@@ -83,34 +75,47 @@ function renderCatalogue() {
         card.dataset.year,
         card.textContent
       ].join(" "));
-      const matchesFilter = activeFilter === "all" || categories.has(activeFilter);
+      const matchesAgone = activeAgone === "all" || categories.has(activeAgone);
+      const matchesFeatures = [...activeFeatures].every((feature) => categories.has(feature));
       const matchesSearch = !query || searchText.includes(query);
-      const isVisible = matchesFilter && matchesSearch;
+      const isVisible = matchesAgone && matchesFeatures && matchesSearch;
 
       card.hidden = !isVisible;
       if (isVisible) visibleCount += 1;
       grid.appendChild(card);
     });
 
-  if (resultsCount) {
-    resultsCount.textContent = `${visibleCount} ${visibleCount === 1 ? "opera" : "opere"}`;
-  }
-
-  if (activeFilterLabel) {
-    activeFilterLabel.textContent = query
-      ? `${filterLabels[activeFilter]} · ricerca “${searchInput.value.trim()}”`
-      : filterLabels[activeFilter];
-  }
-
   if (emptyState) {
     emptyState.hidden = visibleCount !== 0;
   }
+
+  if (resetButton) {
+    resetButton.hidden = !(
+      query ||
+      activeAgone !== "all" ||
+      activeFeatures.size ||
+      sortOrder !== "date-asc"
+    );
+  }
 }
 
-function setActiveFilter(filter) {
-  activeFilter = filter;
-  filterChips.forEach((chip) => {
-    const isActive = chip.dataset.filter === filter;
+function setActiveAgone(agone) {
+  activeAgone = agone;
+  agoneChips.forEach((chip) => {
+    const isActive = chip.dataset.agone === agone;
+    chip.classList.toggle("is-active", isActive);
+    chip.setAttribute("aria-pressed", String(isActive));
+  });
+  renderCatalogue();
+}
+
+function toggleFeature(feature) {
+  activeFeatures.has(feature)
+    ? activeFeatures.delete(feature)
+    : activeFeatures.add(feature);
+
+  featureChips.forEach((chip) => {
+    const isActive = activeFeatures.has(chip.dataset.feature || "");
     chip.classList.toggle("is-active", isActive);
     chip.setAttribute("aria-pressed", String(isActive));
   });
@@ -120,7 +125,12 @@ function setActiveFilter(filter) {
 function resetCatalogue() {
   if (searchInput) searchInput.value = "";
   if (sortSelect) sortSelect.value = "date-asc";
-  setActiveFilter("all");
+  activeFeatures.clear();
+  featureChips.forEach((chip) => {
+    chip.classList.remove("is-active");
+    chip.setAttribute("aria-pressed", "false");
+  });
+  setActiveAgone("all");
 }
 
 function setMenuOpen(isOpen) {
@@ -199,8 +209,12 @@ menuToggle?.addEventListener("click", () => {
   setMenuOpen(!mainMenu?.classList.contains("is-open"));
 });
 
-filterChips.forEach((chip) => {
-  chip.addEventListener("click", () => setActiveFilter(chip.dataset.filter || "all"));
+agoneChips.forEach((chip) => {
+  chip.addEventListener("click", () => setActiveAgone(chip.dataset.agone || "all"));
+});
+
+featureChips.forEach((chip) => {
+  chip.addEventListener("click", () => toggleFeature(chip.dataset.feature || ""));
 });
 
 searchInput?.addEventListener("input", renderCatalogue);

@@ -55,12 +55,6 @@
       <div class="hero-pattern" aria-hidden="true"></div>
       <div class="catalogue-shell hero-layout">
         <div>
-          <nav class="breadcrumbs" aria-label="Percorso">
-            <a href="../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <span>Catalogo</span>
-          </nav>
-          <p class="eyebrow">Il corpus</p>
           <h1 id="catalogue-title">Undici commedie,<br><em>un’unica scena.</em></h1>
           <p class="hero-lead">
             Esplora il corpus aristofaneo per data, agone e disponibilità digitale.
@@ -79,7 +73,6 @@
       <div class="catalogue-shell">
         <div class="catalogue-heading">
           <div>
-            <p class="eyebrow">Esplora le opere</p>
             <h2>Catalogo completo</h2>
           </div>
           <button
@@ -94,8 +87,9 @@
           </button>
         </div>
 
-        <div class="controls-backdrop" id="controls-backdrop" hidden></div>
-        <aside class="catalogue-controls" id="catalogue-controls" aria-label="Filtri e ordinamento">
+        <div class="catalogue-workspace">
+          <div class="controls-backdrop" id="controls-backdrop" hidden></div>
+          <aside class="catalogue-controls" id="catalogue-controls" aria-label="Filtri e ordinamento">
           <div class="controls-heading">
             <div>
               <p class="eyebrow">Affina la selezione</p>
@@ -114,14 +108,20 @@
             </span>
           </label>
 
-          <fieldset class="filter-fieldset">
-            <legend>Mostra</legend>
-            <div class="filter-chips" id="filter-chips">
-              <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Tutte</button>
-              <button class="filter-chip" type="button" data-filter="lenaiche" aria-pressed="false">Lenee</button>
-              <button class="filter-chip" type="button" data-filter="dionisiache" aria-pressed="false">Dionisie</button>
-              <button class="filter-chip" type="button" data-filter="vincitrici" aria-pressed="false">Vincitrici</button>
-              <button class="filter-chip" type="button" data-filter="digitale" aria-pressed="false">Testo digitale</button>
+          <fieldset class="filter-fieldset agone-fieldset">
+            <legend>Agone</legend>
+            <div class="filter-chips" id="agone-filters">
+              <button class="filter-chip is-active" type="button" data-agone="all" aria-pressed="true">Tutti</button>
+              <button class="filter-chip" type="button" data-agone="lenaiche" aria-pressed="false">Lenee</button>
+              <button class="filter-chip" type="button" data-agone="dionisiache" aria-pressed="false">Dionisie</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-fieldset features-fieldset">
+            <legend>Caratteristiche</legend>
+            <div class="filter-chips" id="feature-filters">
+              <button class="filter-chip" type="button" data-feature="vincitrici" aria-pressed="false">Solo vincitrici</button>
+              <button class="filter-chip" type="button" data-feature="digitale" aria-pressed="false">Testo digitale</button>
             </div>
           </fieldset>
 
@@ -135,25 +135,19 @@
             </select>
           </label>
 
-          <button class="reset-button" id="reset-catalogue" type="button">
+          <button class="reset-button" id="reset-catalogue" type="button" hidden>
             <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
             Reimposta
           </button>
-        </aside>
+          </aside>
 
-        <div class="results-bar" aria-live="polite">
-          <p id="results-count">11 opere</p>
-          <p id="active-filter-label">Catalogo completo</p>
-        </div>
-
-        <div class="catalogue-grid" id="catalogue-grid">
+          <div class="catalogue-grid" id="catalogue-grid">
           <article class="catalogue-card is-digital" data-slug="acarnesi" data-title="Gli Acarnesi" data-year="-425" data-categories="lenaiche vincitrici digitale">
             <a class="card-image-link" href="../item/acarnesi.html" aria-label="Apri Gli Acarnesi">
-              <img src="../img/Acarnesi.png" alt="" style="object-position:center 30%">
+              <img src="../img/catalogo/acarnesi.jpg" alt="Coppa attica con una processione fallica dionisiaca">
               <span class="year-badge">425 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span><span>Vincitrice</span></div>
               <h3><a href="../item/acarnesi.html">Gli Acarnesi</a></h3>
               <p>La prima commedia conservata integralmente e il testo digitale già interrogabile in LexAr.</p>
               <div class="card-footer">
@@ -169,7 +163,6 @@
               <span class="year-badge">424 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span></div>
               <h3><a href="../item/cavalieri.html">I Cavalieri</a></h3>
               <p>Una satira politica costruita intorno allo scontro tra il Paflagone e il Salsicciaio.</p>
               <div class="card-footer">
@@ -181,11 +174,10 @@
 
           <article class="catalogue-card" data-slug="nuvole" data-title="Le Nuvole" data-year="-423" data-categories="dionisiache">
             <a class="card-image-link" href="../item/nuvole.html" aria-label="Apri Le Nuvole">
-              <img src="../img/Nuvole.png" alt="">
+              <img src="../img/catalogo/nuvole.jpg" alt="Ritratto antico di Socrate">
               <span class="year-badge">423 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Grandi Dionisie</span></div>
               <h3><a href="../item/nuvole.html">Le Nuvole</a></h3>
               <p>Il pensatoio di Socrate diventa il centro di una commedia su educazione, debiti e parola.</p>
               <div class="card-footer">
@@ -197,11 +189,10 @@
 
           <article class="catalogue-card" data-slug="vespe" data-title="Le Vespe" data-year="-422" data-categories="lenaiche">
             <a class="card-image-link" href="../item/vespe.html" aria-label="Apri Le Vespe">
-              <img src="../img/Vespe.jpg" alt="">
+              <img src="../img/catalogo/vespe.jpg" alt="Tessera bronzea di un giurato ateniese">
               <span class="year-badge">422 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span></div>
               <h3><a href="../item/vespe.html">Le Vespe</a></h3>
               <p>La passione giudiziaria degli Ateniesi è messa in scena attraverso un conflitto familiare.</p>
               <div class="card-footer">
@@ -213,11 +204,10 @@
 
           <article class="catalogue-card" data-slug="pace" data-title="La Pace" data-year="-421" data-categories="lenaiche dionisiache">
             <a class="card-image-link" href="../item/pace.html" aria-label="Apri La Pace">
-              <img src="../img/Pace.jpg" alt="" style="object-position:center 15%">
+              <img src="../img/catalogo/pace.jpg" alt="Eirene, personificazione della Pace, con il piccolo Ploutos">
               <span class="year-badge">421 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>421 a.C.</span></div>
               <h3><a href="../item/pace.html">La Pace</a></h3>
               <p>Trigeo vola verso il cielo per liberare la Pace e restituirla alle città greche.</p>
               <div class="card-footer">
@@ -229,11 +219,10 @@
 
           <article class="catalogue-card" data-slug="uccelli" data-title="Gli Uccelli" data-year="-414" data-categories="dionisiache">
             <a class="card-image-link" href="../item/uccelli.html" aria-label="Apri Gli Uccelli">
-              <img src="../img/Uccelli.jpg" alt="">
+              <img src="../img/catalogo/uccelli.jpg" alt="Chous attico con attori in costume da uccelli">
               <span class="year-badge">414 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Grandi Dionisie</span></div>
               <h3><a href="../item/uccelli.html">Gli Uccelli</a></h3>
               <p>Una città tra cielo e terra trasforma una fuga da Atene in un progetto di potere.</p>
               <div class="card-footer">
@@ -245,11 +234,10 @@
 
           <article class="catalogue-card" data-slug="tesmoforie" data-title="Le Donne alle Tesmoforie" data-year="-411" data-categories="dionisiache">
             <a class="card-image-link" href="../item/tesmoforie.html" aria-label="Apri Le Donne alle Tesmoforie">
-              <img src="../img/Tesmoforie.jpg" alt="">
+              <img src="../img/catalogo/tesmoforie.jpg" alt="Due busti femminili in terracotta associati a Demetra o Persefone">
               <span class="year-badge">411 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Grandi Dionisie</span></div>
               <h3><a href="../item/tesmoforie.html">Le Donne alle Tesmoforie</a></h3>
               <p>Euripide tenta di difendersi dalle donne riunite durante la festa delle Tesmoforie.</p>
               <div class="card-footer">
@@ -265,7 +253,6 @@
               <span class="year-badge">411 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span></div>
               <h3><a href="../item/lisistrata.html">Lisistrata</a></h3>
               <p>Le donne delle città greche stringono un’alleanza per costringere gli uomini alla pace.</p>
               <div class="card-footer">
@@ -281,7 +268,6 @@
               <span class="year-badge">405 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span><span>Vincitrice</span></div>
               <h3><a href="../item/rane.html">Le Rane</a></h3>
               <p>Dioniso scende nell’Ade per riportare ad Atene il poeta capace di salvarla.</p>
               <div class="card-footer">
@@ -297,7 +283,6 @@
               <span class="year-badge">392/391 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>392/391 a.C.</span></div>
               <h3><a href="../item/donne.html">Le Donne al Parlamento</a></h3>
               <p>Le Ateniesi occupano l’assemblea e affidano a Prassagora un nuovo ordinamento della città.</p>
               <div class="card-footer">
@@ -313,7 +298,6 @@
               <span class="year-badge">388 a.C.</span>
             </a>
             <div class="card-content">
-              <div class="card-kicker"><span>Lenee</span></div>
               <h3><a href="../item/pluto.html">Il Pluto</a></h3>
               <p>La ricchezza, guarita dalla cecità, promette di cambiare la distribuzione dei beni.</p>
               <div class="card-footer">
@@ -322,13 +306,26 @@
               </div>
             </div>
           </article>
-        </div>
+          </div>
 
-        <div class="empty-state" id="empty-state" hidden>
-          <span lang="grc">οὐδέν</span>
-          <h3>Nessuna opera trovata</h3>
-          <p>Modifica la ricerca o reimposta i filtri.</p>
-          <button type="button" id="empty-reset">Mostra tutto</button>
+          <details class="image-credits">
+            <summary>Crediti delle immagini</summary>
+            <ul>
+              <li><i>Acarnesi</i>: coppa con processione fallica, Museo Archeologico Nazionale di Firenze; foto ArchaiOptix, <a href="https://commons.wikimedia.org/wiki/File:Little_master_lip-cup_-_ABV_extra_-_phallophoria_-_Firenze_MAN_3897_-_06.jpg" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</li>
+              <li><i>Nuvole</i>: ritratto antico di Socrate, Museo Archeologico Regionale di Palermo; foto <a href="https://commons.wikimedia.org/wiki/File:Palermsoc.jpg" target="_blank" rel="noopener noreferrer">pubblico dominio</a>.</li>
+              <li><i>Vespe</i>: tessera bronzea del giurato Epikrates, <a href="https://www.metmuseum.org/art/collection/search/247975" target="_blank" rel="noopener noreferrer">The Metropolitan Museum of Art</a>, pubblico dominio.</li>
+              <li><i>Uccelli</i>: chous del Pittore di Gela, British Museum; foto ArchaiOptix, <a href="https://commons.wikimedia.org/wiki/File:Gela_Painter_-_ABV_473_-_theatrical_chorus_of_birds_-_London_BM_1842-0728-787_-_01.jpg" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</li>
+              <li><i>Pace</i>: Eirene con Ploutos, Glyptothek di Monaco; foto Bibi Saint-Pol, <a href="https://commons.wikimedia.org/wiki/File:Eirene_Ploutos_Glyptothek_Munich_219_n4.jpg" target="_blank" rel="noopener noreferrer">pubblico dominio</a>.</li>
+              <li><i>Donne alle Tesmoforie</i>: due busti in terracotta, <a href="https://www.metmuseum.org/art/collection/search/256204" target="_blank" rel="noopener noreferrer">The Metropolitan Museum of Art</a>, pubblico dominio.</li>
+            </ul>
+          </details>
+
+          <div class="empty-state" id="empty-state" hidden>
+            <span lang="grc">οὐδέν</span>
+            <h3>Nessuna opera trovata</h3>
+            <p>Modifica la ricerca o reimposta i filtri.</p>
+            <button type="button" id="empty-reset">Mostra tutto</button>
+          </div>
         </div>
       </div>
     </section>
