@@ -67,8 +67,6 @@ button:focus-visible {
 .home-hero { position: relative; isolation: isolate; overflow: hidden; padding: 156px 0 98px; background: linear-gradient(120deg, #124b75, #1b9bc0); color: white; }
 .hero-pattern { position: absolute; z-index: -1; inset: 0; opacity: .16; background: url("../img/meandro.png") center/cover; mix-blend-mode: screen; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; align-items: end; gap: 4rem; }
-.eyebrow { margin: 0 0 .8rem; color: var(--aqua); font-size: .73rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-.home-hero .eyebrow { color: #aee7f2; }
 .hero-copy h1, .section-heading h2, .project-callout h2 { margin: 0; font-family: "Marck Script", cursive; font-size: clamp(3.2rem, 7vw, 6.3rem); line-height: .93; letter-spacing: -.04em; }
 .hero-copy h1 { font-family: "Spectral", Georgia, serif; font-weight: 600; letter-spacing: 0; white-space: nowrap; }
 .hero-copy h1 em { color: #c8edf5; font-weight: 500; }
@@ -234,7 +232,7 @@ button:focus-visible {
 }
 .project-callout h2 { font-size: clamp(2.25rem, 4vw, 3.8rem); }
 .project-callout > div:last-child { padding: 1.1rem 0 1.1rem 3rem; border-left: 1px solid var(--line); }
-.project-callout p:not(.eyebrow) { margin: 0 0 1.6rem; color: var(--muted); font-size: .93rem; line-height: 1.8; }
+.project-callout p { margin: 0 0 1.6rem; color: var(--muted); font-size: .93rem; line-height: 1.8; }
 .home-footer { padding: 2rem 0; background: var(--ink); color: #e9f6fa; }
 .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .footer-content p, .footer-content > a:not(.home-brand) { margin: 0; color: #bad4de; font-size: .73rem; }

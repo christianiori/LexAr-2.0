@@ -13,6 +13,15 @@ python server.py
 
 Apri quindi `http://localhost:8000/` nel browser.
 
+La scheda degli *Acarnesi* include anche un fallback statico del testo, utile
+quando il sito viene aperto direttamente dal disco o pubblicato senza backend.
+Dopo una modifica al TEI, validalo e rigenera il fallback con:
+
+```powershell
+python tools/validate_tei.py
+python tools/generate_work_texts.py
+```
+
 ## Deploy su Render
 
 La configurazione in `render.yaml` crea un Web Service Python e usa

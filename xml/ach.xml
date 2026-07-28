@@ -1,27 +1,188 @@
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="acharnenses">
 	<teiHeader>
 		<fileDesc>
 			<titleStmt>
-				<title> Gli Acarnesi
-				</title>
+				<title type="main" xml:lang="it">Gli Acarnesi</title>
+				<title type="original" xml:lang="grc">Ἀχαρνῆς</title>
+				<author ref="http://viaf.org/viaf/20962036">Aristofane</author>
+				<respStmt xml:id="lexar-project">
+					<resp>Creazione del progetto digitale LexAr</resp>
+					<name xml:id="christian-iori">Christian Iori</name>
+				</respStmt>
+				<respStmt xml:id="coulon">
+					<resp>Edizione critica di riferimento</resp>
+					<name ref="http://viaf.org/viaf/14813758">V. Coulon</name>
+				</respStmt>
 			</titleStmt>
+			<editionStmt>
+				<edition>Edizione digitale LexAr</edition>
+			</editionStmt>
 			<publicationStmt>
-				<p>
-					Pubblicato nel 2024
-				</p>
+				<publisher>LexAr</publisher>
+				<date when="2024">2024</date>
+				<idno type="URI">https://christianiori.github.io/LexAr/</idno>
+				<availability status="free">
+					<licence target="http://creativecommons.org/licenses/by/4.0/">
+						Salvo diversa indicazione, i contenuti originali di LexAr sono
+						distribuiti con licenza Creative Commons Attribuzione 4.0
+						Internazionale.
+					</licence>
+				</availability>
 			</publicationStmt>
 			<sourceDesc>
-				<p>
-					Trascritto dall'edizione di V.Coulon
-				</p>
+				<biblStruct xml:id="source-coulon-1923">
+					<monogr>
+						<author ref="http://viaf.org/viaf/20962036">Aristophanes</author>
+						<title level="m" xml:lang="la">Acharnenses</title>
+						<editor ref="http://viaf.org/viaf/14813758">V. Coulon</editor>
+						<edition>Ristampa 1967</edition>
+						<imprint>
+							<pubPlace>Paris</pubPlace>
+							<publisher>Les Belles Lettres</publisher>
+							<date when="1923">1923</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
 			</sourceDesc>
 		</fileDesc>
+		<encodingDesc>
+			<projectDesc>
+				<p xml:lang="it">
+					LexAr è un progetto digitale dedicato alle commedie di Aristofane
+					che mette in relazione testi, lessico e informazioni di contesto
+					per sostenere lo studio del greco antico.
+				</p>
+			</projectDesc>
+			<editorialDecl>
+				<correction>
+					<p xml:lang="it">
+						Sono corretti senza segnalazione nel testo soltanto errori
+						meccanici di trascrizione inequivocabili. Le integrazioni e le
+						espunzioni già attribuite all'edizione di Coulon sono codificate
+						rispettivamente con supplied e surplus.
+					</p>
+				</correction>
+				<normalization>
+					<p xml:lang="it">
+						La grafia e l'accentazione greca della trascrizione sono
+						conservate; gli spazi tipografici privi di valore testuale sono
+						normalizzati.
+					</p>
+				</normalization>
+				<hyphenation>
+					<p xml:lang="it">
+						Le parole spezzate alla fine di un elemento l restano conservate
+						in attesa della collazione con la numerazione dell'edizione.
+					</p>
+				</hyphenation>
+				<segmentation>
+					<p xml:lang="it">
+						Le battute sono rappresentate con sp, i frammenti di verso con
+						l e le divisioni con un vocabolario controllato di section e
+						subsection. La terminologia non introduce categorie
+						filologiche non documentate dalla trascrizione.
+					</p>
+				</segmentation>
+			</editorialDecl>
+			<refsDecl>
+				<p xml:lang="it">
+					Divisioni e battute possiedono identificatori XML stabili. I
+					numeri canonici e gli identificatori dei versi saranno assegnati
+					dopo l'allineamento con l'edizione di riferimento.
+				</p>
+			</refsDecl>
+		</encodingDesc>
+		<profileDesc>
+			<langUsage>
+				<language ident="grc">Greco antico</language>
+				<language ident="it">Italiano</language>
+				<language ident="la">Latino</language>
+			</langUsage>
+			<textClass>
+				<keywords scheme="http://id.loc.gov/authorities/subjects/">
+					<term ref="http://id.loc.gov/authorities/subjects/sh85134522">Testo drammatico</term>
+					<term ref="http://id.loc.gov/authorities/subjects/sh85028845">Commedia</term>
+				</keywords>
+			</textClass>
+			<particDesc>
+				<listPerson type="dramatis-personae">
+					<person xml:id="diceopoli"><persName xml:lang="it">Diceopoli</persName></person>
+					<person xml:id="araldo"><persName xml:lang="it">Araldo</persName></person>
+					<person xml:id="anfiteo"><persName xml:lang="it">Anfiteo</persName></person>
+					<person xml:id="vecchio"><persName xml:lang="it">Vecchio</persName></person>
+					<person xml:id="pseudoartabano"><persName xml:lang="it">Pseudoartabano</persName></person>
+					<person xml:id="teoro"><persName xml:lang="it">Teoro</persName></person>
+					<personGrp xml:id="coro"><persName xml:lang="it">Coro</persName></personGrp>
+					<personGrp xml:id="semicoro-a" corresp="#coro"><persName xml:lang="it">Semicoro A</persName></personGrp>
+					<personGrp xml:id="semicoro-b" corresp="#coro"><persName xml:lang="it">Semicoro B</persName></personGrp>
+					<person xml:id="figlia"><persName xml:lang="it">Figlia</persName></person>
+					<person xml:id="servo"><persName xml:lang="it">Servo</persName></person>
+					<person xml:id="euripide"><persName xml:lang="it">Euripide</persName></person>
+					<person xml:id="lamaco"><persName xml:lang="it">Lamaco</persName></person>
+					<person xml:id="megarese"><persName xml:lang="it">Megarese</persName></person>
+					<person xml:id="ragazza"><persName xml:lang="it">Ragazza</persName></person>
+					<person xml:id="sicofante"><persName xml:lang="it">Sicofante</persName></person>
+					<person xml:id="tebano"><persName xml:lang="it">Tebano</persName></person>
+					<person xml:id="nicarco"><persName xml:lang="it">Nicarco</persName></person>
+					<person xml:id="messaggero-lamaco"><persName xml:lang="it">Messaggero di Lamaco</persName></person>
+					<person xml:id="contadino"><persName xml:lang="it">Contadino</persName></person>
+					<person xml:id="damigella"><persName xml:lang="it">Damigella</persName></person>
+					<person xml:id="messaggero-dioniso">
+						<persName xml:lang="it">Messaggero</persName>
+						<note xml:lang="it">Reca a Diceopoli l'invito del sacerdote di Dioniso.</note>
+					</person>
+					<person xml:id="messaggero-finale"><persName xml:lang="it">Messaggero</persName></person>
+				</listPerson>
+			</particDesc>
+		</profileDesc>
+		<revisionDesc>
+			<change when="2026-07-28">
+				Normalizzazione dell'intestazione, dei riferimenti ai personaggi,
+				delle divisioni e degli interventi editoriali.
+			</change>
+			<change when="2024">Pubblicazione iniziale dichiarata del testo digitale.</change>
+		</revisionDesc>
 	</teiHeader>
-	<text>
-		<body>
-			<div type="scena" n="1">
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+	<text xml:id="acharnenses-text">
+		<front xml:lang="it">
+			<castList xml:id="acharnenses-cast">
+				<head>Personaggi</head>
+				<castItem corresp="#diceopoli"><role>Diceopoli</role></castItem>
+				<castItem corresp="#araldo"><role>Araldo</role></castItem>
+				<castItem corresp="#anfiteo"><role>Anfiteo</role></castItem>
+				<castItem corresp="#vecchio"><role>Vecchio</role></castItem>
+				<castItem corresp="#pseudoartabano"><role>Pseudoartabano</role></castItem>
+				<castItem corresp="#teoro"><role>Teoro</role></castItem>
+				<castGroup>
+					<head>Coro</head>
+					<castItem corresp="#coro"><role>Coro</role></castItem>
+					<castItem corresp="#semicoro-a"><role>Semicoro A</role></castItem>
+					<castItem corresp="#semicoro-b"><role>Semicoro B</role></castItem>
+				</castGroup>
+				<castItem corresp="#figlia"><role>Figlia</role></castItem>
+				<castItem corresp="#servo"><role>Servo</role></castItem>
+				<castItem corresp="#euripide"><role>Euripide</role></castItem>
+				<castItem corresp="#lamaco"><role>Lamaco</role></castItem>
+				<castItem corresp="#megarese"><role>Megarese</role></castItem>
+				<castItem corresp="#ragazza"><role>Ragazza</role></castItem>
+				<castItem corresp="#sicofante"><role>Sicofante</role></castItem>
+				<castItem corresp="#tebano"><role>Tebano</role></castItem>
+				<castItem corresp="#nicarco"><role>Nicarco</role></castItem>
+				<castItem corresp="#messaggero-lamaco"><role>Messaggero di Lamaco</role></castItem>
+				<castItem corresp="#contadino"><role>Contadino</role></castItem>
+				<castItem corresp="#damigella"><role>Damigella</role></castItem>
+				<castItem corresp="#messaggero-dioniso">
+					<role>Messaggero</role>
+					<roleDesc>Reca l'invito del sacerdote di Dioniso.</roleDesc>
+				</castItem>
+				<castItem corresp="#messaggero-finale"><role>Messaggero</role></castItem>
+			</castList>
+		</front>
+		<body xml:lang="grc">
+			<div xml:id="ach-div-001" type="section" subtype="scene" n="1">
+			<sp xml:id="ach-sp-0001" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ὅσα δὴ δέδηγμαι τὴν ἐμαυτοῦ καρδίαν,</l>
 					<l>ἥσθην δὲ βαιά, πάνυ δὲ βαιά, τέτταρα·</l>
@@ -65,41 +226,41 @@
 					<l>Ἀλλ' οἱ πρυτάνεις γὰρ οὑτοιὶ μεσημβρινοί.</l>
 					<l>Οὐκ ἠγόρευον; τοῦτ' ἐκεῖν' οὑγὼ 'λεγον·</l>
 					<l>εἰς τὴν προεδρίαν πᾶς ἀνὴρ ὠστίζεται.</l>
-				</lg>	
+				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0002" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<lg>
 					<l>Πάριτ' εἰς τὸ πρόσθεν,</l>
 					<l>πάριθ', ὡς ἂν ἐντὸς ἦτε τοῦ καθάρματος.</l>
 				</lg>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0003" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Ἤδη τις εἶπε;</l>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0004" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Τίς ἀγορεύειν βούλεται;</l>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0005" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Ἐγώ.</l>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0006" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Τίς ὤν;</l>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0007" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Ἀμφίθεος.</l>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0008" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Οὐκ ἄνθρωπος;</l>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0009" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<lg>
 					<l>Οὔ,</l>
 					<l>ἀλλ' ἀθάνατος. Ὁ γὰρ Ἀμφίθεος Δήμητρος ἦν</l>
@@ -112,66 +273,66 @@
 					<l>οὐ γὰρ διδόασιν οἱ πρυτάνεις.</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0010" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Οἱ τοξόται.</l>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0011" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Ὦ Τριπτόλεμε καὶ Κελεέ, περιόψεσθέ με;</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0012" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ὦνδρες πρυτάνεις, ἀδικεῖτε τὴν ἐκκλησίαν</l>
 					<l>τὸν ἄνδρ' ἀπάγοντες, ὅστις ἡμῖν ἤθελεν</l>
 					<l>σπονδὰς ποεῖσθαι καὶ κρεμάσαι τὰς ἀσπίδας.</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0013" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Κάθησο, σῖγα.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0014" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Μὰ τὸν Ἀπόλλω 'γὼ μὲν οὔ,</l>
 					<l>ἢν μὴ περὶ εἰρήνης γε πρυτανεύσητέ μοι.</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0015" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Οἱ πρέσβεις οἱ παρὰ βασιλέως.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0016" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ποίου βασιλέως; Ἄχθομαι 'γὼ πρέσβεσιν</l>
 					<l>καὶ τοῖς ταὧσι τοῖς τ' ἀλαζονεύμασιν.</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0017" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Σίγα.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0018" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Βαβαιάξ. Ὦκβάτανα τοῦ σχήματος.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0019" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Ἐπέμψαθ' ἡμᾶς ὡς βασιλέα τὸν μέγαν</l>
 					<l>μισθὸν φέροντας δύο δραχμὰς τῆς ἡμέρας</l>
 					<l>ἐπ' Εὐθυμένους ἄρχοντος.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0020" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Οἴμοι τῶν δραχμῶν.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0021" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Καὶ δῆτ' ἐτρυχόμεσθα τῶν Καϋστρίων</l>
 					<l>πεδίων ὁδοιπλανοῦντες ἐσκηνημένοι,</l>
@@ -179,98 +340,98 @@
 					<l>ἀπολλύμενοι.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0022" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Σφόδρα γὰρ ἐσῳζόμην ἐγὼ</l>
 					<l>παρὰ τὴν ἔπαλξιν ἐν φορυτῷ κατακείμενος.</l>
 				</lg>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0023" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Ξενιζόμενοι δὲ πρὸς βίαν ἐπίνομεν</l>
 					<l>ἐξ ὑαλίνων ἐκπωμάτων καὶ χρυσίδων</l>
 					<l>ἄκρατον οἶνον ἡδύν.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0024" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Ὦ Κραναὰ πόλις,</l>
 				<l>ἆρ' αἰσθάνει τὸν κατάγελων τῶν πρέσβεων;</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0025" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Οἱ βάρβαροι γὰρ ἄνδρας ἡγοῦνται μόνους</l>
 					<l>τοὺς πλεῖστα δυναμένους φαγεῖν τε καὶ πιεῖν.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0026" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Ἡμεῖς δὲ λαικαστάς τε καὶ καταπύγονας.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0027" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Ἔτει τετάρτῳ δ' εἰς τὰ βασίλει' ἤλθομεν·</l>
 					<l>ἀλλ' εἰς ἀπόπατον ᾤχετο στρατιὰν λαβών,</l>
 					<l>κἄχεζεν ὀκτὼ μῆνας ἐπὶ χρυσῶν ὀρῶν.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0028" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Πόσου δὲ τὸν πρωκτὸν χρόνου ξυνήγαγεν;</l>
 					<l>Τῇ πανσελήνῳ;</l>
 				</lg>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0029" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Κᾆτ' ἀπῆλθεν οἴκαδε.</l>
 					<l>Εἶτ' ἐξένιζε παρετίθει θ' ἡμῖν ὅλους</l>
 					<l>ἐκ κριβάνου βοῦς.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0030" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Καὶ τίς εἶδε πώποτε</l>
 					<l>βοῦς κριβανίτας; Τῶν ἀλαζονευμάτων.</l>
 					</lg>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0031" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Καὶ ναὶ μὰ Δί' ὄρνιν τριπλάσιον Κλεωνύμου</l>
 					<l>παρέθηκεν ἡμῖν· ὄνομα δ' ἦν αὐτῷ φέναξ.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0032" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Ταῦτ' ἄρ' ἐφενάκιζες σὺ δύο δραχμὰς φέρων.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0033" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Καὶ νῦν ἄγοντες ἥκομεν Ψευδαρτάβαν,</l>
 					<l>τὸν βασιλέως Ὀφθαλμόν.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0034" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ἐκκόψειέ γε</l>
 					<l>κόραξ πατάξας, τόν γε σὸν τοῦ πρέσβεως.</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0035" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Ὁ βασιλέως Ὀφθαλμός.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0036" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ὦναξ Ἡράκλεις.</l>
 					<l>Πρὸς τῶν θεῶν, ἄνθρωπε, ναύφρακτον βλέπεις,</l>
@@ -278,57 +439,57 @@
 					<l>Ἄσκωμ' ἔχεις που περὶ τὸν ὀφθαλμὸν κάτω;</l>
 				</lg>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0037" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
 					<l>Ἄγε δὴ σὺ βασιλεὺς ἅττα σ' ἀπέπεμψεν φράσον</l>
 					<l>λέξοντ' Ἀθηναίοισιν, ὦ Ψευδαρτάβα.</l>
 				</lg>
 			</sp>
-			<sp who="#Ps">
-				<speaker>Pseudoartabano</speaker>
+			<sp xml:id="ach-sp-0038" who="#pseudoartabano">
+				<speaker xml:lang="it">Pseudoartabano</speaker>
 				<l>Ι αρταμανε Ξαρξας απιαονα σατρα.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0039" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<l>Ξυνῆκας ὃ λέγει;</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
-				<l> Μὰ τὸν Ἀπόλλω 'γὼ μὲν οὔ.</l>
+			<sp xml:id="ach-sp-0040" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
+				<l>Μὰ τὸν Ἀπόλλω 'γὼ μὲν οὔ.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0041" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<lg>
-					<l> Πέμψειν βασιλέα φησὶν ὑμῖν χρυσίον.</l>
+					<l>Πέμψειν βασιλέα φησὶν ὑμῖν χρυσίον.</l>
 					<l>Λέγε δὴ σὺ μεῖζον καὶ σαφῶς τὸ χρυσίον.</l>
 				</lg>
 			</sp>
-			<sp who="#Ps">
-				<speaker>Pseudoartabano</speaker>
+			<sp xml:id="ach-sp-0042" who="#pseudoartabano">
+				<speaker xml:lang="it">Pseudoartabano</speaker>
 				<l>Οὐ ληψι χρυσο, χαυνόπρωκτ' Ἰαοναυ.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0043" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Οἴμοι κακοδαίμων ὡς σαφῶς.</l>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0044" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<l>Τί δαὶ λέγει;</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0045" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ὅ τι; χαυνοπρώκτους τοὺς Ἰάονας λέγει,</l>
 					<l>εἰ προσδοκῶσι χρυσίον ἐκ τῶν βαρβάρων.</l>
 				</lg>
 			</sp>
-			<sp who="#Ve">
-				<speaker>Vecchio</speaker>
+			<sp xml:id="ach-sp-0046" who="#vecchio">
+				<speaker xml:lang="it">Vecchio</speaker>
 				<l>Οὔκ, ἀλλ' ἀχάνας ὅδε γε χρυσίου λέγει.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0047" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ποίας ἀχάνας; Σὺ μὲν ἀλαζὼν εἶ μέγας.</l>
 					<l>Ἀλλ' ἄπιθ'· ἐγὼ δὲ βασανιῶ τοῦτον μόνος.</l>
@@ -346,16 +507,16 @@
 					<l>Ὁδὶ δὲ τίς ποτ' ἐστίν; οὐ δήπου Στράτων;</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0048" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<lg>
 					<l>Σίγα, κάθιζε.</l>
 					<l>Τὸν βασιλέως Ὀφθαλμὸν ἡ βουλὴ καλεῖ</l>
 					<l>εἰς τὸ πρυτανεῖον.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0049" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ταῦτα δῆτ' οὐκ ἀγχόνη;</l>
 					<l>Κἄπειτ' ἐγὼ δῆτ' ἐνθαδὶ στραγγεύομαι,</l>
@@ -364,12 +525,12 @@
 					<l>Ἀλλ' Ἀμφίθεός μοι ποῦ 'στιν;</l>
 				</lg>
 			</sp>
-			<sp who="#An">
-				<speaker>Anfiteo</speaker>
+			<sp xml:id="ach-sp-0050" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Οὑτοσὶ πάρα.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0051" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ἐμοὶ σὺ ταυτασὶ λαβὼν ὀκτὼ δραχμὰς</l>
 					<l>σπονδὰς πόησαι πρὸς Λακεδαιμονίους μόνῳ</l>
@@ -377,42 +538,42 @@
 					<l>ὑμεῖς δὲ πρεσβεύεσθε καὶ κεχήνετε</l>
 				</lg>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0052" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Προσίτω Θέωρος ὁ παρὰ Σιτάλκους.</l>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0053" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<l>Ὁδί.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0054" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Ἕτερος ἀλαζὼν οὗτος εἰσκηρύττεται.</l>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0055" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<l>Χρόνον μὲν οὐκ ἂν ἦμεν ἐν Θρᾴκῃ πολύν, ‑</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0056" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Μὰ Δί' οὐκ ἄν, εἰ μισθόν γε μὴ 'φερες πολύν.</l>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0057" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<lg>
 					<l>εἰ μὴ κατένειψε χιόνι τὴν Θρᾴκην ὅλην</l>
 					<l>καὶ τοὺς ποταμοὺς ἔπηξ', ‑</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0058" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>ὑπ' αὐτὸν τὸν χρόνον.</l>
 					<l>ὅτ' ἐνθαδὶ Θέογνις ἠγωνίζετο.</l>
 				</lg>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0059" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<lg>
 					<l>Τοῦτον μετὰ Σιτάλκους ἔπινον τὸν χρόνον.</l>
 					<l>Καὶ δῆτα φιλαθήναιος ἦν ὑπερφυῶς</l>
@@ -426,52 +587,52 @@
 					<l>"Ὅσον τὸ χρῆμα παρνόπων προσέρχεται".</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0060" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Κάκιστ' ἀπολοίμην, εἴ τι τούτων πείθομαι</l>
 					<l>ὧν εἶπας ἐνταυθοῖ σὺ πλὴν τῶν παρνόπων.</l>
 				</lg>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0061" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<lg>
 					<l>Καὶ νῦν ὅπερ μαχιμώτατον Θρᾳκῶν ἔθνος</l>
 					<l>ἔπεμψεν ὑμῖν.</l>
 				</lg>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0062" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Τοῦτο μέν γ' ἤδη σαφές.</l>
 			</sp>
-			<sp who="#Ar">
-				<speaker>Araldo</speaker>
+			<sp xml:id="ach-sp-0063" who="#araldo">
+				<speaker xml:lang="it">Araldo</speaker>
 				<l>Οἱ Θρᾷκες ἴτε δεῦρ', οὓς Θέωρος ἤγαγεν.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0064" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<l>Τουτὶ τί ἐστι τὸ κακόν;</l>
 			</sp>
-			<sp who="#Te">
-				<speaker>Teoro</speaker>
+			<sp xml:id="ach-sp-0065" who="#teoro">
+				<speaker xml:lang="it">Teoro</speaker>
 				<l>Ὀδομάντων στρατός.</l>
 			</sp>
-			<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+			<sp xml:id="ach-sp-0066" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 				<lg>
 					<l>Ποίων Ὀδομάντων; εἰπέ μοι, τουτὶ τί ἦν;</l>
 					<l>Τίς τῶν Ὀδομάντων τὸ πέος ἀποτεθρίακεν;</l>
 				</lg>
 			</sp>
-				<sp who="#Te">
-					<speaker>Teoro</speaker>
+				<sp xml:id="ach-sp-0067" who="#teoro">
+					<speaker xml:lang="it">Teoro</speaker>
 						<lg>
 							<l>Τούτοις ἐάν τις δύο δραχμὰς μισθὸν διδῷ,</l>
-							<l>0καταπελτάσονται τὴν Βοιωτίαν ὅλην.</l>
+							<l>καταπελτάσονται τὴν Βοιωτίαν ὅλην.</l>
 						</lg>
 					</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0068" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Τοισδὶ δύο δραχμὰς τοῖς ἀπεψωλημένοις;</l>
 						<l>Ὑποστένοι μέντἂν ὁ θρανίτης λεώς,</l>
@@ -480,15 +641,15 @@
 						<l>Οὐ καταβαλεῖτε τὰ σκόροδ';</l>
 					</lg>
 				</sp>
-				<sp who="#Te">
-					<speaker>Teoro</speaker>
+				<sp xml:id="ach-sp-0069" who="#teoro">
+					<speaker xml:lang="it">Teoro</speaker>
 					<lg>
 						<l>Ὦ μόχθηρε σύ,</l>
 						<l>οὐ μὴ πρόσει τούτοισιν ἐσκοροδισμένοις.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0070" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ταυτὶ περιείδεθ' οἱ πρυτάνεις πάσχοντά με</l>
 						<l>ἐν τῇ πατρίδι καὶ ταῦθ' ὑπ' ἀνδρῶν βαρβάρων;</l>
@@ -497,34 +658,34 @@
 						<l>διοσημία 'στὶ καὶ ῥανὶς βέβληκέ με.</l>
 					</lg>
 				</sp>
-				<sp who="#Ar">
-					<speaker>Araldo</speaker>
+				<sp xml:id="ach-sp-0071" who="#araldo">
+					<speaker xml:lang="it">Araldo</speaker>
 					<lg>
 						<l>Τοὺς Θρᾷκας ἀπιέναι, παρεῖναι δ' εἰς ἕνην·</l>
 						<l>Οἱ γὰρ πρυτάνεις λύουσι τὴν ἐκκλησίαν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0072" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Οἴμοι τάλας, μυττωτὸν ὅσον ἀπώλεσα.</l>
 						<l>Ἀλλ' ἐκ Λακεδαίμονος γὰρ Ἀμφίθεος ὁδί.</l>
 						<l>Χαῖρ' Ἀμφίθεε.</l>
 					</lg>
 				</sp>
-				<sp who="#An">
-					<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0073" who="#anfiteo">
+					<speaker xml:lang="it">Anfiteo</speaker>
 					<lg>
-						<l> Μήπω γε πρίν ‹γ'› ἂν στῶ τρέχων·</l>
+						<l>Μήπω γε πρίν <supplied reason="omitted" resp="#coulon">γ'</supplied> ἂν στῶ τρέχων·</l>
 						<l>δεῖ γάρ με φεύγοντ' ἐκφυγεῖν Ἀχαρνέας.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0074" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δ' ἐστίν;</l>
 				</sp>
-				<sp who="#An">
-					<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0075" who="#anfiteo">
+					<speaker xml:lang="it">Anfiteo</speaker>
 					<lg>
 						<l>Ἐγὼ μὲν δεῦρό σοι σπονδὰς φέρων</l>
 						<l>ἔσπευδον· οἱ δ' ὤσφροντο πρεσβῦταί τινες</l>
@@ -536,52 +697,52 @@
 						<l>ἐγὼ δ' ἔφευγον· οἱ δ' ἐδίωκον κἀβόων.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0076" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Οἱ δ' οὖν βοώντων. Ἀλλὰ τὰς σπονδὰς φέρεις;</l>
 				</sp>
-				<sp who="#An">
-					<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0077" who="#anfiteo">
+					<speaker xml:lang="it">Anfiteo</speaker>
 					<lg>
-						<l> Ἔγωγέ, φημι, τρία γε ταυτὶ γεύματα.</l>
+						<l>Ἔγωγέ, φημι, τρία γε ταυτὶ γεύματα.</l>
 						<l>Αὗται μέν εἰσι πεντέτεις. Γεῦσαι λαβών.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0078" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Αἰβοῖ.</l>
 				</sp>
-				<sp who="#An">
-					<speaker>Anfiteo</speaker>
-					<l> Τί ἐστιν;</l>
+				<sp xml:id="ach-sp-0079" who="#anfiteo">
+					<speaker xml:lang="it">Anfiteo</speaker>
+					<l>Τί ἐστιν;</l>
 				</sp>
-				<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0080" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Οὐκ ἀρέσκουσίν μ' ὅτι</l>
 						<l>ὄζουσι πίττης καὶ παρασκευῆς νεῶν.</l>
 					</lg>
 				</sp>
-				<sp who="#An">
-					<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0081" who="#anfiteo">
+					<speaker xml:lang="it">Anfiteo</speaker>
 					<l>Σὺ δ' ἀλλὰ τασδὶ τὰς δεκέτεις γεῦσαι λαβών.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0082" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὄζουσι χαὖται πρέσβεων εἰς τὰς πόλεις</l>
 						<l>ὀξύτατον ὥσπερ διατριβῆς τῶν ξυμμάχων.</l>
 					</lg>
 				</sp>
-				<sp who="#An">
-				<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0083" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 					<lg>
 						<l>Ἀλλ' αὑταιί τοί σοι τριακοντούτιδες</l>
 						<l>κατὰ γῆν τε καὶ θάλατταν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-				<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0084" who="#diceopoli">
+				<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὦ Διονύσια,</l>
 						<l>αὗται μὲν ὄζουσ' ἀμβροσίας καὶ νέκταρος</l>
@@ -593,15 +754,15 @@
 						<l>ἄξω τὰ κατ' ἀγροὺς εἰσιὼν Διονύσια.</l>
 					</lg>
 				</sp>
-				<sp who="#An">
-				<speaker>Anfiteo</speaker>
+				<sp xml:id="ach-sp-0085" who="#anfiteo">
+				<speaker xml:lang="it">Anfiteo</speaker>
 				<l>Ἐγὼ δὲ φευξοῦμαί γε τοὺς Ἀχαρνέας.</l>
 				</sp>
 			</div>
-			<div type="Str" n="1">
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+			<div xml:id="ach-div-002" type="section" subtype="choral" n="1">
+				<div xml:id="ach-div-003" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0086" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Τῇδε πᾶς ἕπου, δίωκε καὶ τὸν ἄνδρα πυνθάνου</l>
 							<l>τῶν ὁδοιπόρων ἁπάντων· τῇ πόλει γὰρ ἄξιον</l>
@@ -617,9 +778,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-004" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0087" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Νῦν δ' ἐπειδὴ στερρὸν ἤδη τοὐμὸν ἀντικνήμιον</l>
 							<l>καὶ παλαιῷ Λακρατείδῃ τὸ σκέλος βαρύνεται,</l>
@@ -630,34 +791,34 @@
 							<l>οἷσι παρ' ἐμοῦ πόλεμος ἐχθοδοπὸς</l>
 							<l>αὔξεται τῶν ἐμῶν χωρίων·</l>
 							<l>κοὐκ ἀνήσω πρὶν ἂν σχοῖνος αὐτοῖσιν ἀντεμπαγῶ</l>
-							<l>ὀξύς, ὀδυνηρός, ‹ἐπίω θ' ἅμ'› ἐπίκωπος, ἵνα</l>
+							<l>ὀξύς, ὀδυνηρός, <supplied reason="omitted" resp="#coulon">ἐπίω θ' ἅμ'</supplied> ἐπίκωπος, ἵνα</l>
 							<l>μήποτε πατῶσιν ἔτι τὰς ἐμὰς ἀμπέλους</l>
 						</lg>
 					</sp>
 				</div>
-				<div type="Str1a">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-005" type="subsection" subtype="unclassified" n="1a">
+					<sp xml:id="ach-sp-0088" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἀλλὰ δεῖ ζητεῖν τὸν ἄνδρα καὶ βλέπειν Βαλλήναδε</l>
 							<l>καὶ διώκειν γῆν πρὸ γῆς, ἕως ἂν εὑρεθῇ ποτέ·</l>
 							<l>ὡς ἐγὼ βάλλων ἐκεῖνον οὐκ ἂν ἐμπλῄμην λίθοις.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0089" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Εὐφημεῖτε, εὐφημεῖτε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0090" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Σῖγα πᾶς. Ἠκούσατ', ἄνδρες, ἆρα τῆς εὐφημίας;</l>
 							<l>Οὗτος αὐτός ἐστιν ὃν ζητοῦμεν. Ἀλλὰ δεῦρο πᾶς</l>
 							<l>ἐκποδών· θύσων γὰρ ἁνήρ, ὡς ἔοικ', ἐξέρχεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0091" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Εὐφημεῖτε, εὐφημεῖτε.</l>
 							<l>Πρόιθ' εἰς τὸ πρόσθεν ὀλίγον, ἡ κανηφόρος.</l>
@@ -665,15 +826,15 @@
 							<l>Κατάθου τὸ κανοῦν, ὦ θύγατερ, ἵν' ἀπαρξώμεθα.</l>
 						</lg>
 					</sp>
-					<sp who="#Fi">
-						<speaker>Figlia</speaker>
+					<sp xml:id="ach-sp-0092" who="#figlia">
+						<speaker xml:lang="it">Figlia</speaker>
 						<lg>
 							<l>Ὦ μῆτερ, ἀνάδος δεῦρο τὴν ἐτνήρυσιν,</l>
 							<l>ἵν' ἔτνος καταχέω τοὐλατῆρος τουτουί.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0093" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Καὶ μὴν καλόν γ' ἔστ'. Ὦ Διόνυσε δέσποτα,</l>
 							<l>κεχαρισμένως σοι τήνδε τὴν πομπὴν ἐμὲ</l>
@@ -694,9 +855,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="Str1b">
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+				<div xml:id="ach-div-006" type="subsection" subtype="unclassified" n="1b">
+					<sp xml:id="ach-sp-0094" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Φαλῆς, ἑταῖρε Βακχίου,</l>
 							<l>ξύγκωμε, νυκτοπεριπλάνη-</l>
@@ -717,51 +878,51 @@
 							<l>ἡ δ' ἀσπὶς ἐν τῷ φεψάλῳ κρεμήσεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0095" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Οὗτος αὐτός ἐστιν, οὗτος·</l>
 							<l>βάλλε, βάλλε, βάλλε, βάλλε,</l>
 							<l>παῖε παῖε τὸν μιαρόν.</l>
 							<l>Οὐ βαλεῖς, οὐ βαλεῖς;</l>
 						</lg>
-					</sp>	
+					</sp>
 				</div>
-				<div type="strofe">
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>						
+				<div xml:id="ach-div-007" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0096" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἡράκλεις τουτὶ τί ἐστι; τὴν χύτραν συντρίψετε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0097" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Σὲ μὲν οὖν καταλεύσομεν, ὦ μιαρὰ κεφαλή.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0098" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἀντὶ ποίας αἰτίας, ὦχαρνέων γεραίτατοι;</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0099" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Τοῦτ' ἐρωτᾷς; Ἀναίσχυντος εἶ καὶ βδελυρός,</l>
 							<l>ὦ προδότα τῆς πατρίδος, ὅστις ἡμῶν μόνος</l>
 							<l>σπεισάμενος εἶτα δύνασαι πρὸς ἔμ' ἀποβλέπειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
-						<l> Ἀντὶ δ' ὧν ἐσπεισάμην ἠκούσατ'; Ἀλλ' ἀκούσατε.</l>
+					<sp xml:id="ach-sp-0100" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
+						<l>Ἀντὶ δ' ὧν ἐσπεισάμην ἠκούσατ'; Ἀλλ' ἀκούσατε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0101" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Σοῦ γ' ἀκούσωμεν; Ἀπολεῖ· κατά σε χώσομεν τοῖς λίθοις.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0102" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Μηδαμῶς πρὶν ἄν γ' ἀκούσητ'· ἀλλ' ἀνάσχεσθ', ὦγαθοί.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0103" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Οὐκ ἀνασχήσομαι· μηδὲ λέγε μοι σὺ λόγον·</l>
 							<l>ὡς μεμίσηκά σε Κλέωνος ἔτι μᾶλλον, ὃν</l>
@@ -770,163 +931,163 @@
 							<l>ὅστις ἐσπείσω Λάκωσιν, ἀλλὰ τιμωρήσομαι.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0104" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦγαθοί, τοὺς μὲν Λάκωνας ἐκποδὼν ἐάσατε,</l>
 							<l>τῶν δ' ἐμῶν σπονδῶν ἀκούσατ', εἰ καλῶς ἐσπεισάμην.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0105" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Πῶς δ' ἔτ' ἂν καλῶς λέγοις ἄν, εἴπερ ἐσπείσω γ' ἅπαξ</l>
 							<l>οἷσιν οὔτε βωμὸς οὔτε πίστις οὔθ' ὅρκος μένει;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0106" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οἶδ' ἐγὼ καὶ τοὺς Λάκωνας, οἷς ἄγαν ἐγκείμεθα,</l>
 							<l>οὐχ ἁπάντων ὄντας ἡμῖν αἰτίους τῶν πραγμάτων.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0107" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
-							<l> Οὐχ ἁπάντων, ὦ πανοῦργε; ταῦτα δὴ τολμᾷς λέγειν</l>
+							<l>Οὐχ ἁπάντων, ὦ πανοῦργε; ταῦτα δὴ τολμᾷς λέγειν</l>
 							<l>ἐμφανῶς ἤδη πρὸς ἡμᾶς; Εἶτ' ἐγώ σου φείσομαι;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0108" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οὐχ ἁπάντων, οὐχ ἁπάντων· ἀλλ' ἐγὼ λέγων ὁδὶ</l>
 							<l>πόλλ' ἂν ἀποφήναιμ' ἐκείνους ἔσθ' ἃ κἀδικουμένους.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0109" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Τοῦτο τοὔπος δεινὸν ἤδη καὶ ταραξικάρδιον,</l>
 							<l>εἰ σὺ τολμήσεις ὑπὲρ τῶν πολεμίων ἡμῖν λέγειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0110" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Κἄν γε μὴ λέγω δίκαια μηδὲ τῷ πλήθει δοκῶ,</l>
 							<l>ὑπὲρ ἐπιξήνου 'θελήσω τὴν κεφαλὴν ἔχων λέγειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0111" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Εἰπέ μοι, τί φειδόμεσθα τῶν λίθων, ὦ δημόται,</l>
 							<l>μὴ οὐ καταξαίνειν τὸν ἄνδρα τοῦτον εἰς φοινικίδα;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0112" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οἷον αὖ μέλας τις ὑμῖν θυμάλωψ ἐπέζεσεν.</l>
 							<l>Οὐκ ἀκούσεσθ', οὐκ ἀκούσεσθ' ἐτεόν, ὦχαρνηίδαι;</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0113" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Οὐκ ἀκουσόμεσθα δῆτα.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0114" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Δεινὰ τἄρα πείσομαι.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
-						<l> Ἐξολοίμην, ἢν ἀκούσω.</l>
+					<sp xml:id="ach-sp-0115" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
+						<l>Ἐξολοίμην, ἢν ἀκούσω.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0116" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Μηδαμῶς, ὦχαρνικοί.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0117" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Ὡς τεθνήξων ἴσθι νυνί.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0118" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Δήξομἄρ' ὑμᾶς ἐγώ.</l>
 							<l>Ἀνταποκτενῶ γὰρ ὑμῶν τῶν φίλων τοὺς φιλτάτους·</l>
 							<l>ὡς ἔχω γ' ὑμῶν ὁμήρους, οὓς ἀποσφάξω λαβών.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0119" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Εἰπέ μοι, τί τοῦτ' ἀπειλεῖ τοὔπος, ἄνδρες δημόται,</l>
 							<l>τοῖς Ἀχαρνικοῖσιν ἡμῖν; Μῶν ἔχει του παιδίον</l>
 							<l>τῶν παρόντων ἔνδον εἵρξας; Ἢ 'πὶ τῷ θρασύνεται;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0120" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Βάλλετ', εἰ βούλεσθ'· ἐγὼ γὰρ τουτονὶ διαφθερῶ.</l>
 							<l>Εἴσομαι δ' ὑμῶν τάχ' ὅστις ἀνθράκων τι κήδεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0121" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ὡς ἀπωλόμεσθ'· ὁ λάρκος δημότης ὅδ' ἔστ' ἐμός.</l>
 							<l>Ἀλλὰ μὴ δράσῃς ὃ μέλλεις, μηδαμῶς, ὢ μηδαμῶς.</l>
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+				<div xml:id="ach-div-008" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0122" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ὡς ἀποκτενῶ· κέκραχθ'· ἐγὼ γὰρ οὐκ ἀκούσομαι.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0123" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Ἀπολεῖς ἄρ' ὁμήλικα τόνδε φιλανθρακέα;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0124" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Οὐδ' ἐμοῦ λέγοντος ὑμεῖς ἀρτίως ἠκούσατε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0125" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἀλλὰ νυνὶ λέγ', ὅ τι σοι δοκεῖ, τόν τε Λακε-</l>
 							<l>δαιμόνιον αὐτόθεν ὅτῳ τρόπῳ σοὐστὶ φίλος·</l>
 							<l>ὡς τόδε τὸ λαρκίδιον οὐ προδώσω ποτέ.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0126" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Τοὺς λίθους νύν μοι χαμᾶζε πρῶτον ἐξεράσατε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0127" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Οὑτοιί σοι χαμαί, καὶ σὺ κατάθου πάλιν τὸ ξίφος.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
-						<l> Ἀλλ' ὅπως μὴ 'ν τοῖς τρίβωσιν ἐγκάθηνταί που λίθοι.</l>
+					<sp xml:id="ach-sp-0128" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
+						<l>Ἀλλ' ὅπως μὴ 'ν τοῖς τρίβωσιν ἐγκάθηνταί που λίθοι.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0129" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἐκσέσεισται χαμᾶζ'. Οὐχ ὁρᾷς σειόμενον;</l>
 							<l>Ἀλλὰ μή μοι πρόφασιν, ἀλλὰ κατάθου τὸ βέλος.</l>
 							<l>Ὡς ὅδε γε σειστὸς ἅμα τῇ στροφῇ γίγνεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0130" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἐμέλλετ' ἆρ' ἅπαντες ἀνασείσειν βοήν,</l>
 							<l>ὀλίγου τ' ἀπέθανον ἄνθρακες Παρνήσσιοι,</l>
@@ -942,19 +1103,19 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-009" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0131" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
-							<l>Τί οὖν ‹οὐ› λέγεις, ἐπίξηνον ἐξενεγκὼν θύραζ',</l>
+							<l>Τί οὖν <supplied reason="omitted" resp="#coulon">οὐ</supplied> λέγεις, ἐπίξηνον ἐξενεγκὼν θύραζ',</l>
 							<l>ὅ τι ποτ', ὦ σχέτλιε, τὸ μέγα τοῦτ' ἔχεις;</l>
 							<l>Πάνυ γὰρ ἐμέ γε πόθος ὅ τι φρονεῖς ἔχει.</l>
 							<l>Ἀλλ' ᾗπερ αὐτὸς τὴν δίκην διωρίσω,</l>
 							<l>εὶς δεῦρο τοὐπίξηνον ἐγχείρει λέγειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0132" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἰδοὺ θέασαι, τὸ μὲν ἐπίξηνον τοδί,</l>
 							<l>ὁ δ' ἀνὴρ ὁ λέξων οὑτοσὶ τυννουτοσί.</l>
@@ -978,19 +1139,19 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-010" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0133" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Τί ταῦτα στρέφει τεχνάζεις τε καὶ πορίζει τριβάς;</l>
-							<l>Λαβὲ δ' ἐμοῦ γ' ἕνεκα παρ' Ἱερωνύμουz</l>
+							<l>Λαβὲ δ' ἐμοῦ γ' ἕνεκα παρ' Ἱερωνύμου</l>
 							<l>σκοτοδασυπυκνότριχά τιν' Ἄιδος κυνῆν,</l>
 							<l>εἶτ' ἐξάνοιγε μηχανὰς τὰς Σισύφου·</l>
 							<l>ὡς σκῆψιν ἁγὼν οὗτος οὐκ εἰσδέξεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0134" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὥρα 'στὶν ἆρα καρτερὰν ψυχὴν λαβεῖν·</l>
 							<l>καί μοι βαδιστέ' ἐστὶν ὡς Εὐριπίδην.</l>
@@ -999,25 +1160,25 @@
 					</sp>
 				</div>
 			</div>
-				<div type="scena" n="2">
-					<sp who="#Se">
-						<speaker>Servo</speaker>
+				<div xml:id="ach-div-011" type="section" subtype="scene" n="2">
+					<sp xml:id="ach-sp-0135" who="#servo">
+						<speaker xml:lang="it">Servo</speaker>
 						<l>Τίς οὗτος;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0136" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἔνδον ἔστ' Εὐριπίδης;</l>
 					</sp>
-					<sp who="#Se">
-						<speaker>Servo</speaker>
+					<sp xml:id="ach-sp-0137" who="#servo">
+						<speaker xml:lang="it">Servo</speaker>
 						<l>Οὐκ ἔνδον ἔνδον ἐστίν, εἰ γνώμην ἔχεις.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0138" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Πῶς ἔνδον, εἶτ' οὐκ ἔνδον;</l>
 					</sp>
-					<sp who="#Se">
-						<speaker>Servo</speaker>
+					<sp xml:id="ach-sp-0139" who="#servo">
+						<speaker xml:lang="it">Servo</speaker>
 						<lg>
 							<l>Ὀρθῶς, ὦ γέρον.</l>
 							<l>Ὁ νοῦς μὲν ἔξω ξυλλέγων ἐπύλλια</l>
@@ -1025,20 +1186,20 @@
 							<l>τραγῳδίαν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0140" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ τρισμακάρι' Εὐριπίδη,</l>
 							<l>ὅθ' ὁ δοῦλος οὑτωσὶ σοφῶς ὑποκρίνεται.</l>
 							<l>Ἐκκάλεσον αὐτόν.</l>
 						</lg>
 					</sp>
-					<sp who="#Se">
-						<speaker>Servo</speaker>
-						<l> Ἀλλ' ἀδύνατον.</l>
+					<sp xml:id="ach-sp-0141" who="#servo">
+						<speaker xml:lang="it">Servo</speaker>
+						<l>Ἀλλ' ἀδύνατον.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0142" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἀλλ' ὅμως·</l>
 							<l>οὐ γὰρ ἂν ἀπέλθοιμ'. ‑ Ἀλλὰ κόψω τὴν θύραν.</l>
@@ -1047,36 +1208,36 @@
 							<l>Δικαιόπολις καλῶ σ' ὁ Χολλῄδης ἐγώ</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0143" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Ἀλλ' οὐ σχολή.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0144" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἀλλ' ἐκκυκλήθητ'.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0145" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Ἀλλ' ἀδύνατον.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0146" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἀλλ' ὅμως.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
-						<l> Ἀλλ' ἐκκυκλήσομαι· καταβαίνειν δ' οὐ σχολή.</l>
+					<sp xml:id="ach-sp-0147" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
+						<l>Ἀλλ' ἐκκυκλήσομαι· καταβαίνειν δ' οὐ σχολή.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0148" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Εὐριπίδη.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
-						<l> Τί λέλακας;</l>
+					<sp xml:id="ach-sp-0149" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
+						<l>Τί λέλακας;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0150" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἀναβάδην ποεῖς,</l>
 							<l>ἐξὸν καταβάδην. Οὐκ ἐτὸς χωλοὺς ποεῖς.</l>
@@ -1088,74 +1249,74 @@
 							<l>αὕτη δὲ θάνατον, ἢν κακῶς λέξω, φέρει.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0151" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
 							<l>Τὰ ποῖα τρύχη; Μῶν ἐν οἷς Οἰνεὺς ὁδὶ</l>
 							<l>ὁ δύσποτμος γεραιὸς ἠγωνίζετο;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0152" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Οὐκ Οἰνέως ἦν, ἀλλ' ἔτ' ἀθλιωτέρου.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0153" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Τὰ τοῦ τυφλοῦ Φοίνικος;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0154" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οὐ Φοίνικος, οὔ·</l>
 							<l>ἀλλ' ἕτερος ἦν Φοίνικος ἀθλιώτερος</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0155" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
 							<l>Ποίας ποθ' ἁνὴρ λακίδας αἰτεῖται πέπλων,</l>
 							<l>Ἀλλ' ἦ Φιλοκτήτου τὰ τοῦ πτωχοῦ λέγεις;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0156" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Οὔκ, ἀλλὰ τούτου πολὺ πολὺ πτωχιστέρου.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0157" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
-							<l> Ἀλλ' ἦ τὰ δυσπινῆ θέλεις πεπλώματα,</l>
+							<l>Ἀλλ' ἦ τὰ δυσπινῆ θέλεις πεπλώματα,</l>
 							<l>ἃ Βελλεροφόντης εἶχ' ὁ χωλὸς οὑτοσί;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0158" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οὐ Βελλεροφόντης· ἀλλὰ κἀκεῖνος μὲν ἦν</l>
 							<l>χωλός, προσαιτῶν, στωμύλος, δεινὸς λέγειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0159" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Οἶδ' ἄνδρα, Μυσὸν Τήλεφον.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0160" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ναί, Τήλεφον</l>
 							<l>τούτου δός, ἀντιβολῶ σέ, μοι τὰ σπάργανα.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0161" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
 							<l>Ὦ παῖ, δὸς αὐτῷ Τηλέφου ῥακώματα.</l>
 							<l>Κεῖται δ' ἄνωθεν τῶν Θυεστείων ῥακῶν</l>
 							<l>μεταξὺ τῶν Ἰνοῦς. Ἰδού, ταυτὶ λαβέ.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0162" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ Ζεῦ διόπτα καὶ κατόπτα πανταχῇ,</l>
 							<l>ἐνσκευάσασθαί μ' οἷον ἀθλιώτατον.</l>
@@ -1169,40 +1330,40 @@
 							<l>ὅπως ἂν αὐτοὺς ῥηματίοις σκιμαλίσω.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0163" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
 							<l>Ὦ τρισμακάρι' Εὐριπίδη,</l>
 							<l>ὅθ' ὁ δοῦλος οὑτωσὶ σοφῶς ὑποκρίνεται.</l>
 							<l>Ἐκκάλεσον αὐτόν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0164" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ τρισμακάρι' Εὐριπίδη,</l>
 							<l>ὅθ' ὁ δοῦλος οὑτωσὶ σοφῶς ὑποκρίνεται.</l>
 							<l>Ἐκκάλεσον αὐτόν.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0165" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Δώσω· πυκνῇ γὰρ λεπτὰ μηχανᾷ φρενί.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0166" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Εὐδαιμονοίης ‑ Τηλέφῳ δ' ἁγὼ φρονῶ.</l>
 							<l>Εὖ γ'· οἷον ἤδη ῥηματίων ἐμπίμπλαμαι.</l>
 							<l>Ἀτὰρ δέομαί γε πτωχικοῦ βακτηρίου.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0167" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Τουτὶ λαβὼν ἄπελθε λαΐνων σταθμῶν.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0168" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ θύμ', ‑ ὁρᾷς γὰρ ὡς ἀπωθοῦμαι δόμων,</l>
 							<l>πολλῶν δεόμενος σκευαρίων, ‑ νῦν δὴ γενοῦ</l>
@@ -1210,57 +1371,57 @@
 							<l>δός μοι σπυρίδιον διακεκαυμένον λύχνῳ.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0169" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Τί δ', ὦ τάλας, σε τοῦδ' ἔχει πλέκους χρέος;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0170" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Χρέος μὲν οὐδέν, βούλομαι δ' ὅμως λαβεῖν.</l>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0171" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 							<l>Λυπηρὸς ἴσθ' ὢν κἀποχώρησον δόμων.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0172" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Φεῦ.</l>
 							<l>Εὐδαιμονοίης, ὥσπερ ἡ μήτηρ ποτέ.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
-						<l> Ἄπελθέ νύν μοι.</l>
+					<sp xml:id="ach-sp-0173" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
+						<l>Ἄπελθέ νύν μοι.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0174" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Μἀλλά μοι δὸς ἓν μόνον,</l>
 							<l>κοτυλίσκιον τὸ χεῖλος ἀποκεκρουμένον.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
-						<l> Φθείρου λαβὼν τόδ'· ἴσθ' ὀχληρὸς ὢν δόμοις.</l>
+					<sp xml:id="ach-sp-0175" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
+						<l>Φθείρου λαβὼν τόδ'· ἴσθ' ὀχληρὸς ὢν δόμοις.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0176" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οὔτοι μὰ Δί' οἶσθ' οἷ' αὐτὸς ἐργάζει κακά.</l>
 							<l>Ἀλλ', ὦ γλυκύτατ' Εὐριπίδη, τουτὶ μόνον,</l>
 							<l>δός μοι χυτρίδιον σπογγίῳ βεβυσμένον.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0177" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<lg>
 							<l>Ἄνθρωπ', ἀφαιρήσει με τὴν τραγῳδίαν.</l>
 							<l>Ἄπελθε ταυτηνὶ λαβών.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0178" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἀπέρχομαι.</l>
 							<l>Καίτοι τί δράσω; Δεῖ γὰρ ἑνὸς οὗ μὴ τυχὼν</l>
@@ -1269,12 +1430,12 @@
 							<l>εἰς τὸ σπυρίδιον ἰσχνά μοι φυλλεῖα δός.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
+					<sp xml:id="ach-sp-0179" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
 						<l>Ἀπολεῖς μ'. Ἰδού σοι. Φροῦδά μοι τὰ δράματα.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0180" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἀλλ' οὐκέτ', ἀλλ' ἄπειμι. Καὶ γάρ εἰμ' ἄγαν</l>
 							<l>ὀχληρός, οὐ δοκῶν με κοιράνους στυγεῖν.</l>
@@ -1286,12 +1447,12 @@
 							<l>σκάνδικά μοι δὸς μητρόθεν δεδεγμένος.</l>
 						</lg>
 					</sp>
-					<sp who="#Eu">
-						<speaker>Euripide</speaker>
-						<l> Ἁνὴρ ὑβρίζει· κλῇε πηκτὰ δωμάτων.</l>
+					<sp xml:id="ach-sp-0181" who="#euripide">
+						<speaker xml:lang="it">Euripide</speaker>
+						<l>Ἁνὴρ ὑβρίζει· κλῇε πηκτὰ δωμάτων.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0182" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ θύμ', ἄνευ σκάνδικος ἐμπορευτέα.</l>
 							<l>Ἆρ' οἶσθ' ὅσον τὸν ἀγῶν' ἀγωνιεῖ τάχα,</l>
@@ -1304,10 +1465,10 @@
 							<l>Τόλμησον, ἴθι, χώρησον· ἄγαμαι καρδίας.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0183" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
-							<l>Τί δράσεις; Τί φήσεις; ‹Εὖ› ἴσθι νυν</l>
+							<l>Τί δράσεις; Τί φήσεις; <supplied reason="omitted" resp="#coulon">Εὖ</supplied> ἴσθι νυν</l>
 							<l>ἀναίσχυντος ὢν σιδηροῦς τ' ἀνήρ,</l>
 							<l>ὅστις παρασχὼν τῇ πόλει τὸν αὐχένα</l>
 							<l>ἅπασι μέλλεις εἷς λέγειν τἀναντία.</l>
@@ -1316,9 +1477,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="scena" n="3">
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+				<div xml:id="ach-div-012" type="section" subtype="scene" n="3">
+					<sp xml:id="ach-sp-0184" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Μή μοι φθονήσητ', ἄνδρες οἱ θεώμενοι,</l>
 							<l>εἰ πτωχὸς ὢν ἔπειτ' ἐν Ἀθηναίοις λέγειν</l>
@@ -1382,37 +1543,37 @@
 							<l>οὐκ οἰόμεσθα; Νοῦς ἄρ' ἡμῖν οὐκ ἔνι.</l>
 						</lg>
 					</sp>
-					<sp who="#SCA">
-						<speaker>SemicoroA</speaker>
+					<sp xml:id="ach-sp-0185" who="#semicoro-a">
+						<speaker xml:lang="it">Semicoro A</speaker>
 						<lg>
 							<l>Ἄληθες, ὦπίτριπτε καὶ μιαρώτατε;</l>
 							<l>ταυτὶ σὺ τολμᾷς πτωχὸς ὢν ἡμᾶς λέγειν,</l>
 							<l>καὶ συκοφάντης εἴ τις ἦν ὠνείδισας;</l>
 						</lg>
 					</sp>
-					<sp who="#SCB">
-						<speaker>SemicoroB</speaker>
+					<sp xml:id="ach-sp-0186" who="#semicoro-b">
+						<speaker xml:lang="it">Semicoro B</speaker>
 						<lg>
 							<l>Νὴ τὸν Ποσειδῶ, καὶ λέγει γ' ἅπερ λέγει</l>
 							<l>δίκαια πάντα κοὐδὲν αὐτῶν ψεύδεται.</l>
 						</lg>
 					</sp>
-					<sp who="#SCA">
-						<speaker>SemicoroA</speaker>
+					<sp xml:id="ach-sp-0187" who="#semicoro-a">
+						<speaker xml:lang="it">Semicoro A</speaker>
 						<lg>
 							<l>Εἶτ' εἰ δίκαια, τοῦτον εἰπεῖν αὔτ' ἐχρῆν;</l>
 							<l>Ἀλλ' οὔτι χαίρων ταῦτα τολμήσει λέγειν.</l>
 						</lg>
 					</sp>
-					<sp who="#SCB">
-						<speaker>SemicoroB</speaker>
+					<sp xml:id="ach-sp-0188" who="#semicoro-b">
+						<speaker xml:lang="it">Semicoro B</speaker>
 						<lg>
 							<l>Οὗτος σύ, ποῖ θεῖς; Οὐ μενεῖς; Ὡς εἰ θενεῖς</l>
 							<l>τὸν ἄνδρα τοῦτον, αὐτὸς ἀρθήσει τάχα.</l>
 						</lg>
 					</sp>
-					<sp who="#SCA">
-						<speaker>SemicoroA</speaker>
+					<sp xml:id="ach-sp-0189" who="#semicoro-a">
+						<speaker xml:lang="it">Semicoro A</speaker>
 						<lg>
 							<l>Ἰὼ Λάμαχ', ὦ βλέπων ἀστραπάς,</l>
 							<l>βοήθησον, ὦ γοργολόφα, φανείς,</l>
@@ -1422,127 +1583,127 @@
 							<l>τις ἁνύσας· ἐγὼ γὰρ ἔχομαι μέσος.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0190" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<lg>
 							<l>Πόθεν βοῆς ἤκουσα πολεμιστηρίας;</l>
 							<l>Ποῖ χρὴ βοηθεῖν; Ποῖ κυδοιμὸν ἐμβαλεῖν;</l>
 							<l>Τίς Γοργόν' ἐξήγειρεν ἐκ τοῦ σάγματος;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0191" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ὦ Λάμαχ', ἥρως τῶν λόφων καὶ τῶν λόχων.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0192" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ὦ Λάμαχ', οὐ γὰρ οὗτος ἅνθρωπος πάλαι</l>
 							<l>ἅπασαν ἡμῶν τὴν πόλιν κακορροθεῖ;</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0193" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Οὗτος, σὺ τολμᾷς πτωχὸς ὢν λέγειν τάδε;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0194" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ Λάμαχ' ἥρως, ἀλλὰ συγγνώμην ἔχε,</l>
 							<l>εἰ πτωχὸς ὢν εἶπόν τι κἀστωμυλάμην.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0195" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Τί δ' εἶπας ἡμᾶς; Οὐκ ἐρεῖς;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0196" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Οὐκ οἶδά πω·</l>
 							<l>ὑπὸ τοῦ δέους γὰρ τῶν ὅπλων εἰλιγγιῶ.</l>
 							<l>Ἀλλ', ἀντιβολῶ σ', ἀπένεγκέ μου τὴν μορμόνα.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0197" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ἰδού.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0198" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Παράθες νυν ὑπτίαν αὐτὴν ἐμοί.</l>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0199" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Κεῖται.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0200" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Φέρε νυν ἀπὸ τοῦ κράνους μοι τὸ πτερόν.</l>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0201" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Τουτὶ πτίλον σοι.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0202" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Τῆς κεφαλῆς νύν μου λαβοῦ,</l>
 							<l>ἵν' ἐξεμέσω· βδελύττομαι γὰρ τοὺς λόφους.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0203" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<lg>
 							<l>Οὗτος, τί δράσεις; Τῷ πτίλῳ μέλλεις ἐμεῖν;</l>
 							<l>Πτίλον γάρ ἐστιν ‑</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0204" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Εἰπέ μοι, τίνος ποτὲ</l>
 							<l>ὄρνιθός ἐστιν; Ἆρα κομπολακύθου;</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0205" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Οἴμ' ὡς τεθνήξεις.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0206" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Μηδαμῶς, ὦ Λάμαχε</l>
 							<l>οὐ γὰρ κατ' ἰσχύν ἐστιν· εἰ δ' ἰσχυρὸς εἶ,</l>
 							<l>τί μ' οὐκ ἀπεψώλησας; Εὔοπλος γὰρ εἶ.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0207" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ταυτὶ λέγεις σὺ τὸν στρατηγὸν πτωχὸς ὤν,</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0208" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ἐγὼ γάρ εἰμι πτωχός;</l>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0209" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ἀλλὰ τίς γὰρ εἶ;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0210" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὅστις; πολίτης χρηστός, οὐ σπουδαρχίδης,</l>
 							<l>ἀλλ' ἐξ ὅτουπερ ὁ πόλεμος, στρατωνίδης,</l>
 							<l>σὺ δ' ἐξ ὅτουπερ ὁ πόλεμος, μισθαρχίδης</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0211" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ἐχειροτόνησαν γάρ με ‑</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0212" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>κόκκυγές γε τρεῖς.</l>
 							<l>Ταῦτ' οὖν ἐγὼ βδελυττόμενος ἐσπεισάμην,</l>
@@ -1555,12 +1716,12 @@
 							<l>τοὺς δ' ἐν Καμαρίνῃ κἀν Γέλᾳ κἀν Καταγέλᾳ.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0213" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ἐχειροτονήθησαν γάρ.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0214" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Αἴτιον δὲ τί</l>
 							<l>ὑμᾶς μὲν ἀεὶ μισθοφορεῖν ἁμῃγέπῃ,</l>
@@ -1575,24 +1736,24 @@
 							<l>ἅπαντες ἐξίστω παρῄνουν οἱ φίλοι.</l>
 						</lg>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0215" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<l>Ὦ δημοκρατία, ταῦτα δῆτ' ἀνασχετά;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0216" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Οὐ δῆτ', ἐὰν μὴ μισθοφορῇ γε Λάμαχος.</l>
 					</sp>
-					<sp who="#La">
-						<speaker>Lamaco</speaker>
+					<sp xml:id="ach-sp-0217" who="#lamaco">
+						<speaker xml:lang="it">Lamaco</speaker>
 						<lg>
 							<l>Ἀλλ' οὖν ἐγὼ μὲν πᾶσι Πελοποννησίοις</l>
 							<l>ἀεὶ πολεμήσω καὶ ταράξω πανταχῇ,</l>
 							<l>καὶ ναυσὶ καὶ πεζοῖσι, κατὰ τὸ καρτερόν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0218" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἐγὼ δὲ κηρύττω γε Πελοποννησίοις</l>
 							<l>ἅπασι καὶ Μεγαρεῦσι καὶ Βοιωτίοις</l>
@@ -1600,9 +1761,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="Str" n="2">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-013" type="section" subtype="choral" n="2">
+					<sp xml:id="ach-sp-0219" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἁνὴρ νικᾷ τοῖσι λόγοισιν, καὶ τὸν δῆμον μεταπείθει</l>
 							<l>περὶ τῶν σπονδῶν. Ἀλλ' ἀποδύντες τοῖς ἀναπαίστοις ἐπίωμεν.</l>
@@ -1645,11 +1806,11 @@
 							<l>δειλὸς καὶ λακαταπύγων.</l>
 						</lg>
 					</sp>
-					<div type="strofe">
-						<sp who="#Co">
-							<speaker>Coro</speaker>
+					<div xml:id="ach-div-014" type="subsection" subtype="strophe">
+						<sp xml:id="ach-sp-0220" who="#coro">
+							<speaker xml:lang="it">Coro</speaker>
 							<lg>
-								<l>Δεῦρο Μοῦσ' ἐλθὲ φλεγυρὰ πυρὸς ἔ- </l>
+								<l>Δεῦρο Μοῦσ' ἐλθὲ φλεγυρὰ πυρὸς ἔ-</l>
 								<l>χουσα μένος ἔντονος Ἀχαρνική.</l>
 								<l>Οἷον ἐξ ἀνθράκων πρινίνων φέψαλος ἀν-</l>
 								<l>ήλατ' ἐρεθιζόμενος οὐρίᾳ ῥιπίδι,</l>
@@ -1672,14 +1833,14 @@
 								<l>κᾆτ' ἀνελκύσας ἐρωτᾷ σκανδάληθρ' ἱστὰς ἐπῶν</l>
 								<l>ἄνδρα Τιθωνὸν σπαράττων καὶ ταράττων καὶ κυκῶν.</l>
 								<l>Ὁ δ' ὑπὸ γήρως μασταρύζει, κᾆτ' ὀφλὼν ἀπέρχεται</l>
-								<l>0εἶτα λύζει καὶ δακρύει καὶ λέγει πρὸς τοὺς φίλους·</l>
+								<l>εἶτα λύζει καὶ δακρύει καὶ λέγει πρὸς τοὺς φίλους·</l>
 								<l>"Οὗ μ' ἐχρῆν σορὸν πρίασθαι τοῦτ' ὀφλὼν ἀπέρχομαι."</l>
 							</lg>
 						</sp>
 					</div>
-					<div type="antistrofe">
-						<sp who="#Co">
-							<speaker>Coro</speaker>
+					<div xml:id="ach-div-015" type="subsection" subtype="antistrophe">
+						<sp xml:id="ach-sp-0221" who="#coro">
+							<speaker xml:lang="it">Coro</speaker>
 							<lg>
 								<l>Ταῦτα πῶς εἰκότα, γέροντ' ἀπολέ-</l>
 								<l>σαι πολιὸν ἄνδρα περὶ κλεψύδραν,</l>
@@ -1697,7 +1858,7 @@
 								<l>ἄνδρα πρεσβύτην ὑπ' ἀνδρὸς τοξότου κυκώμενον</l>
 								<l>ὃς μὰ τὴν Δήμητρ', ἐκεῖνος ἡνίκ' ἦν Θουκυδίδης,</l>
 								<l>οὐδ' ἂν αὐτὴν τὴν Ἀχαίαν ῥᾳδίως ἠνέσχετο,</l>
-								<l>ἀλλὰ κατεπάλαισε μέν ‹γ'› ἂν πρῶτον Εὐάθλους δέκα,</l>
+								<l>ἀλλὰ κατεπάλαισε μέν <supplied reason="omitted" resp="#coulon">γ'</supplied> ἂν πρῶτον Εὐάθλους δέκα,</l>
 								<l>κατεβόησε δ' ἂν κεκραγὼς τοξότας τρισχιλίους,</l>
 								<l>περιετόξευσεν δ' ἂν αὐτοῦ τοῦ πατρὸς τοὺς ξυγγενεῖς.</l>
 								<l>Ἀλλ' ἐπειδὴ τοὺς γέροντας οὐκ ἐᾶθ' ὕπνου τυχεῖν,</l>
@@ -1710,9 +1871,9 @@
 						</sp>
 					</div>
 				</div>
-			<div type="scena" n="4">
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+			<div xml:id="ach-div-016" type="section" subtype="scene" n="4">
+				<sp xml:id="ach-sp-0222" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὅροι μὲν ἀγορᾶς εἰσιν οἵδε τῆς ἐμῆς.</l>
 						<l>Ἐνταῦθ' ἀγοράζειν πᾶσι Πελοποννησίοις</l>
@@ -1726,8 +1887,8 @@
 						<l>μέτειμ', ἵνα στήσω φανερὰν ἐν τἀγορᾷ.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0223" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ἀγορὰ 'ν Ἀθάναις, χαῖρε, Μεγαρεῦσιν φίλα.</l>
 						<l>Ἐπόθουν τυ ναὶ τὸν Φίλιον ᾇπερ ματέρα.</l>
@@ -1737,12 +1898,12 @@
 						<l>πότερα πεπρᾶσθαι χρῄδδετ' ἢ πεινῆν κακῶς;</l>
 					</lg>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
+				<sp xml:id="ach-sp-0224" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
 					<l>Πεπρᾶσθαι πεπρᾶσθαι.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0225" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ἐγώνγα καὐτός φαμι. Τίς δ' οὕτως ἄνους</l>
 						<l>ὃς ὑμέ κα πρίαιτο, φανερὰν ζαμίαν;</l>
@@ -1760,31 +1921,31 @@
 						<l>Δικαιόπολι, ἦ λῇς πρίασθαι χοιρία;</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0226" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί; Ἀνὴρ Μεγαρικός;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0227" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Ἀγορασοῦντες εἵκομες.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0228" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Πῶς ἔχετε;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0229" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Διαπεινᾶμες ἀεὶ ποττὸ πῦρ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0230" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἀλλ' ἡδύ τοι νὴ τὸν Δί', ἢν αὐλὸς παρῇ.</l>
 						<l>Τί δ' ἄλλο πράττεθ' οἱ Μεγαρῆς νῦν;</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0231" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Οἷα δή.</l>
 						<l>Ὅκα μὲν ἐγὼν τηνῶθεν ἐμπορευόμαν,</l>
@@ -1792,86 +1953,86 @@
 						<l>ὅπως τάχιστα καὶ κάκιστ' ἀπολοίμεθα.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0232" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Αὐτίκ' ἄρ' ἀπαλλάξεσθε πραγμάτων.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
-					<l> Σά μάν;</l>
+				<sp xml:id="ach-sp-0233" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
+					<l>Σά μάν;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0234" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δ' ἄλλο Μεγαροῖ; Πῶς ὁ σῖτος ὤνιος;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0235" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Πὰρ ἁμὲ πολυτίματος ᾇπερ τοὶ θεοί.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0236" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἅλας οὖν φέρεις;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0237" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Οὐχ ὑμὲς αὐτῶν ἄρχετε;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Οὐδὲ σκόροδα;</l>
+				<sp xml:id="ach-sp-0238" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Οὐδὲ σκόροδα;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0239" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ποῖα σκόροδ'; Ὑμὲς τῶν ἀεί,</l>
 						<l>ὅκκ' εἰσβάλητε, τὼς ἀρωραῖοι μύες,</l>
 						<l>πάσσακι τὰς ἄγλιθας ἐξορύσσετε.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0240" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δαὶ φέρεις;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0241" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Χοίρως ἐγώνγα μυστικάς.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Καλῶς λέγεις· ἐπίδειξον.</l>
+				<sp xml:id="ach-sp-0242" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Καλῶς λέγεις· ἐπίδειξον.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0243" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ἀλλὰ μὰν καλαί.</l>
 						<l>Ἄντεινον, αἰ λῇς· ὡς παχεῖα καὶ καλά.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0244" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τουτὶ τί ἦν τὸ πρᾶγμα;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0245" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Χοῖρος ναὶ Δία.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0246" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί λέγεις σύ; ποδαπὴ χοῖρος ἥδε;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0247" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Μεγαρικά.</l>
 						<l>Ἢ οὐ χοῖρός ἐσθ' ἅδ';</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0248" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Οὐκ ἔμοιγε φαίνεται.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0249" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Οὐ δεινά; Θᾶσθε, τῶδε τᾶς ἀπιστίας·</l>
 						<l>οὔ φατι τάνδε χοῖρον εἶμεν. Ἀλλὰ μάν,</l>
@@ -1879,155 +2040,155 @@
 						<l>αἰ μή 'στιν οὗτος χοῖρος Ἑλλάνων νόμῳ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Ἀλλ' ἔστιν ἀνθρώπου γε.</l>
+				<sp xml:id="ach-sp-0250" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Ἀλλ' ἔστιν ἀνθρώπου γε.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0251" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ναὶ τὸν Διοκλέα,</l>
 						<l>ἐμά γα. Τὺ δέ νιν εἴμεναι τίνος δοκεῖς;</l>
 						<l>Ἦ λῇς ἀκοῦσαι φθεγγομένας;</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0252" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Νὴ τοὺς θεοὺς</l>
 						<l>ἔγωγε.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0253" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Φώνει δὴ ταχέως τι, χοιρίον.</l>
 						<l>Οὐ χρῆσθα; Σιγῇς, ὦ κάκιστ' ἀπολουμένα;</l>
 						<l>Πάλιν τυ ἀποισῶ ναὶ τὸν Ἑρμᾶν οἴκαδις.</l>
 					</lg>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
+				<sp xml:id="ach-sp-0254" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
 					<l>Κοῒ κοΐ.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0255" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Αὕτα 'στὶ χοῖρος;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0256" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Νῦν γε χοῖρος φαίνεται.</l>
 						<l>Ἀτὰρ ἐκτραφείς γε κύσθος ἔσται.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0257" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Πέντ' ἐτῶν,</l>
 						<l>σάφ' ἴσθι, ποττὰν ματέρ' εἰκασθήσεται.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0258" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλ' οὐχὶ θύσιμός ἐστιν αὑτηγί.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0259" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Σά μάν;</l>
 						<l>πᾶ δ' οὐκὶ θύσιμός ἐστι;</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0260" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Κέρκον οὐκ ἔχει.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0261" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Νεαρὰ γάρ ἐστιν· ἀλλὰ δελφακουμένα</l>
 						<l>ἑξεῖ μεγάλαν τε καὶ παχεῖαν κἠρυθράν.</l>
 						<l>Ἀλλ' αἰ τράφειν λῇς, ἅδε τοι χοῖρος καλά.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0262" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὡς ξυγγενὴς ὁ κύσθος αὐτῆς θἀτέρᾳ.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0263" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ὁμοματρία γάρ ἐστι κἠκ τωὐτῶ πατρός.</l>
 						<l>Αἰ δ' ἀμπαχυνθῇ κἀναχνοιανθῇ τριχί,</l>
 						<l>κάλλιστος ἔσται χοῖρος Ἀφροδίτᾳ θύειν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0264" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλ' οὐχὶ χοῖρος τἀφροδίτῃ θύεται,</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0265" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Οὐ χοῖρος Ἀφροδίτᾳ; Μόνᾳ γα δαιμόνων.</l>
 						<l>Καὶ γίνεταί γα τᾶνδε τᾶν χοίρων τὸ κρῆς</l>
 						<l>ἅδιστον ἂν τὸν ὀδελὸν ἀμπεπαρμένον.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0266" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἤδη δ' ἄνευ τῆς μητρὸς ἐσθίοιεν ἄν;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0267" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Ναὶ τὸν Ποτιδᾶ, καί κ' ἄνις γα τῶ πατρός.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0268" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δ' ἐσθίει μάλιστα;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0269" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Πάνθ' ἅ κα διδῷς.</l>
 						<l>Αὐτὸς δ' ἐρώτη.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0270" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Χύρρε χύρρε.</l>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
+				<sp xml:id="ach-sp-0271" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
 					<l>Κοῒ κοΐ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0272" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τρώγοιτ' ἂν ἐρεβίνθους;</l>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
+				<sp xml:id="ach-sp-0273" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
 					<l>Κοῒ Κοῒ κοΐ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0274" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δαί; Φιβάλεως ἰσχάδας;</l>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
+				<sp xml:id="ach-sp-0275" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
 					<l>Κοῒ κοΐ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l><del resp="editore-Coulon">Τί δαί; Σῦκα τρώγοις ἂν αὐτός;</del></l>
+				<sp xml:id="ach-sp-0276" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l><surplus resp="#coulon">Τί δαί; Σῦκα τρώγοις ἂν αὐτός;</surplus></l>
 				</sp>
-				<sp who="#Ra">
-					<speaker>Ragazza</speaker>
-					<l><del resp="editore-Coulon">Κοῒ κοΐ.</del></l>
+				<sp xml:id="ach-sp-0277" who="#ragazza">
+					<speaker xml:lang="it">Ragazza</speaker>
+					<l><surplus resp="#coulon">Κοῒ κοΐ.</surplus></l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0278" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὡς ὀξὺ πρὸς τὰς ἰσχάδας κεκράγατον.</l>
 						<l>Ἐνεγκάτω τις ἔνδοθεν τῶν ἰσχάδων</l>
@@ -2036,118 +2197,118 @@
 						<l>Ποδαπὰ τὰ χοιρί'; Ὡς Τραγασαῖα φαίνεται.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0279" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ἀλλ' οὐκὶ πάσας κατέτραγον τὰς ἰσχάδας.</l>
 						<l>Ἐγὼν γὰρ αὐτᾶν τάνδε μίαν ἀνειλόμαν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0280" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Νὴ τὸν Δί', ἀστείω γε τὼ βοσκήματε.</l>
 						<l>Πόσου πρίωμαί σοι τὰ χοιρίδια; λέγε.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0281" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Τὸ μὲν ἅτερον τοῦτο σκορόδων τροπαλίδος,</l>
 						<l>τὸ δ' ἅτερον, αἰ λῇς, χοίνικος μόνας ἁλῶν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0282" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὠνήσομαί σοι· περίμεν' αὐτοῦ.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0283" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ταῦτα δή.</l>
 						<l>Ἑρμᾶ 'μπολαῖε, τὰν γυναῖκα τὰν ἐμὰν</l>
 						<l>οὕτω μ' ἀποδόσθαι τάν τ' ἐμωυτῶ ματέρα.</l>
 					</lg>
 				</sp>
-				<sp who="#Si">
-					<speaker>Sicofante</speaker>
+				<sp xml:id="ach-sp-0284" who="#sicofante">
+					<speaker xml:lang="it">Sicofante</speaker>
 					<l>Ὦνθρωπε, ποδαπός;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0285" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Χοιροπώλας Μεγαρικός.</l>
 				</sp>
-				<sp who="#Si">
-					<speaker>Sicofante</speaker>
+				<sp xml:id="ach-sp-0286" who="#sicofante">
+					<speaker xml:lang="it">Sicofante</speaker>
 					<lg>
 						<l>Τὰ χοιρίδια τοίνυν ἐγὼ φαίνω ταδὶ</l>
 						<l>πολέμια καὶ σέ.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0287" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Τοῦτ' ἐκεῖν'· εἵκει πάλιν</l>
 						<l>ὅθενπερ ἀρχὰ τῶν κακῶν ἁμὶν ἔφυ.</l>
 					</lg>
 				</sp>
-				<sp who="#Si">
-					<speaker>Sicofante</speaker>
+				<sp xml:id="ach-sp-0288" who="#sicofante">
+					<speaker xml:lang="it">Sicofante</speaker>
 					<l>Κλάων μεγαριεῖς. Οὐκ ἀφήσεις τὸν σάκον;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0289" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Δικαιόπολι Δικαιόπολι, φαντάδδομαι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0290" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὑπὸ τοῦ; Τίς ὁ φαίνων σ' ἐστίν; Ἁγορανόμοι,</l>
 						<l>τοὺς συκοφάντας οὐ θύραζ' ἐξείρξετε;</l>
 						<l>Τί δαὶ μαθὼν φαίνεις ἄνευ θρυαλλίδος;</l>
 					</lg>
-					
+
 				</sp>
-				<sp who="#Si">
-					<speaker>Sicofante</speaker>
+				<sp xml:id="ach-sp-0291" who="#sicofante">
+					<speaker xml:lang="it">Sicofante</speaker>
 					<l>Οὐ γὰρ φανῶ τοὺς πολεμίους;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0292" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Κλάων γε σύ,</l>
 						<l>εἰ μὴ 'τέρωσε συκοφαντήσεις τρέχων.</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0293" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Οἷον τὸ κακὸν ἐν ταῖς Ἀθάναις τοῦτ' ἔνι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0294" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Θάρρει, Μεγαρίκ'· ἀλλ' ἧς τὰ χοιρίδι' ἀπέδου</l>
 						<l>τιμῆς, λαβὲ ταυτὶ τὰ σκόροδα καὶ τοὺς ἅλας,</l>
 						<l>καὶ χαῖρε πόλλ'·</l>
 					</lg>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0295" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<l>Ἀλλ' ἁμὶν οὐκ ἐπιχώριον.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0296" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Πολυπραγμοσύνη 'στιν· ἐς κεφαλὴν τράποιτ' ἐμοί.</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Megarese</speaker>
+				<sp xml:id="ach-sp-0297" who="#megarese">
+					<speaker xml:lang="it">Megarese</speaker>
 					<lg>
 						<l>Ὦ χοιρίδια, πειρῆσθε κἄνις τῶ πατρὸς</l>
 						<l>παίειν ἐφ' ἁλὶ τὰν μᾶδδαν, αἴ κά τις διδῷ.</l>
 					</lg>
 				</sp>
-				<sp who="#Co">
-					<speaker>Coro</speaker>
+				<sp xml:id="ach-sp-0298" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
 					<lg>
 						<l>Εὐδαιμονεῖ γ' ἅνθρωπος. Οὐκ</l>
 						<l>ἤκουσας οἷ προβαίνει</l>
@@ -2183,8 +2344,8 @@
 						<l>τοῦ μηνὸς ἑκάστου.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0299" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Ἴττω Ἡρακλεῖς, ἔκαμόν γα τὰν τύλαν κακῶς.</l>
 						<l>Κατάθου τὺ τὰν γλάχων' ἀτρέμας, Ἰσμεινία·</l>
@@ -2192,33 +2353,33 @@
 						<l>τοῖς ὀστίνοις φυσεῖτε τὸν πρωκτὸν κυνός.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0300" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Παῦ'· ἐς κόρακας. Οἱ σφῆκες, οὐκ ἀπὸ τῶν θυρῶν;</l>
 						<l>Πόθεν προσέπτονθ' οἱ κακῶς ἀπολούμενοι</l>
 						<l>ἐπὶ τὴν θύραν μοι Χαιριδῆς βομβαύλιοι;</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0301" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
-						<l>Νεὶ τὸν Ἰόλαν ἐπιχαρίτως ‹τύ› γ', ὦ ξένε·</l>
+						<l>Νεὶ τὸν Ἰόλαν ἐπιχαρίτως <supplied reason="omitted" resp="#coulon">τύ</supplied> γ', ὦ ξένε·</l>
 						<l>Θείβαθε γὰρ φυσάντες ἐξόπισθέ μου</l>
 						<l>τἄνθια τᾶς γλάχωνος ἀπέκιξαν χαμαί.</l>
 						<l>Ἀλλ' εἴ τι βούλει, πρίασο τῶν ἐγὼ φέρω,</l>
 						<l>τῶν ὀρταλίχων ἢ τῶν τετραπτερυλλίδων.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0302" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὦ χαῖρε, κολλικοφάγε Βοιωτίδιον.</l>
 						<l>Τί φέρεις;</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0303" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Ὅσ' ἐστὶν ἀγαθὰ Βοιωτοῖς ἁπλῶς,</l>
 						<l>ὀρίγανον, γλαχώ, ψιάθως, θρυαλλίδας,</l>
@@ -2226,37 +2387,37 @@
 						<l>τροχίλως, κολύμβως.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0304" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὡσπερεὶ χειμὼν ἄρα</l>
 						<l>ὀρνιθίας εἰς τὴν ἀγορὰν ἐλήλυθας.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0305" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Καὶ μὰν φέρω χᾶνας, λαγώς, ἀλώπεκας,</l>
 						<l>σκάλοπας, ἐχίνως, αἰελώρως, πικτίδας,</l>
 						<l>ἰκτίδας, ἐνύδριας, ἐγχέλιας Κωπαΐδας.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0306" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὦ τερπνότατον σὺ τέμαχος ἀνθρώποις φέρων,</l>
 						<l>δός μοι προσειπεῖν, εἰ φέρεις, τὰς ἐγχέλεις.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0307" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Πρέσβειρα πεντήκοντα Κωπᾴδων κορᾶν,</l>
 						<l>ἔκβαθι τῶδε κἠπιχάριτται τῷ ξένῳ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0308" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὦ φιλτάτη σὺ καὶ πάλαι ποθουμένη,</l>
 						<l>ἦλθες ποθεινὴ μὲν τρυγῳδικοῖς χοροῖς,</l>
@@ -2270,134 +2431,135 @@
 						<l>σοῦ χωρὶς εἴην ἐντετευτλιωμένης.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0309" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<l>Ἐμοὶ δὲ τιμὰ τᾶσδε πᾶ γενείσεται;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0310" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἀγορᾶς τέλος ταύτην γέ που δώσεις ἐμοί.</l>
 						<l>Ἀλλ' εἴ τι πωλεῖς τῶνδε τῶν ἄλλων, λέγε.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
-					<l> Ἰώγα ταῦτα πάντα.</l>
+				<sp xml:id="ach-sp-0311" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
+					<l>Ἰώγα ταῦτα πάντα.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0312" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Φέρε, πόσου λέγεις;</l>
 						<l>Ἢ φορτί' ἕτερ' ἐνθένδ' ἐκεῖσ' ἄξεις ἰών;</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
+				<sp xml:id="ach-sp-0313" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<l>Ὅ τι γ' ἔστ' Ἀθάνασ', ἐν Βοιωτοῖσιν δὲ μή.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0314" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
-						<l> Ἀφύας ἄρ' ἄξεις πριάμενος Φαληρικὰς</l>
+						<l>Ἀφύας ἄρ' ἄξεις πριάμενος Φαληρικὰς</l>
 						<l>ἢ κέραμον.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0315" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Ἀφύας εἲ κέραμον; Ἀλλ' ἔντ' ἐκεῖ·</l>
 						<l>ἀλλ' ὅ τι πὰρ ἁμὶν μεί 'στι, τᾶδε δ' αὖ πολύ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0316" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἐγᾦδα τοίνυν· συκοφάντην ἔξαγε,</l>
 						<l>ὥσπερ κέραμον ἐνδησάμενος.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0317" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Νεὶ τὼ σιώ,</l>
 						<l>λάβοιμι μέντἂν κέρδος ἀγαγὼν καὶ πολύ,</l>
 						<l>ἇπερ πίθακον ἀλιτρίας πολλᾶς πλέων.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0318" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Καὶ μὴν ὁδὶ Νίκαρχος ἔρχεται φανῶν.</l>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0319" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<l>Μικκός γα μᾶκος οὗτος.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0320" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλὰ πᾶν κακόν.</l>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0321" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<l>Ταυτὶ τίνος τὰ φορτί' ἐστί;</l>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0322" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Τῶδ' ἐμὰ</l>
 						<l>Θείβαθεν, ἴττω Δεύς.</l>
 					</lg>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0323" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<lg>
 						<l>Ἐγὼ τοίνυν ὁδὶ</l>
 						<l>φαίνω πολέμια ταῦτα.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0324" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<lg>
 						<l>Τί δὲ κακὸν παθὼν</l>
 						<l>ὀρναπετίοισι πόλεμον ἤρα καὶ μάχαν;</l>
 					</lg>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
-					<l> Καὶ σέ γε φανῶ πρὸς τοῖσδε.</l>
+				<sp xml:id="ach-sp-0325" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
+					<l>Καὶ σέ γε φανῶ πρὸς τοῖσδε.</l>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
-					<l> Τί ἀδικείμενος;</l>
+				<sp xml:id="ach-sp-0326" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
+					<l>Τί ἀδικείμενος;</l>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0327" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<lg>
 						<l>Ἐγὼ φράσω σοι τῶν περιεστώτων χάριν.</l>
 						<l>Ἐκ τῶν πολεμίων εἰσάγεις θρυαλλίδα.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0328" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἔπειτα φαίνεις δῆτα διὰ θρυαλλίδα;</l>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0329" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<l>Αὕτη γὰρ ἐμπρήσειεν ἂν τὸ νεώριον.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0330" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Νεώριον θρυαλλίς;</l>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
-					<l> Οἶμαι.</l>
+				<sp xml:id="ach-sp-0331" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
+					<l>Οἶμαι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0332" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τίνι τρόπῳ;</l>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0333" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<lg>
 						<l>Ἐνθεὶς ἂν εἰς τίφην ἀνὴρ Βοιώτιος</l>
 						<l>ἅψας ἂν εἰσπέμψειεν εἰς τὸ νεώριον</l>
@@ -2406,19 +2568,19 @@
 						<l>σελαγοῖντ' ἂν εὐθύς.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0334" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὦ κάκιστ' ἀπολούμενε,</l>
-						<l>σελαγοῖντ' ἂν ὑπὸ τίφης τε καὶ θρυαλλίδος;.</l>
+						<l>σελαγοῖντ' ἂν ὑπὸ τίφης τε καὶ θρυαλλίδος;</l>
 					</lg>
 				</sp>
-				<sp who="#Ni">
-					<speaker>Nicarco</speaker>
+				<sp xml:id="ach-sp-0335" who="#nicarco">
+					<speaker xml:lang="it">Nicarco</speaker>
 					<l>Μαρτύρομαι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0336" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ξυλλάμβαν' αὐτοῦ τὸ στόμα·</l>
 						<l>δός μοι φορυτόν, ἵν' αὐτὸν ἐνδήσας φέρω</l>
@@ -2426,10 +2588,10 @@
 					</lg>
 				</sp>
 			</div>
-			<div type="Str" n="3">
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+			<div xml:id="ach-div-017" type="section" subtype="choral" n="3">
+				<div xml:id="ach-div-018" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0337" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἔνδησον, ὦ βέλτιστε, τῷ</l>
 							<l>ξένῳ καλῶς τὴν ἐμπολὴν</l>
@@ -2437,8 +2599,8 @@
 							<l>ἂν μὴ φέρων κατάξῃ</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0338" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ἐμοὶ μελήσει ταῦτ', ἐπεί</l>
 							<l>τοι καὶ ψοφεῖ λάλον τι καὶ</l>
@@ -2446,12 +2608,12 @@
 							<l>κἄλλως θεοῖσιν ἐχθρόν.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0339" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Τί χρήσεταί ποτ' αὐτῷ;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0340" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Πάγχρηστον ἄγγος ἔσται,</l>
 							<l>κρατὴρ κακῶν, τριπτὴρ δικῶν,</l>
@@ -2461,9 +2623,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-019" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0341" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Πῶς δ' ἂν πεποιθοίη τις ἀγ-</l>
 							<l>γείῳ τοιούτῳ χρώμενος</l>
@@ -2471,8 +2633,8 @@
 							<l>τοσόνδ' ἀεὶ ψοφοῦντι;</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0342" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>ἘἸσχυρόν ἐστιν, ὦγάθ', ὥστ'</l>
 							<l>οὐκ ἂν καταγείη ποτ', εἴ-</l>
@@ -2480,39 +2642,39 @@
 							<l>κατωκάρα κρέμαιτο.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0343" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Ἤδη καλῶς ἔχει σοι.</l>
 					</sp>
-					<sp who="#Teb">
-						<speaker>Tebano</speaker>
+					<sp xml:id="ach-sp-0344" who="#tebano">
+						<speaker xml:lang="it">Tebano</speaker>
 						<l>Μέλλω γά τοι θερίδδειν.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0345" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἀλλ', ὦ ξένων βέλτιστε, συν-</l>
-							<l>θέριζε καὶ<del resp="editore Coulon">[τοῦτον λαβὼν]</del>πρόσβαλλ' ὅποι</l>
+							<l>θέριζε καὶ<surplus resp="#coulon">τοῦτον λαβὼν</surplus>πρόσβαλλ' ὅποι</l>
 							<l>βούλει φέρων</l>
 							<l>πρὸς πάντα συκοφάντην.</l>
 						</lg>
 					</sp>
 				</div>
 			</div>
-			<div type="Scena" n="5">
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+			<div xml:id="ach-div-020" type="section" subtype="scene" n="5">
+				<sp xml:id="ach-sp-0346" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Μόλις γ' ἐνέδησα τὸν κακῶς ἀπολούμενον.</l>
 						<l>Αἴρου λαβὼν τὸν κέραμον, ὦ Βοιώτιε.</l>
 					</lg>
 				</sp>
-				<sp who="#Teb">
-					<speaker>Tebano</speaker>
+				<sp xml:id="ach-sp-0347" who="#tebano">
+					<speaker xml:lang="it">Tebano</speaker>
 					<l>Ὑπόκυπτε τὰν τύλαν ἰών, Ἰσμείνιχε.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0348" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Χὤπως κατοίσεις αὐτὸν εὐλαβουμένως.</l>
 						<l>Πάντως μὲν οἴσεις οὐδὲν ὑγιές, ἀλλ' ὅμως·</l>
@@ -2520,16 +2682,16 @@
 						<l>εὐδαιμονήσεις συκοφαντῶν γ' οὕνεκα.</l>
 					</lg>
 				</sp>
-					<sp who="#ML">
-					<speaker>Messaggero di Lamaco</speaker>
+					<sp xml:id="ach-sp-0349" who="#messaggero-lamaco">
+					<speaker xml:lang="it">Messaggero di Lamaco</speaker>
 					<l>Δικαιόπολι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0350" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί ἐστι; Τί με βωστρεῖς;</l>
 				</sp>
-				<sp who="#ML">
-					<speaker>Messaggero di Lamaco</speaker>
+				<sp xml:id="ach-sp-0351" who="#messaggero-lamaco">
+					<speaker xml:lang="it">Messaggero di Lamaco</speaker>
 					<lg>
 						<l>Ὅ τι;</l>
 						<l>ἐκέλευε Λάμαχός σε ταυτησὶ δραχμῆς</l>
@@ -2537,19 +2699,19 @@
 						<l>τριῶν δραχμῶν δ' ἐκέλευε Κωπᾷδ' ἔγχελυν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0352" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὁ ποῖος οὗτος Λάμαχος τὴν ἔγχελυν;</l>
 				</sp>
-				<sp who="#ML">
-					<speaker>Messaggero di Lamaco</speaker>
+				<sp xml:id="ach-sp-0353" who="#messaggero-lamaco">
+					<speaker xml:lang="it">Messaggero di Lamaco</speaker>
 					<lg>
-						<l> Ὁ δεινός, ὁ ταλαύρινος, ὃς τὴν Γοργόνα</l>
+						<l>Ὁ δεινός, ὁ ταλαύρινος, ὃς τὴν Γοργόνα</l>
 						<l>πάλλει κραδαίνων τρεῖς κατασκίους λόφους.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0354" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Οὐκ ἂν μὰ Δί', εἰ δοίη γέ μοι τὴν ἀσπίδα</l>
 						<l>ἀλλ' ἐπὶ ταρίχει τοὺς λόφους κραδαινέτω</l>
@@ -2559,10 +2721,10 @@
 					</lg>
 				</sp>
 			</div>
-			<div type="Str" n="4">
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+			<div xml:id="ach-div-021" type="section" subtype="choral" n="4">
+				<div xml:id="ach-div-022" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0355" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Εἶδες, ὦ πᾶσα πόλι, τὸν φρόνιμον ἄνδρα, τὸν ὑπέρσοφον,</l>
 							<l>οἷ' ἔχει σπεισάμενος ἐμπορικὰ χρήματα διεμπολᾶν,</l>
@@ -2580,14 +2742,14 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-023" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0356" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἐπτέρωταί τ' ἐπὶ τὸ δεῖπνον ἅμα καὶ μεγάλα δὴ φρονεῖ,</l>
-							<l>τοῦ βίου δ' ἐξέβαλε δεῖγμα ‹τάδε› τὰ πτερὰ πρὸ τῶν θυρῶν.</l>
+							<l>τοῦ βίου δ' ἐξέβαλε δεῖγμα <supplied reason="omitted" resp="#coulon">τάδε</supplied> τὰ πτερὰ πρὸ τῶν θυρῶν.</l>
 							<l>Ὦ Κύπριδι τῇ καλῇ καὶ Χάρισι ταῖς φίλαις ξύντροφε Διαλλαγή,</l>
-							<l>0ὡς καλὸν ἔχουσα τὸ πρόσωπον ἄρ' ἐλάνθανες.</l>
+							<l>ὡς καλὸν ἔχουσα τὸ πρόσωπον ἄρ' ἐλάνθανες.</l>
 							<l>Πῶς ἂν ἐμὲ καὶ σέ τις Ἔρως ξυναγάγοι λαβών</l>
 							<l>ὥσπερ ὁ γεγραμμένος ἔχων στέφανον ἀνθέμων;</l>
 							<l>Ἢ πάνυ γερόντιον ἴσως νενόμικάς με σύ;</l>
@@ -2599,16 +2761,16 @@
 							<l>ὥστ' ἀλείφεσθαι σ' ἀπ' αὐτῶν κἀμὲ ταῖς νουμηνίαις.</l>
 						</lg>
 					</sp>
-					<sp who="Ar">
-						<speaker>Araldo</speaker>
+					<sp xml:id="ach-sp-0357" who="#araldo">
+						<speaker xml:lang="it">Araldo</speaker>
 						<lg>
 							<l>Ἀκούετε λεῴ· κατὰ τὰ πάτρια τοὺς Χοᾶς</l>
 							<l>πίνειν ὑπὸ τῆς σάλπιγγος· ὃς δ' ἂν ἐκπίῃ</l>
 							<l>πρώτιστος, ἀσκὸν Κτησιφῶντος λήψεται.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0358" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Ὦ παῖδες, ὦ γυναῖκες, οὐκ ἠκούσατε;</l>
 							<l>Τί δρᾶτε; Τοῦ κήρυκος οὐκ ἀκούετε;</l>
@@ -2618,32 +2780,32 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-024" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0359" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ζηλῶ σε τῆς εὐβουλίας,</l>
 							<l>μᾶλλον δὲ τῆς εὐωχίας,</l>
 							<l>ἄνθρωπε, τῆς παρούσης</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0360" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Τί δῆτ', ἐπειδὰν τὰς κίχλας</l>
 							<l>ὀπτωμένας ἴδητε;</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0361" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Οἶμαί σε καὶ τοῦτ' εὖ λέγειν.</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0362" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Τὸ πῦρ ὑποσκάλευε.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0363" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἤκουσας ὡς μαγειρικῶς</l>
 							<l>κομψῶς τε καὶ δειπνητικῶς</l>
@@ -2652,181 +2814,181 @@
 					</sp>
 				</div>
 			</div>
-			<div type="scena" n="6">
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+			<div xml:id="ach-div-025" type="section" subtype="scene" n="6">
+				<sp xml:id="ach-sp-0364" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<l>Οἴμοι τάλας.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0365" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὦ Ἡράκλεις, τίς οὑτοσί;</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0366" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<l>Ἀνὴρ κακοδαίμων.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0367" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Κατὰ σεαυτόν νυν τρέπου.</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0368" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<lg>
 						<l>Ὦ φίλτατε, σπονδαὶ γάρ εἰσι σοὶ μόνῳ,</l>
 						<l>μέτρησον εἰρήνης τί μοι, κἂν πέντ' ἔτη.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0369" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί δ' ἔπαθες;</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
-					<l> Ἐπετρίβην ἀπολέσας τὼ βόε.</l>
+				<sp xml:id="ach-sp-0370" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
+					<l>Ἐπετρίβην ἀπολέσας τὼ βόε.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0371" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Πόθεν;</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0372" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<l>Ἀπὸ Φυλῆς ἔλαβον οἱ Βοιώτιοι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0373" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὦ τρισκακόδαιμον, εἶτα λευκὸν ἀμπέχει;</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0374" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<lg>
 						<l>Καὶ ταῦτα μέντοι νὴ Δί' ὥπερ μ' ἐτρεφέτην</l>
 						<l>ἐν πᾶσι βολίτοις.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0375" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Εἶτα νυνὶ τοῦ δέει;</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0376" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<lg>
 						<l>Ἀπόλωλα τὠφθαλμὼ δακρύων τὼ βόε.</l>
 						<l>Ἀλλ' εἴ τι κήδει Δερκέτου Φυλασίου,</l>
 						<l>ὑπάλειψον εἰρήνῃ με τὠφθαλμὼ ταχύ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0377" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλ', ὦ πόνηρ', οὐ δημοσιεύων τυγχάνω.</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0378" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<l>Ἴθ' ἀντιβολῶ σ', ἤν πως κομίσωμαι τὼ βόε.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0379" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Οὐκ ἔστιν, ἀλλὰ κλᾶε πρὸς τοὺς Πιττάλου.</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0380" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<lg>
 						<l>Σὺ δ' ἀλλά μοι σταλαγμὸν εἰρήνης ἕνα</l>
 						<l>εἰς τὸν καλαμίσκον ἐνστάλαξον τουτονί.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0381" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Οὐδ' ἂν στριβιλικίγξ· ἀλλ' ἀπιὼν οἴμωζέ ποι.</l>
 				</sp>
-				<sp who="#Con">
-					<speaker>Contadino</speaker>
+				<sp xml:id="ach-sp-0382" who="#contadino">
+					<speaker xml:lang="it">Contadino</speaker>
 					<l>Οἴμοι κακοδαίμων τοῖν γεωργοῖν βοιδίοιν.</l>
 				</sp>
 			</div>
-			<div type="Str" n="5">
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+			<div xml:id="ach-div-026" type="section" subtype="choral" n="5">
+				<div xml:id="ach-div-027" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0383" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἁνὴρ ἀνηύρηκέν τι ταῖς</l>
 							<l>σπονδαῖσιν ἡδύ, κοὐκ ἔοι-</l>
 							<l>κεν οὐδενὶ μεταδώσειν.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0384" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<lg>
 							<l>Κατάχει σὺ τῆς χορδῆς τὸ μέλι·</l>
 							<l>ὰς σηπίας στάθευε.</l>
 						</lg>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0385" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<l>Ἤκουσας ὀρθιασμάτων;</l>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0386" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ὀπτᾶτε τἀγχέλεια.</l>
 					</sp>
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+					<sp xml:id="ach-sp-0387" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἀποκτενεῖς λιμῷ 'μὲ καὶ</l>
 							<l>τοὺς γείτονας κνίσῃ τε καὶ</l>
 							<l>φωνῇ τοιαῦτα λάσκων.</l>
 						</lg>
 					</sp>
-					<sp who="#Di">
-						<speaker>Diceopoli</speaker>
+					<sp xml:id="ach-sp-0388" who="#diceopoli">
+						<speaker xml:lang="it">Diceopoli</speaker>
 						<l>Ὀπτᾶτε ταυτὶ καὶ καλῶς ξανθίζετε.</l>
 					</sp>
 				</div>
 			</div>
-			<div type="scena" n="6">
-				<sp who="#Da">
-					<speaker>Damigella</speaker>
-					<l>Δικαιόπολι,<add resp="editore Coulon">‹Δικαιόπολι.›</add></l>
+			<div xml:id="ach-div-028" type="section" subtype="scene" n="6">
+				<sp xml:id="ach-sp-0389" who="#damigella">
+					<speaker xml:lang="it">Damigella</speaker>
+					<l>Δικαιόπολι,<supplied reason="omitted" resp="#coulon">Δικαιόπολι.</supplied></l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0390" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τίς οὑτοσί;</l>
 				</sp>
-				<sp who="#Da">
-					<speaker>Damigella</speaker>
+				<sp xml:id="ach-sp-0391" who="#damigella">
+					<speaker xml:lang="it">Damigella</speaker>
 					<lg>
 						<l>Ἔπεμψέ τίς σοι νυμφίος ταυτὶ κρέα</l>
 						<l>ἐκ τῶν γάμων.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0392" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Καλῶς γε ποιῶν ὅστις ἦν.</l>
 				</sp>
-				<sp who="#Da">
-					<speaker>Damigella</speaker>
+				<sp xml:id="ach-sp-0393" who="#damigella">
+					<speaker xml:lang="it">Damigella</speaker>
 					<lg>
 						<l>Ἐκέλευε δ' ἐγχέαι σε τῶν κρεῶν χάριν,</l>
 						<l>ἵνα μὴ στρατεύοιτ', ἀλλὰ κινοίη μένων,</l>
 						<l>εἰς τὸν ἀλάβαστον κύαθον εἰρήνης ἕνα.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0394" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἀπόφερ', ἀπόφερε τὰ κρέα καὶ μή μοι δίδου,</l>
 						<l>ὡς οὐκ ἂν ἐγχέαιμι χιλιῶν δραχμῶν.</l>
 						<l>Ἀλλ' αὑτηὶ τίς ἐστιν;</l>
 					</lg>
 				</sp>
-				<sp who="#Da">
-					<speaker>Damigella</speaker>
+				<sp xml:id="ach-sp-0395" who="#damigella">
+					<speaker xml:lang="it">Damigella</speaker>
 					<lg>
 						<l>Ἡ νυμφεύτρια</l>
 						<l>δεῖται παρὰ τῆς νύμφης τι σοὶ λέξαι μόνῳ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0396" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Φέρε δή, τί σὺ λέγεις; Ὡς γέλοιον, ὦ θεοί,</l>
 						<l>τὸ δέημα τῆς νύμφης, ὃ δεῖταί μου σφόδρα,</l>
@@ -2841,23 +3003,23 @@
 						<l>ἵν' οἶνον ἐγχέω λαβὼν εἰς τοὺς Χοᾶς.</l>
 					</lg>
 				</sp>
-				<sp who="#Co">
-					<speaker>Coro</speaker>
+				<sp xml:id="ach-sp-0397" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
 					<lg>
 						<l>Καὶ μὴν ὁδί τις τὰς ὀφρῦς ἀνεσπακὼς</l>
 						<l>ὥσπερ τι δεινὸν ἀγγελῶν ἐπείγεται.</l>
 					</lg>
 				</sp>
-				<sp who="#Ar">
-					<speaker>Araldo</speaker>
+				<sp xml:id="ach-sp-0398" who="#araldo">
+					<speaker xml:lang="it">Araldo</speaker>
 					<l>Ἰὼ πόνοι τε καὶ μάχαι καὶ Λάμαχοι.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0399" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Τίς ἀμφὶ χαλκοφάλαρα δώματα κτυπεῖ;</l>
 				</sp>
-				<sp who="#Ar">
-					<speaker>Araldo</speaker>
+				<sp xml:id="ach-sp-0400" who="#araldo">
+					<speaker xml:lang="it">Araldo</speaker>
 					<lg>
 						<l>Ἰέναι σ' ἐκέλευον οἱ στρατηγοὶ τήμερον</l>
 						<l>ταχέως λαβόντα τοὺς λόχους καὶ τοὺς λόφους·</l>
@@ -2866,47 +3028,47 @@
 						<l>ἤγγειλε λῃστὰς ἐμβαλεῖν Βοιωτίους.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0401" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἰὼ στρατηγοὶ πλείονες ἢ βελτίονες.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0402" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Οὐ δεινὰ μὴ 'ξεῖναί με μηδ' ἑορτάσαι;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0403" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἰὼ στράτευμα πολεμολαμαχαϊκόν.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0404" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Οἴμοι κακοδαίμων, καταγελᾷς ἤδη σύ μου.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0405" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Βούλει μάχεσθαι Γηρυόνῃ τετραπτίλῳ;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0406" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Αἰαῖ,</l>
 						<l>οἵαν ὁ κῆρυξ ἀγγελίαν ἤγγειλέ μοι.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0407" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Αἰαῖ, τίνα δ' αὖ 'μοὶ προστρέχει τις ἀγγελῶν;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Messaggero</speaker>
+				<sp xml:id="ach-sp-0408" who="#messaggero-dioniso">
+					<speaker xml:lang="it">Messaggero</speaker>
 					<l>Δικαιόπολι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0409" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί ἐστιν;</l>
 				</sp>
-				<sp who="#Me">
-					<speaker>Messaggero</speaker>
+				<sp xml:id="ach-sp-0410" who="#messaggero-dioniso">
+					<speaker xml:lang="it">Messaggero</speaker>
 					<lg>
 						<l>Ἐπὶ δεῖπνον ταχὺ</l>
 						<l>βάδιζε τὴν κίστην λαβὼν καὶ τὸν χοᾶ.</l>
@@ -2920,205 +3082,205 @@
 						<l>Ἀλλ' ὡς τάχιστα σπεῦδε.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0411" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Κακοδαίμων ἐγώ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0412" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Καὶ γὰρ σὺ μεγάλην ἐπεγράφου τὴν Γοργόνα.</l>
 						<l>Σύγκλειε, καὶ δεῖπνόν τις ἐνσκευαζέτω.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0413" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Παῖ παῖ, φέρ' ἔξω δεῦρο τὸν γυλιὸν ἐμοί.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0414" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Παῖ παῖ, φέρ' ἔξω δεῦρο τὴν κίστην ἐμοί.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0415" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ἅλας θυμίτας οἶσε, παῖ, καὶ κρόμμυα.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0416" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἐμοὶ δὲ τεμάχη· κρομμύοις γὰρ ἄχθομαι.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
-					<l> Θρῖον ταρίχους οἶσε δεῦρο, παῖ, σαπροῦ.</l>
+				<sp xml:id="ach-sp-0417" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
+					<l>Θρῖον ταρίχους οἶσε δεῦρο, παῖ, σαπροῦ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0418" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Κἀμοὶ σὺ δή, παῖ, θρῖον· ὀπτήσω δ' ἐκεῖ.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0419" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ἔνεγκε δεῦρο τὼ πτερὼ τὠκ τοῦ κράνους.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0420" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἐμοὶ δὲ τὰς φάττας γε φέρε καὶ τὰς κίχλας.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
-					<l> Καλόν γε καὶ λευκὸν τὸ τῆς στρούθου πτερόν.</l>
+				<sp xml:id="ach-sp-0421" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
+					<l>Καλόν γε καὶ λευκὸν τὸ τῆς στρούθου πτερόν.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0422" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Καλόν γε καὶ ξανθὸν τὸ τῆς φάττης κρέας.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
-					<l> Ὦνθρωπε, παῦσαι καταγελῶν μου τῶν ὅπλων.</l>
+				<sp xml:id="ach-sp-0423" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
+					<l>Ὦνθρωπε, παῦσαι καταγελῶν μου τῶν ὅπλων.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0424" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὦνθρωπε, βούλει μὴ βλέπειν εἰς τὰς κίχλας;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0425" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Τὸ λοφεῖον ἐξένεγκε τῶν τριῶν λόφων.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0426" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Κἀμοὶ λεκάνιον τῶν λαγῴων δὸς κρεῶν.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0427" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ἀλλ' ἦ τριχόβρωτες τοὺς λόφους μου κατέφαγον;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0428" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλ' ἦ πρὸ δείπνου τὴν μίμαρκυν κατέδομαι;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0429" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ὦνθρωπε, βούλει μὴ προσαγορεύειν ἐμέ;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0430" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Οὔκ, ἀλλ' ἐγὼ χὠ παῖς ἐρίζομεν πάλαι.</l>
 						<l>Βούλει περιδόσθαι κἀπιτρέψαι Λαμάχῳ,</l>
 						<l>πότερον ἀκρίδες ἥδιόν ἐστιν ἢ κίχλαι;</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0431" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Οἴμ' ὡς ὑβρίζεις.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0432" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τὰς ἀκρίδας κρίνει πολύ.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0433" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Παῖ παῖ, καθελών μοι τὸ δόρυ δεῦρ' ἔξω φέρε.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0434" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Παῖ παῖ, σὺ δ' ἀφελὼν δεῦρο τὴν χορδὴν φέρε.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0435" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Φέρε, τοῦ δόρατος ἀφελκύσωμαι τοὔλυτρον.</l>
 						<l>Ἔχ', ἀντέχου, παῖ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Καὶ σύ, παῖ, τοῦδ' ἀντέχου.</l>
+				<sp xml:id="ach-sp-0436" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Καὶ σύ, παῖ, τοῦδ' ἀντέχου.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0437" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Τοὺς κιλλίβαντας οἶσε, παῖ, τῆς ἀσπίδος.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0438" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Καὶ τῆς ἐμῆς τοὺς κριβανίτας ἔκφερε.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0439" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Φέρε δεῦρο γοργόνωτον ἀσπίδος κύκλον.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Κἀμοὶ πλακοῦντος τυρόνωτον δὸς κύκλον.</l>
+				<sp xml:id="ach-sp-0440" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Κἀμοὶ πλακοῦντος τυρόνωτον δὸς κύκλον.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0441" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ταῦτ' οὐ κατάγελώς ἐστιν ἀνθρώποις πλατύς;</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0442" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ταῦτ' οὐ πλακοῦς δῆτ' ἐστὶν ἀνθρώποις γλυκύς;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0443" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Κατάχει σύ, παῖ, τοὔλαιον. Ἐν τῷ χαλκίῳ</l>
 						<l>ἐνορῶ γέροντα δειλίας φευξούμενον.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0444" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Κατάχει σὺ τὸ μέλι. Κἀνθάδ' εὔδηλος γέρων</l>
 						<l>κλάειν κελεύων Λάμαχον τὸν Γοργάσου.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0445" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Φέρε δεῦρο, παῖ, θώρακα πολεμιστήριον.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0446" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἔξαιρε, παῖ, θώρακα κἀμοὶ τὸν χοᾶ.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0447" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ἐν τῷδε πρὸς τοὺς πολεμίους θωρήξομαι.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0448" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἐν τῷδε πρὸς τοὺς συμπότας θωρήξομαι.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0449" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Τὰ στρώματ', ὦ παῖ, δῆσον ἐκ τῆς ἀσπίδος.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
-					<l> Τὸ δεῖπνον, ὦ παῖ, δῆσον ἐκ τῆς κιστίδος.</l>
+				<sp xml:id="ach-sp-0450" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
+					<l>Τὸ δεῖπνον, ὦ παῖ, δῆσον ἐκ τῆς κιστίδος.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0451" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Ἐγὼ δ' ἐμαυτῷ τὸν γυλιὸν οἴσω λαβών.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0452" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἐγὼ δὲ θοἰμάτιον λαβὼν ἐξέρχομαι.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0453" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Τὴν ἀσπίδ' αἴρου καὶ βάδιζ', ὦ παῖ, λαβών.</l>
 						<l>Νείφει. Βαβαιάξ· χειμέρια τὰ πράγματα.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0454" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Αἴρου τὸ δεῖπνον· συμποτικὰ τὰ πράγματα.</l>
 				</sp>
 			</div>
-			<div type="Str" n="6">
-				<sp who="#Co">
-					<speaker>Coro</speaker>
+			<div xml:id="ach-div-029" type="section" subtype="choral" n="6">
+				<sp xml:id="ach-sp-0455" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
 					<lg>
 						<l>Ἴτε δὴ χαίροντες ἐπὶ στρατιάν.</l>
 						<l>Ὡς ἀνομοίαν ἔρχεσθον ὁδόν·</l>
@@ -3129,9 +3291,9 @@
 						<l>ἀνατριβομένῳ γε τὸ δεῖνα.</l>
 					</lg>
 				</sp>
-				<div type="strofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-030" type="subsection" subtype="strophe">
+					<sp xml:id="ach-sp-0456" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Ἀντίμαχον τὸν Ψακάδος, τὸν ξυγγραφῆ, τὸν μελέων ποητήν,</l>
 							<l>ὡς μὲν ἁπλῷ λόγῳ κακῶς ἐξολέσειεν ὁ Ζεύς·</l>
@@ -3144,9 +3306,9 @@
 						</lg>
 					</sp>
 				</div>
-				<div type="antistrofe">
-					<sp who="#Co">
-						<speaker>Coro</speaker>
+				<div xml:id="ach-div-031" type="subsection" subtype="antistrophe">
+					<sp xml:id="ach-sp-0457" who="#coro">
+						<speaker xml:lang="it">Coro</speaker>
 						<lg>
 							<l>Τοῦτο μὲν αὐτῷ κακὸν ἕν, κᾆθ' ἕτερον νυκτερινὸν γένοιτο.</l>
 							<l>Ἠπιαλῶν γὰρ οἴκαδ' ἐξ ἱππασίας βαδίζων,</l>
@@ -3160,9 +3322,9 @@
 					</sp>
 				</div>
 			</div>
-			<div type="scena" n="7">
-				<sp who="#Me">
-					<speaker>Messaggero</speaker>
+			<div xml:id="ach-div-032" type="section" subtype="scene" n="7">
+				<sp xml:id="ach-sp-0458" who="#messaggero-finale">
+					<speaker xml:lang="it">Messaggero</speaker>
 					<lg>
 						<l>Ὦ δμῶες οἳ κατ' οἶκόν ἐστε Λαμάχου,</l>
 						<l>ὕδωρ, ὕδωρ ἐν χυτριδίῳ θερμαίνετε·</l>
@@ -3175,26 +3337,26 @@
 						<l>πτίλον δὲ τὸ μέγα κομπολακύθου κλάσας</l>
 						<l>πρὸς ταῖς πέτραισι δεινὸν ἐξηύδα μέλος·</l>
 						<l>"Ὦ κλεινὸν ὄμμα νῦν πανύστατόν σ' ἰδὼν</l>
-						<l>λείπω φάος τόδ'. Οὐκέτ' ‹οὐδέν› εἰμ' ἐγώ."</l>
+						<l>λείπω φάος τόδ'. Οὐκέτ' <supplied reason="omitted" resp="#coulon">οὐδέν</supplied> εἰμ' ἐγώ."</l>
 						<l>Τοσαῦτα λέξας εἰς ὑδρορρόαν πεσὼν</l>
 						<l>ἀνίσταταί τε καὶ ξυναντᾷ δραπέτας</l>
 						<l>λῃστὰς ἐλαύνων καὶ κατασπέρχων δορί.</l>
 						<l>Ὁδὶ δὲ καὐτός. Ἀλλ' ἄνοιγε τὴν θύραν.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0459" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Ἀτταταῖ ἀτταταῖ,</l>
 						<l>στυγερὰ τάδε γε κρυερὰ πάθεα· τάλας ἐγώ.</l>
 						<l>Διόλλυμαι δορὸς ὑπὸ πολεμίου τυπείς.</l>
-						<l>Ἐκεῖνο δ' αἰακτὸν <del resp="editore Coulon">[οἰμωκτὸν]</del> ἂν γένοιτό μοι,</l>
+						<l>Ἐκεῖνο δ' αἰακτὸν <surplus resp="#coulon">οἰμωκτὸν</surplus> ἂν γένοιτό μοι,</l>
 						<l>Δικαιόπολις εἴ μ' ἴδοι τετρωμένον</l>
 						<l>κᾆτ' ἐγχάνοι ταῖς ἐμαῖς τύχαισιν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0460" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἀτταταῖ ἀτταταῖ,</l>
 						<l>τῶν τιτθίων, ὡς σκληρὰ καὶ κυδώνια.</l>
@@ -3203,119 +3365,119 @@
 						<l>Τὸν γὰρ χοᾶ πρῶτος ἐκπέπωκα.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0461" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Ὦ συμφορὰ τάλαινα τῶν ἐμῶν κακῶν.</l>
 						<l>Ἰὼ ἰὼ τραυμάτων ἐπωδύνων.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0462" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἰὴ ἰή, χαῖρε, Λαμαχίππιον.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0463" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Στυγερὸς ἐγώ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0464" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί με σὺ κυνεῖς;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0465" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Μογερὸς ἐγώ.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0466" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τί με σὺ δάκνεις;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
-					<l>Τάλας ἐγὼ <del resp="editore Coulon">[τῆς ἐν μάχῃ]</del>ξυμβολῆς βαρείας.</l>
+				<sp xml:id="ach-sp-0467" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
+					<l>Τάλας ἐγὼ <surplus resp="#coulon">τῆς ἐν μάχῃ</surplus>ξυμβολῆς βαρείας.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0468" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Τοῖς Χουσὶ γάρ τις ξυμβολὰς ἐπράττετο;</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0469" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
-						<l> Ἰὼ <add resp="editore Coulon">‹ἰώ,›</add> Παιὰν Παιάν.</l>
+						<l>Ἰὼ <supplied reason="omitted" resp="#coulon">ἰώ,</supplied> Παιὰν Παιάν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0470" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἀλλ' οὐχὶ νυνὶ τήμερον Παιώνια.</l>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0471" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Λάβεσθέ μου, λάβεσθε τοῦ σκέλους· παπαῖ,</l>
 						<l>προσλάβεσθ', ὦ φίλοι.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0472" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ἐμοῦ δέ γε σφὼ τοῦ πέους ἄμφω μέσου</l>
 						<l>προσλάβεσθ', ὦ φίλαι.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0473" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
-						<l> Εἰλιγγιῶ κάρα λίθῳ πεπληγμένος</l>
+						<l>Εἰλιγγιῶ κάρα λίθῳ πεπληγμένος</l>
 						<l>καὶ σκοτοδινιῶ.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0474" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Κἀγὼ καθεύδειν βούλομαι καὶ στύομαι</l>
 						<l>καὶ σκοτοβινιῶ.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0475" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<lg>
 						<l>Θύραζέ μ' ἐξενέγκατ' εἰς τοῦ Πιττάλου</l>
 						<l>παιωνίαισι χερσίν.</l>
 					</lg>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0476" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<lg>
 						<l>Ὡς τοὺς κριτάς με φέρετε. Ποῦ 'στιν ὁ βασιλεύς;</l>
 						<l>Ἀπόδοτέ μοι τὸν ἀσκόν.</l>
 					</lg>
 				</sp>
-				<sp who="#La">
-					<speaker>Lamaco</speaker>
+				<sp xml:id="ach-sp-0477" who="#lamaco">
+					<speaker xml:lang="it">Lamaco</speaker>
 					<l>Λόγχη τις ἐμπέπηγέ μοι δι' ὀστέων ὀδυρτά.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0478" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ὁρᾶτε τουτονὶ κενόν. Τήνελλα καλλίνικος.</l>
 				</sp>
-				<sp who="#Co">
-					<speaker>Coro</speaker>
+				<sp xml:id="ach-sp-0479" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
 					<l>Τήνελλα δῆτ', εἴπερ καλεῖς γ', ὦ πρέσβυ, καλλίνικος.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0480" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Καὶ πρός γ' ἄκρατον ἐγχέας ἄμυστιν ἐξέλαψα.</l>
 				</sp>
-				<sp who="#Co">
-					<speaker>Coro</speaker>
-					<l> Τήνελλά νυν, ὦ γεννάδα· χώρει λαβὼν τὸν ἀσκόν.</l>
+				<sp xml:id="ach-sp-0481" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
+					<l>Τήνελλά νυν, ὦ γεννάδα· χώρει λαβὼν τὸν ἀσκόν.</l>
 				</sp>
-				<sp who="#Di">
-					<speaker>Diceopoli</speaker>
+				<sp xml:id="ach-sp-0482" who="#diceopoli">
+					<speaker xml:lang="it">Diceopoli</speaker>
 					<l>Ἕπεσθέ νυν ᾄδοντες· Ὦ τήνελλα καλλίνικος.</l>
 				</sp>
-				<sp who="#Co">
-					<speaker>Coro</speaker>
+				<sp xml:id="ach-sp-0483" who="#coro">
+					<speaker xml:lang="it">Coro</speaker>
 					<lg>
 						<l>Ἀλλ' ἑψόμεσθα σὴν χάριν</l>
 						<l>τήνελλα καλλίνικον ᾄ-</l>

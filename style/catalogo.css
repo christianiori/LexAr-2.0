@@ -174,19 +174,6 @@ select:focus-visible {
   gap: 5rem;
 }
 
-.eyebrow {
-  margin: 0 0 .8rem;
-  color: var(--aqua);
-  font-size: .73rem;
-  font-weight: 700;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.catalogue-hero .eyebrow {
-  color: #aee7f2;
-}
-
 .catalogue-hero h1 {
   margin: 0;
   font: 600 clamp(3rem, 6vw, 5.7rem)/.96 "Spectral", Georgia, serif;
@@ -718,10 +705,6 @@ select:focus-visible {
   color: var(--white);
 }
 
-.catalogue-callout .eyebrow {
-  color: var(--coral);
-}
-
 .callout-grid {
   display: grid;
   grid-template-columns: 1fr .75fr;
@@ -734,7 +717,7 @@ select:focus-visible {
   border-left: 1px solid rgba(255, 255, 255, .2);
 }
 
-.callout-grid p:not(.eyebrow) {
+.callout-grid p {
   margin: 0 0 1.4rem;
   color: #c5dce5;
   font-size: .9rem;

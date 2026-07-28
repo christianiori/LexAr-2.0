@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 DATABASE = DATA_DIR / "lexar.sqlite3"
 TEI_NAMESPACE = {"tei": "http://www.tei-c.org/ns/1.0"}
+XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 WORKS = {
     "acarnesi": {
         "title": "Gli Acarnesi",
@@ -72,13 +73,25 @@ def initialise_database() -> None:
                 id INTEGER PRIMARY KEY,
                 work_slug TEXT NOT NULL REFERENCES works(slug),
                 position INTEGER NOT NULL,
+                speech_position INTEGER,
+                speech_id TEXT,
                 scene TEXT,
+                section_id TEXT,
                 speaker TEXT,
+                speaker_ref TEXT,
                 text TEXT NOT NULL
             );
             CREATE INDEX IF NOT EXISTS idx_lines_work_position
                 ON lines(work_slug, position);
             """
+        )
+        ensure_column(connection, "lines", "speech_position", "INTEGER")
+        ensure_column(connection, "lines", "speech_id", "TEXT")
+        ensure_column(connection, "lines", "section_id", "TEXT")
+        ensure_column(connection, "lines", "speaker_ref", "TEXT")
+        connection.execute(
+            """CREATE INDEX IF NOT EXISTS idx_lines_work_speech
+               ON lines(work_slug, speech_position)"""
         )
         for slug, work in WORKS.items():
             if work.get("tei"):
@@ -90,6 +103,21 @@ def initialise_database() -> None:
                        ON CONFLICT(slug) DO UPDATE SET title = excluded.title""",
                     (slug, work["title"]),
                 )
+
+
+def ensure_column(
+    connection: sqlite3.Connection, table: str, column: str, declaration: str
+) -> None:
+    """Add a column to the generated cache when an older schema is present."""
+
+    columns = {
+        row["name"]
+        for row in connection.execute(f"PRAGMA table_info({table})")
+    }
+    if column not in columns:
+        connection.execute(
+            f"ALTER TABLE {table} ADD COLUMN {column} {declaration}"
+        )
 
 
 def import_work(connection: sqlite3.Connection, slug: str, work: dict[str, object]) -> None:
@@ -107,18 +135,95 @@ def import_work(connection: sqlite3.Connection, slug: str, work: dict[str, objec
     )
     rows = []
     position = 0
-    for scene in root.findall(".//tei:div[@type='scena']", TEI_NAMESPACE):
-        scene_number = scene.get("n")
-        for speech in scene.findall("tei:sp", TEI_NAMESPACE):
-            speaker = normalise(speech.findtext("tei:speaker", default="", namespaces=TEI_NAMESPACE)) or None
-            for line in speech.findall(".//tei:l", TEI_NAMESPACE):
-                text = normalise("".join(line.itertext()))
-                if text:
-                    position += 1
-                    rows.append((slug, position, scene_number, speaker, text))
+    parent_map = {
+        child: parent
+        for parent in root.iter()
+        for child in parent
+    }
+    speaker_by_who = {}
+    speeches = root.findall(".//tei:sp", TEI_NAMESPACE)
+
+    for speech in speeches:
+        speaker = normalise(speech.findtext("tei:speaker", default="", namespaces=TEI_NAMESPACE))
+        who = speech.get("who")
+        if speaker and who:
+            speaker_by_who[who] = speaker
+
+    for speech_position, speech in enumerate(speeches, start=1):
+        speaker = normalise(speech.findtext("tei:speaker", default="", namespaces=TEI_NAMESPACE))
+        speaker = speaker or speaker_by_who.get(speech.get("who")) or None
+        speech_id = speech.get(XML_ID) or f"{slug}-sp-{speech_position:04d}"
+        speaker_ref = speech.get("who")
+        section, section_id = tei_section_info(speech, parent_map)
+        for line in speech.findall(".//tei:l", TEI_NAMESPACE):
+            text = normalise(tei_display_text(line))
+            if text:
+                position += 1
+                rows.append(
+                    (
+                        slug,
+                        position,
+                        speech_position,
+                        speech_id,
+                        section,
+                        section_id,
+                        speaker,
+                        speaker_ref,
+                        text,
+                    )
+                )
     connection.executemany(
-        "INSERT INTO lines (work_slug, position, scene, speaker, text) VALUES (?, ?, ?, ?, ?)", rows
+        """INSERT INTO lines (
+               work_slug, position, speech_position, speech_id, scene,
+               section_id, speaker, speaker_ref, text
+           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        rows,
     )
+
+
+def tei_display_text(element: ET.Element) -> str:
+    """Render inline editorial semantics without flattening their meaning."""
+
+    parts = [element.text or ""]
+    wrappers = {
+        "supplied": ("‹", "›"),
+        "surplus": ("[", "]"),
+    }
+    for child in element:
+        child_text = tei_display_text(child)
+        opening, closing = wrappers.get(child.tag.rsplit("}", 1)[-1], ("", ""))
+        parts.extend((opening, child_text, closing, child.tail or ""))
+    return "".join(parts)
+
+
+def tei_section_info(
+    element: ET.Element, parent_map: dict[ET.Element, ET.Element]
+) -> tuple[str | None, str | None]:
+    """Return the nearest LexAr scene/choral label and stable division ID."""
+
+    current = element
+    while current in parent_map:
+        current = parent_map[current]
+        if current.tag != f"{{{TEI_NAMESPACE['tei']}}}div":
+            continue
+        division_type = (current.get("type") or "").casefold()
+        division_subtype = (current.get("subtype") or "").casefold()
+        section_number = current.get("n")
+        section_id = current.get(XML_ID)
+
+        if division_type == "section" and division_subtype == "scene":
+            return section_number, section_id
+        if division_type == "section" and division_subtype == "choral":
+            label = f"Coro {section_number}" if section_number else "Coro"
+            return label, section_id
+
+        # Compatibilità temporanea con TEI non ancora migrati.
+        if division_type == "scena":
+            return section_number, section_id
+        if division_type == "str":
+            label = f"Coro {section_number}" if section_number else "Coro"
+            return label, section_id
+    return None, None
 
 
 class LexArHandler(SimpleHTTPRequestHandler):
@@ -204,14 +309,24 @@ def speeches_for(slug: str) -> list[dict]:
         if not connection.execute("SELECT 1 FROM works WHERE slug = ?", (slug,)).fetchone():
             raise KeyError
         rows = connection.execute(
-            "SELECT scene, speaker, text FROM lines WHERE work_slug = ? ORDER BY position", (slug,)
+            """SELECT speech_id, scene, section_id, speaker, speaker_ref, text
+               FROM lines
+               WHERE work_slug = ?
+               ORDER BY position""",
+            (slug,),
         ).fetchall()
     speeches = []
     current = None
     for row in rows:
-        identity = (row["scene"], row["speaker"])
-        if current is None or identity != (current["scene"], current["speaker"]):
-            current = {"scene": row["scene"], "speaker": row["speaker"], "lines": []}
+        if current is None or row["speech_id"] != current["id"]:
+            current = {
+                "id": row["speech_id"],
+                "scene": row["scene"],
+                "section_id": row["section_id"],
+                "speaker": row["speaker"],
+                "speaker_ref": row["speaker_ref"],
+                "lines": [],
+            }
             speeches.append(current)
         current["lines"].append(row["text"])
     return speeches
