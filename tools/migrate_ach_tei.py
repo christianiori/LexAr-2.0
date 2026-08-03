@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Migrate the legacy Acarnesi transcription to the first LexAr TEI model.
 
-This is a deliberately narrow, one-shot migration.  It does not assign
-canonical verse numbers: those require a separate collation with Coulon's
-edition.  Before writing, the transformed document is parsed and checked so
-that the number and order of speeches and verse fragments cannot change
-silently.
+This is a deliberately narrow, one-shot migration.  Verse-fragment IDs and
+audited Hall--Geldart/Perseus coordinates are applied afterwards with
+``tools/number_ach_verses.py``; they are not presented as a completed collation
+of Coulon's lineation.  Before writing, the transformed document is parsed and
+checked so that the number and order of speeches and verse fragments cannot
+change silently.
 """
 
 from __future__ import annotations

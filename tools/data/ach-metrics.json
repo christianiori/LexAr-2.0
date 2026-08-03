@@ -1,0 +1,1036 @@
+{
+  "schema": 1,
+  "work": "acarnesi",
+  "scope": {
+    "from": 1,
+    "to": 46
+  },
+  "status": "pilot",
+  "notation": {
+    "long": "-",
+    "short": "u",
+    "anceps": "x",
+    "foot": "|",
+    "caesura": "||",
+    "display": {
+      "long": "–",
+      "short": "⏑",
+      "anceps": "×",
+      "foot": "│",
+      "caesura": "‖"
+    }
+  },
+  "meter_types": {
+    "ia3": {
+      "label_it": "Trimetro giambico",
+      "met": "x-|u-|x-|u-|x-|ux"
+    },
+    "ia1-hypercat": {
+      "label_it": "Monometro giambico ipercatalettico?",
+      "met": "x-|u-|x"
+    }
+  },
+  "provenance": {
+    "metrical_reference": "#source-starkie-1909",
+    "proposal_software": "Diorisis Scan 0.2",
+    "software_source": "#source-diorisis-scan",
+    "generated": "2026-08-03",
+    "statement": "Le realizzazioni sono proposte di lavoro, non scansioni verificate."
+  },
+  "policy": {
+    "supplied": "incluso salvo diversa indicazione nella nota del verso",
+    "surplus": "escluso salvo diversa indicazione nella nota del verso",
+    "gap": "stato unscannable e nessuna realizzazione inventata",
+    "split_verses": "frammenti ordinati tramite target xml:id stabili; ogni real è locale al frammento"
+  },
+  "lines": [
+    {
+      "id": "ach-metric-v001",
+      "label": "1",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0001",
+          "structural_sha256": "d4496577184610d8f3f098fbb7615064b8f3bb1ab00be02e8e2769881449d028",
+          "real": "uu-|u-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v002",
+      "label": "2",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0002",
+          "structural_sha256": "c1c3a5d226a90b4e7495ea99f4f2d3e7c386d68ea43e8797ca8c5558e4394121",
+          "real": "--|u-|uuu|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v003",
+      "label": "3",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0003",
+          "structural_sha256": "dc0b7331f3e0d496b014edc6463556d7006a9a16b5f6d907be89af87566b4436",
+          "real": "u-|u-|--|uuu|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v004",
+      "label": "4",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0004",
+          "structural_sha256": "a5ae437d77e507c2fbc0c64e9349cab2703f99251cbf836b5c728647f6eaf940",
+          "real": "uu-|u-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v005",
+      "label": "5",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0005",
+          "structural_sha256": "e46e7c318e90bf928c3d0ad9c36d2549b487399685190059a6bded2f55096385",
+          "real": "u-|u-|uuu|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v006",
+      "label": "6",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0006",
+          "structural_sha256": "b97fa777018f57f8875c5882364eca7eea2b02817ddffc2f403f889f00df083b",
+          "real": "--|uu-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v007",
+      "label": "7",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0007",
+          "structural_sha256": "f378d868222649261c0bbbc0c7c47615528382141aecaf23f221deae6b0e52a6",
+          "real": "--|uu-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v008",
+      "label": "8",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0008",
+          "structural_sha256": "c9a81c28fd41455e92432fc7fe733ffc64e4cf0171d4b1d458791fb843acbe5c",
+          "real": "uu-|u-|u-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v009",
+      "label": "9",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0009",
+          "structural_sha256": "77b27c34075b9d7bce21613e8a3369c64c54e27d713cf00a12208a6e37f8edc5",
+          "real": "--|u-|-uu|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v010",
+      "label": "10",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0010",
+          "structural_sha256": "65fef344d50f17a8fa09cce14386800d299a6008b73131fccacdd1952087ac17",
+          "real": "uu-|u-|--|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v011",
+      "label": "11",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0011",
+          "structural_sha256": "9b9b8a7d6f0069bdbf1990a878725b82cb8e599d899c2ab3a7e71ae05b0fd1b2",
+          "real": "uu-|u-|u-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v012",
+      "label": "12",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0012",
+          "structural_sha256": "56ddfb1ab8c184c7ddf8b511e94737a408979f9d0df392f06774216cb679d674",
+          "real": "--|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v013",
+      "label": "13",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0013",
+          "structural_sha256": "6259c0d9eecff94d51d3ce0d9295fceba489cbe2e4b46650bdb34b7f19418dcb",
+          "real": "-uu|u-|--|uuu|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v014",
+      "label": "14",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0014",
+          "structural_sha256": "bf1e421edf38ca9d63651dd7bfcbb63b6f5243bfb271e3256927ac67f1ed440c",
+          "real": "-u-|u-|--|uu-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v015",
+      "label": "15",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0015",
+          "structural_sha256": "17711106e84e586c8afd8695dcad476202a9d172238aeb74d9f745b5fcd30ad0",
+          "real": "--|uuu|--|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Il trattamento di δ’ ἀπέθανον e di διεστράφην richiede un controllo metrico autoptico."
+    },
+    {
+      "id": "ach-metric-v016",
+      "label": "16",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0016",
+          "structural_sha256": "1d945695d74f96965bb42e869bcba835f7ce0dfaf0039404e47fdcfaa000a2d4",
+          "real": "uu-|uu-|u-|uuu|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v017",
+      "label": "17",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0017",
+          "structural_sha256": "a1fdd1cbdeded443bf58063fba0aff2cf2daf6874290b4ba559bf872da3aa29f",
+          "real": "--|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v018",
+      "label": "18",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0018",
+          "structural_sha256": "13972aeb660f57c9b5609d1b4308e405b5c42ec8f948ea31c8b3b6876aae8d13",
+          "real": "--|u-|-uu|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta provvisoria: il trattamento di konias e la correptio finale richiedono revisione manuale."
+    },
+    {
+      "id": "ach-metric-v019",
+      "label": "19",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0019",
+          "structural_sha256": "c5841f395ad6a0bb481ff4ff70a313b6ffe9fafbac253cf3c82e1b36ae4b9d56",
+          "real": "--|uu-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v020",
+      "label": "20",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0020",
+          "structural_sha256": "27c15a233bfd53bb3e4cb24d8f0a22ba213c64c7662165672656ddb503c23f19"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "La sequenza finale con il deittico autei non è risolta con sicurezza; @real è deliberatamente omesso."
+    },
+    {
+      "id": "ach-metric-v021",
+      "label": "21",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0021",
+          "structural_sha256": "ad65b8b158b988d33850a510ce4a5e2eb38c2639d3dda99b48decf45c6c87791",
+          "real": "-uu|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v022",
+      "label": "22",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0022",
+          "structural_sha256": "1221483043b09cd9faed3911c507b36013bc8b567ce6969427c5ce6a25ffc650",
+          "real": "--|u-|--|uuu|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v023",
+      "label": "23",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0023",
+          "structural_sha256": "b23e269d8babdf17c78dffc73e4db545f3c3b6614e791b91b8cb1692283956ce",
+          "real": "--|uu-|--|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v024",
+      "label": "24",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0024",
+          "structural_sha256": "5c138312eba7d995518ff591512f427147e4c29ee49e5e65a4481ff0ed8e3f1e",
+          "real": "--|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v025",
+      "label": "25",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0025",
+          "structural_sha256": "9e8e62c584ef532562fd9723a1f53ae8e9310ef84306ee3255cef64c718b9cd4",
+          "real": "--|u-|--|uuu|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v026",
+      "label": "26",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0026",
+          "structural_sha256": "e567a71eb8295dc97134f201313782235b06e1bd802947d3992e843cceb083e2",
+          "real": "uu-|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v027",
+      "label": "27",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0027",
+          "structural_sha256": "c38c1f3f5697b82296580c8ea81af2ecddae37e785bb13cab0ef9eca9df0cdff",
+          "real": "--|u-|--|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v028",
+      "label": "28",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0028",
+          "structural_sha256": "d88799f5ef3a4e148f8dab58e832b9f90bbd98fef21876a00bad81e8f5ce4695",
+          "real": "u-|u-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v029",
+      "label": "29",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0029",
+          "structural_sha256": "82e85794a5d49dca2985c0533db29c03b992413be7179a0188d4b3c670a78f30",
+          "real": "--|u-|--|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v030",
+      "label": "30",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0030",
+          "structural_sha256": "9a496c7204c2ca24e27f760cec7a16a656cd96dc9e61602478783a3d473f86aa",
+          "real": "u-|u-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v031",
+      "label": "31",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0031",
+          "structural_sha256": "af51209c17250ede916cc590628be47940b15a31468484b2646bd874744226d7",
+          "real": "uu-|u-|uu-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v032",
+      "label": "32",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0032",
+          "structural_sha256": "892f1aab010d856f5e3226c7dec4e680f305d08acb3cfbc580ce3e9fd8798047",
+          "real": "u-|u-|-uu|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v033",
+      "label": "33",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0033",
+          "structural_sha256": "85547dac964108e6acd9a011185d2189a8e48997667cdfc3c7b5f6eb151a7906",
+          "real": "u-|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v034",
+      "label": "34",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0034",
+          "structural_sha256": "93e5816d2170a45e39dba8ca50e31895a50e5a4b7ca559af81ce1b43b013c550",
+          "real": "u-|u-|u-|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v035",
+      "label": "35",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0035",
+          "structural_sha256": "a969f7e35f718b42d3301494f07294c27e3d74f27d89167b14629aab3f0ada45",
+          "real": "--|u-|uuu|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v036",
+      "label": "36",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0036",
+          "structural_sha256": "2f9899d6cfbe2182bfaf2a7f58ff3ec77b9f2bdce5e9046a260de6a49d7c4356",
+          "real": "--|uuu|u-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v037",
+      "label": "37",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0037",
+          "structural_sha256": "b459b7de9e327960dcb4e952c9d443b8722db119550baa6059af537237c51a8f"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "La sequenza centrale e la sinizesi in pareskeuasmenos non sono risolte; @real è deliberatamente omesso."
+    },
+    {
+      "id": "ach-metric-v038",
+      "label": "38",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0038",
+          "structural_sha256": "2ac0c6cadeab14ed2d4f4896068a1396253984d0211a7ed05fed2e4140535d1a",
+          "real": "u-|uu-|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v039",
+      "label": "39",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0039",
+          "structural_sha256": "0e97b0372ec0e6f2e9eafad9ebc17035cb1c4a9742217a9ef198b9cba184c8c5",
+          "real": "u-|u-|u-|uu-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v040",
+      "label": "40",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0040",
+          "structural_sha256": "c0c577691a62378e5111adbd65376427b5681454e7e2d2e751c678414f880796",
+          "real": "--|uu-|u-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta condizionata dalla quantità del deittico houtoii e di bri in mesembrinoi."
+    },
+    {
+      "id": "ach-metric-v041",
+      "label": "41",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0041",
+          "structural_sha256": "eb6be5cc3f99d597e4841e12c3af32cce36a32eaa65c3e1b606e7638497412a4",
+          "real": "--|uuu|--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v042",
+      "label": "42",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0042",
+          "structural_sha256": "c8649201b89a2a15125cf5d300854cc7ab3cb5b3f4b40622075bf1db13c38ee9",
+          "real": "--|u-|u--|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v043",
+      "label": "43",
+      "meter_id": "ia1-hypercat",
+      "met": "x-|u-|x",
+      "fragments": [
+        {
+          "target": "ach-frag-0043",
+          "structural_sha256": "086d143aeca7a0e1771a97f247a11b42971b7ae550d39f8e4c80d38c80282bb5"
+        }
+      ],
+      "status": "proposed",
+      "cert": "low",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Starkie registra prosa oppure monometro giambico ipercatalettico; la variante è annotata senza imporre @real."
+    },
+    {
+      "id": "ach-metric-v044",
+      "label": "44",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0044",
+          "structural_sha256": "92b3246c66e35c196d82c4375c7318ee9e41351df248a0b99247d3ad5d208995",
+          "real": "uu-|u-|u-|u-|u-|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v045",
+      "label": "45",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0045",
+          "structural_sha256": "6cae71d1d397d37bd3e2a30204019cf51391c800c284ee035457696f8df4040a",
+          "real": "--|u-|u"
+        },
+        {
+          "target": "ach-frag-0046",
+          "structural_sha256": "10965c08d70c18afb11fb01573ada03152db214ff126fd66022d198ffd2deed8",
+          "real": "uu|u-|--|ux"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    },
+    {
+      "id": "ach-metric-v046",
+      "label": "46",
+      "meter_id": "ia3",
+      "met": "x-|u-|x-|u-|x-|ux",
+      "fragments": [
+        {
+          "target": "ach-frag-0047",
+          "structural_sha256": "f06dd1617d2b5ba8d493bf335b916b2bc361b0141749813341d394ae9da9606b",
+          "real": "u-|"
+        },
+        {
+          "target": "ach-frag-0048",
+          "structural_sha256": "e4906242eeecf27420936f26c684c9b7befdc60d14ebaed10e22614b35d83288",
+          "real": "u-|"
+        },
+        {
+          "target": "ach-frag-0049",
+          "structural_sha256": "39003f416e3526728c7780408604e2aaea3eaf808624bc5af2997e55fe2acbc1",
+          "real": "-u-|u"
+        },
+        {
+          "target": "ach-frag-0050",
+          "structural_sha256": "393fc7e8d817bf9b7fbc794bbe3e6a72bb4088ceece120a25e2e2b20b896a48d",
+          "real": "-|--|u"
+        },
+        {
+          "target": "ach-frag-0051",
+          "structural_sha256": "58ae69481f7ffc7d5b37eaf9a953ff9ee2368f377d80b5304e9ddf97ab5e4d27",
+          "real": "x"
+        }
+      ],
+      "status": "proposed",
+      "cert": "medium",
+      "resp": "#metric-pilot",
+      "sources": [
+        "#source-starkie-1909",
+        "#source-diorisis-scan"
+      ],
+      "note": "Proposta compatibile con il modello automatico del trimetro; revisione filologica ancora necessaria."
+    }
+  ]
+}

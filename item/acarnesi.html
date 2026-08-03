@@ -240,20 +240,58 @@
 
         <div class="text-reader" id="text-reader" hidden>
           <div class="reader-toolbar">
-            <label class="reader-search" for="text-search">
-              <span>Cerca nel testo</span>
-              <span class="reader-search-field">
-                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                <input
-                  id="text-search"
-                  type="search"
-                  placeholder="Forma greca o personaggio…"
-                  autocomplete="off"
-                >
-              </span>
-            </label>
-            <p id="reader-count" class="reader-count"></p>
+            <div class="reader-tools">
+              <label class="reader-search" for="text-search">
+                <span>Cerca nel testo</span>
+                <span class="reader-search-field">
+                  <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                  <input
+                    id="text-search"
+                    type="search"
+                    placeholder="Forma greca o personaggio…"
+                    autocomplete="off"
+                  >
+                </span>
+              </label>
+              <form class="reader-jump" id="verse-jump">
+                <label for="verse-number">Vai al verso</label>
+                <span class="reader-jump-field">
+                  <input
+                    id="verse-number"
+                    type="number"
+                    min="1"
+                    max="1234"
+                    inputmode="numeric"
+                    placeholder="es. 425"
+                    autocomplete="off"
+                  >
+                  <button type="submit">Vai</button>
+                </span>
+              </form>
+              <button
+                class="reader-metric-toggle"
+                id="metric-toggle"
+                type="button"
+                aria-label="Mostra metrica"
+                aria-pressed="false"
+                disabled
+                hidden
+              >
+                <span class="reader-metric-symbol" aria-hidden="true">– ⏑</span>
+                <span>Metrica</span>
+              </button>
+            </div>
+            <div class="reader-meta">
+              <p id="reader-count" class="reader-count"></p>
+              <p class="reader-source-note">Coordinate Hall–Geldart / Perseus</p>
+            </div>
           </div>
+          <p
+            id="reader-jump-status"
+            class="reader-jump-status"
+            role="status"
+            aria-live="polite"
+          ></p>
           <div id="text-status" class="data-status reader-status" role="status"></div>
           <div id="tei-content" class="tei-content" lang="grc"></div>
           <div class="reader-empty" id="reader-empty" hidden>

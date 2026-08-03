@@ -9,11 +9,28 @@ the first positional argument.
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import sys
 import unicodedata
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
+
+try:
+    from tools.apply_ach_metrics import (
+        METRIC_ATTRIBUTES,
+        METRICS_PATH,
+        load_and_validate as load_and_validate_metrics,
+        metric_attributes,
+    )
+except ModuleNotFoundError:  # direct execution: python tools/validate_tei.py
+    from apply_ach_metrics import (  # type: ignore[no-redef]
+        METRIC_ATTRIBUTES,
+        METRICS_PATH,
+        load_and_validate as load_and_validate_metrics,
+        metric_attributes,
+    )
 
 
 XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
@@ -30,7 +47,24 @@ ALLOWED_DIV_COMBINATIONS = {
     "subsection": frozenset({"strophe", "antistrophe", "unclassified"}),
 }
 REQUIRED_HEADER_SECTIONS = ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc")
-EXPECTED_DEFAULT_COUNTS = {"l": 1329, "sp": 483, "div": 32}
+EXPECTED_DEFAULT_COUNTS = {"l": 1325, "sp": 481, "div": 32}
+VERSE_NUMBER_PATTERN = re.compile(r"\d+")
+CTS_REFERENCE_PATTERN = re.compile(
+    r"urn:cts:greekLit:tlg0019\.tlg001\.perseus-grc2:(\d+)[a-z]*"
+)
+VERSE_MINIMUM = 1
+VERSE_MAXIMUM = 1234
+UNATTESTED_REFERENCE_BASES = frozenset(
+    {
+        209, 212, 213, 214, 218, 223, 224, 227, 228, 229, 233,
+        287, 289, 292, 294, 297, 299, 304, 359, 361, 362,
+        387, 388, 389, 489, 499, 666, 667, 669, 671, 672,
+        693, 694, 699, 701, 972, 974, 989, 1013, 1014,
+        1042, 1043, 1152, 1153, 1154, 1163, 1164, 1169,
+        1191, 1192,
+    }
+)
+ALLOWED_LINE_PARTS = frozenset({"I", "M", "F"})
 RAW_INTEGRATION_MARKERS = frozenset({"\u2039", "\u203a"})
 RAW_EDITORIAL_MARKERS = RAW_INTEGRATION_MARKERS | frozenset({"[", "]"})
 
@@ -98,6 +132,7 @@ def validate(path: Path) -> tuple[list[str], int, int]:
     root = tree.getroot()
     elements, locations = build_locations(root)
     errors: list[str] = []
+    is_acharnenses = (root.get(XML_ID) or "").strip() == "acharnenses"
 
     elements_by_name: defaultdict[str, list[ET.Element]] = defaultdict(list)
     id_targets: defaultdict[str, list[ET.Element]] = defaultdict(list)
@@ -233,7 +268,7 @@ def validate(path: Path) -> tuple[list[str], int, int]:
                 f"con @type={division_type!r} (valori ammessi: {allowed})"
             )
 
-    for attribute_name in ("resp", "corresp"):
+    for attribute_name in ("resp", "corresp", "ana", "source"):
         for element in elements:
             if attribute_name not in element.attrib:
                 continue
@@ -245,6 +280,11 @@ def validate(path: Path) -> tuple[list[str], int, int]:
                 continue
 
             for pointer in pointer_value.split():
+                if attribute_name == "corresp" and (
+                    CTS_REFERENCE_PATTERN.fullmatch(pointer)
+                    or re.match(r"^[a-z][a-z0-9+.-]*:", pointer, re.IGNORECASE)
+                ):
+                    continue
                 if not pointer.startswith("#") or len(pointer) == 1:
                     errors.append(
                         f"{location}: @{attribute_name} contiene il puntatore "
@@ -264,12 +304,82 @@ def validate(path: Path) -> tuple[list[str], int, int]:
                         "perché l'xml:id è duplicato"
                     )
 
-    for line in elements_by_name["l"]:
+    previous_reference_base = 0
+    covered_verses: set[int] = set()
+    line_groups: defaultdict[str, list[tuple[int, ET.Element]]] = defaultdict(list)
+
+    for line_index, line in enumerate(elements_by_name["l"], start=1):
         text = element_text(line)
         latin = {character for character in text if is_latin_character(character)}
         digits = {character for character in text if character.isdigit()}
         raw_integrations = RAW_INTEGRATION_MARKERS.intersection(text)
         location = locations[id(line)]
+        if is_acharnenses:
+            identifier = (line.get(XML_ID) or "").strip()
+            number = (line.get("n") or "").strip()
+            part = (line.get("part") or "").strip()
+            correspondence = (line.get("corresp") or "").strip()
+            reference_bases = [
+                int(match.group(1))
+                for pointer in correspondence.split()
+                if (match := CTS_REFERENCE_PATTERN.fullmatch(pointer))
+            ]
+
+            if not identifier:
+                errors.append(f"{location}: manca xml:id")
+            elif not (
+                identifier.startswith("ach-frag-")
+                or identifier.startswith("ach-gap-")
+            ):
+                errors.append(
+                    f"{location}: xml:id non appartiene allo spazio "
+                    "ach-frag-* / ach-gap-*"
+                )
+
+            if not reference_bases:
+                errors.append(
+                    f"{location}: manca un @corresp CTS Hall–Geldart/Perseus"
+                )
+            else:
+                first_base = min(reference_bases)
+                if first_base < previous_reference_base:
+                    errors.append(
+                        f"{location}: riscontro CTS non monotono "
+                        f"({first_base} dopo {previous_reference_base})"
+                    )
+                previous_reference_base = max(
+                    previous_reference_base, max(reference_bases)
+                )
+                covered_verses.update(reference_bases)
+
+            if number:
+                if not VERSE_NUMBER_PATTERN.fullmatch(number):
+                    errors.append(
+                        f"{location}: @n={number!r} non è un numero-base valido"
+                    )
+                elif not (VERSE_MINIMUM <= int(number) <= VERSE_MAXIMUM):
+                    errors.append(
+                        f"{location}: @n={number!r} fuori da "
+                        f"{VERSE_MINIMUM}-{VERSE_MAXIMUM}"
+                    )
+                elif reference_bases and set(reference_bases) != {int(number)}:
+                    errors.append(
+                        f"{location}: @n={number!r} non coincide con i "
+                        f"riscontri CTS {reference_bases!r}"
+                    )
+                line_groups[number].append((line_index, line))
+            elif len(set(reference_bases)) < 2:
+                errors.append(
+                    f"{location}: @n assente senza un crossover fra "
+                    "coordinate-base diverse"
+                )
+
+            if part and part not in ALLOWED_LINE_PARTS:
+                allowed = ", ".join(sorted(ALLOWED_LINE_PARTS))
+                errors.append(
+                    f"{location}: @part={part!r} non ammesso "
+                    f"(valori ammessi: {allowed})"
+                )
 
         if latin:
             errors.append(
@@ -286,6 +396,127 @@ def validate(path: Path) -> tuple[list[str], int, int]:
                 f"{location}: marcatori di integrazione raw: "
                 f"{format_characters(set(raw_integrations))}"
             )
+
+    for number, group in line_groups.items():
+        indexes = [index for index, _ in group]
+        parts = [(line.get("part") or "").strip() for _, line in group]
+        if len(group) == 1:
+            if parts[0]:
+                errors.append(
+                    f"{locations[id(group[0][1])]}: @part presente su un "
+                    f"@n non condiviso ({number})"
+                )
+            continue
+
+        if indexes != list(range(indexes[0], indexes[-1] + 1)):
+            errors.append(
+                f"@n={number!r}: i frammenti non sono contigui"
+            )
+        expected_parts = ["I", *(["M"] * (len(group) - 2)), "F"]
+        if parts != expected_parts:
+            errors.append(
+                f"@n={number!r}: sequenza @part {parts!r}, "
+                f"attesa {expected_parts!r}"
+            )
+
+    if is_acharnenses:
+        if METRICS_PATH.exists():
+            metric_payload: dict = {}
+            try:
+                metric_payload = json.loads(
+                    METRICS_PATH.read_text(encoding="utf-8")
+                )
+                metric_assignments = load_and_validate_metrics(
+                    root, metric_payload
+                )
+            except (OSError, json.JSONDecodeError, ValueError) as error:
+                errors.append(f"pilot metrico non valido: {error}")
+                metric_assignments = {}
+
+            metric_lines = {
+                (line.get(XML_ID) or ""): line
+                for line in elements_by_name["l"]
+                if any(name in line.attrib for name in METRIC_ATTRIBUTES)
+            }
+            unexpected_metric_lines = sorted(
+                set(metric_lines) - set(metric_assignments)
+            )
+            if unexpected_metric_lines:
+                errors.append(
+                    "annotazioni metriche fuori dal pilot: "
+                    + ", ".join(unexpected_metric_lines)
+                )
+
+            for entry in metric_payload.get("lines", []):
+                for fragment in entry.get("fragments", []):
+                    target = str(fragment.get("target") or "")
+                    line = metric_lines.get(target)
+                    if line is None:
+                        errors.append(
+                            f"{target}: annotazione metrica del sidecar assente"
+                        )
+                        continue
+                    expected_attributes = metric_attributes(entry, fragment)
+                    actual_attributes = {
+                        name: line.get(name)
+                        for name in METRIC_ATTRIBUTES
+                        if line.get(name) is not None
+                    }
+                    if actual_attributes != expected_attributes:
+                        errors.append(
+                            f"{target}: attributi metrici {actual_attributes!r}, "
+                            f"attesi {expected_attributes!r}"
+                        )
+
+            met_declarations = [
+                element
+                for element in elements_by_name["metDecl"]
+                if element.get(XML_ID) == "lexar-quantitative-v1"
+            ]
+            if len(met_declarations) != 1:
+                errors.append(
+                    "il pilot metrico richiede un solo "
+                    "metDecl xml:id='lexar-quantitative-v1'"
+                )
+
+        expected_coverage = (
+            set(range(VERSE_MINIMUM, VERSE_MAXIMUM + 1))
+            - UNATTESTED_REFERENCE_BASES
+        )
+        missing_verses = sorted(expected_coverage - covered_verses)
+        unexpected_verses = sorted(covered_verses - expected_coverage)
+        if missing_verses:
+            errors.append(
+                "coordinate di verso mancanti: "
+                + ", ".join(map(str, missing_verses))
+            )
+        if unexpected_verses:
+            errors.append(
+                "coordinate-base inattese: "
+                + ", ".join(map(str, unexpected_verses))
+            )
+
+        gaps = elements_by_name["gap"]
+        gap_parents = {
+            id(child): parent
+            for parent in elements
+            for child in parent
+        }
+        gap_numbers = sorted(
+            int(parent.get("n"))
+            for gap in gaps
+            if (parent := gap_parents.get(id(gap))) is not None
+            and (parent.get("n") or "").isdigit()
+        )
+        if gap_numbers != [1202, 1206]:
+            errors.append(
+                f"lacune attese ai vv. 1202 e 1206, trovate {gap_numbers!r}"
+            )
+        for gap in gaps:
+            if gap.get("reason") != "lost":
+                errors.append(
+                    f"{locations[id(gap)]}: @reason deve essere 'lost'"
+                )
 
     for element_name in ("add", "del"):
         for editorial_element in elements_by_name[element_name]:

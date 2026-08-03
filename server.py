@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sqlite3
 import threading
 import unicodedata
@@ -24,6 +25,14 @@ DATA_DIR = ROOT / "data"
 DATABASE = DATA_DIR / "lexar.sqlite3"
 TEI_NAMESPACE = {"tei": "http://www.tei-c.org/ns/1.0"}
 XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
+CTS_LINE_REFERENCE = re.compile(
+    r"urn:cts:greekLit:tlg0019\.tlg001\.perseus-grc2:(\d+[a-z]*)"
+)
+METRIC_LABELS = {
+    "ia3": "Trimetro giambico",
+    "ia1-hypercat": "Monometro giambico ipercatalettico?",
+}
+METRIC_STATUSES = ("verified", "proposed", "unscannable")
 WORKS = {
     "acarnesi": {
         "title": "Gli Acarnesi",
@@ -75,6 +84,15 @@ def initialise_database() -> None:
                 position INTEGER NOT NULL,
                 speech_position INTEGER,
                 speech_id TEXT,
+                line_id TEXT,
+                line_number TEXT,
+                line_part TEXT,
+                line_refs TEXT,
+                verse_refs TEXT,
+                is_gap INTEGER NOT NULL DEFAULT 0,
+                verse_start INTEGER,
+                verse_end INTEGER,
+                metric_json TEXT,
                 scene TEXT,
                 section_id TEXT,
                 speaker TEXT,
@@ -87,6 +105,15 @@ def initialise_database() -> None:
         )
         ensure_column(connection, "lines", "speech_position", "INTEGER")
         ensure_column(connection, "lines", "speech_id", "TEXT")
+        ensure_column(connection, "lines", "line_id", "TEXT")
+        ensure_column(connection, "lines", "line_number", "TEXT")
+        ensure_column(connection, "lines", "line_part", "TEXT")
+        ensure_column(connection, "lines", "line_refs", "TEXT")
+        ensure_column(connection, "lines", "verse_refs", "TEXT")
+        ensure_column(connection, "lines", "is_gap", "INTEGER NOT NULL DEFAULT 0")
+        ensure_column(connection, "lines", "verse_start", "INTEGER")
+        ensure_column(connection, "lines", "verse_end", "INTEGER")
+        ensure_column(connection, "lines", "metric_json", "TEXT")
         ensure_column(connection, "lines", "section_id", "TEXT")
         ensure_column(connection, "lines", "speaker_ref", "TEXT")
         connection.execute(
@@ -157,14 +184,29 @@ def import_work(connection: sqlite3.Connection, slug: str, work: dict[str, objec
         section, section_id = tei_section_info(speech, parent_map)
         for line in speech.findall(".//tei:l", TEI_NAMESPACE):
             text = normalise(tei_display_text(line))
-            if text:
+            is_gap = line.find("tei:gap", TEI_NAMESPACE) is not None
+            if text or is_gap:
                 position += 1
+                line_number = line.get("n")
+                line_refs, verse_refs = tei_line_references(line)
+                verse_start = min(verse_refs) if verse_refs else None
+                verse_end = max(verse_refs) if verse_refs else None
+                metric = tei_line_metric(line)
                 rows.append(
                     (
                         slug,
                         position,
                         speech_position,
                         speech_id,
+                        line.get(XML_ID),
+                        line_number,
+                        line.get("part"),
+                        json.dumps(line_refs, ensure_ascii=False),
+                        json.dumps(verse_refs),
+                        int(is_gap),
+                        verse_start,
+                        verse_end,
+                        json.dumps(metric, ensure_ascii=False) if metric else None,
                         section,
                         section_id,
                         speaker,
@@ -174,11 +216,79 @@ def import_work(connection: sqlite3.Connection, slug: str, work: dict[str, objec
                 )
     connection.executemany(
         """INSERT INTO lines (
-               work_slug, position, speech_position, speech_id, scene,
-               section_id, speaker, speaker_ref, text
-           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+               work_slug, position, speech_position, speech_id,
+               line_id, line_number, line_part, line_refs, verse_refs, is_gap,
+               verse_start, verse_end, metric_json,
+               scene, section_id, speaker, speaker_ref, text
+           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         rows,
     )
+
+
+def tei_line_references(line: ET.Element) -> tuple[list[str], list[int]]:
+    """Return exact CTS labels and their numeric bases from ``@corresp``."""
+
+    labels = []
+    bases = []
+    for pointer in (line.get("corresp") or "").split():
+        match = CTS_LINE_REFERENCE.fullmatch(pointer)
+        if not match:
+            continue
+        label = match.group(1)
+        labels.append(label)
+        base_match = re.match(r"\d+", label)
+        if base_match:
+            base = int(base_match.group())
+            if base not in bases:
+                bases.append(base)
+    return labels, bases
+
+
+def tei_line_metric(line: ET.Element) -> dict[str, object] | None:
+    """Expose a stable public metric object from the TEI ``<l>`` attributes.
+
+    ``@met`` and ``@real`` retain their TEI meanings and values.  The compact
+    meter identifier and editorial status are resolved from the controlled
+    ``@ana`` pointers used by LexAr; unknown pointers remain in the XML and do
+    not leak into the public contract.
+    """
+
+    met = line.get("met")
+    real = line.get("real")
+    ana = (line.get("ana") or "").split()
+    meter = next(
+        (
+            pointer.removeprefix("#met-")
+            for pointer in ana
+            if pointer.startswith("#met-")
+        ),
+        None,
+    )
+    status = next(
+        (
+            candidate
+            for candidate in METRIC_STATUSES
+            if f"#metric-{candidate}" in ana
+        ),
+        None,
+    )
+    cert = line.get("cert")
+    resp = line.get("resp")
+    sources = (line.get("source") or "").split()
+
+    if not any((meter, met, real, status)):
+        return None
+
+    return {
+        "meter": meter,
+        "label": METRIC_LABELS.get(meter),
+        "met": met,
+        "real": real,
+        "status": status,
+        "cert": cert,
+        "resp": resp,
+        "sources": sources,
+    }
 
 
 def tei_display_text(element: ET.Element) -> str:
@@ -309,7 +419,10 @@ def speeches_for(slug: str) -> list[dict]:
         if not connection.execute("SELECT 1 FROM works WHERE slug = ?", (slug,)).fetchone():
             raise KeyError
         rows = connection.execute(
-            """SELECT speech_id, scene, section_id, speaker, speaker_ref, text
+            """SELECT speech_id, scene, section_id, speaker, speaker_ref,
+                      line_id, line_number, line_part,
+                      line_refs, verse_refs, is_gap,
+                      verse_start, verse_end, metric_json, text
                FROM lines
                WHERE work_slug = ?
                ORDER BY position""",
@@ -328,7 +441,24 @@ def speeches_for(slug: str) -> list[dict]:
                 "lines": [],
             }
             speeches.append(current)
-        current["lines"].append(row["text"])
+        current["lines"].append(
+            {
+                "id": row["line_id"],
+                "n": row["line_number"],
+                "part": row["line_part"],
+                "refs": json.loads(row["line_refs"] or "[]"),
+                "verses": json.loads(row["verse_refs"] or "[]"),
+                "gap": bool(row["is_gap"]),
+                "start": row["verse_start"],
+                "end": row["verse_end"],
+                "metric": (
+                    json.loads(row["metric_json"])
+                    if row["metric_json"]
+                    else None
+                ),
+                "text": row["text"],
+            }
+        )
     return speeches
 
 

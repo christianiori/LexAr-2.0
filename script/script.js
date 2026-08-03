@@ -1099,7 +1099,12 @@ async function loadWorkContent(workSlug) {
             speech.lines.forEach((line) => {
                 const lineElement = document.createElement("div");
                 lineElement.className = "tei-line";
-                lineElement.textContent = line;
+                lineElement.textContent =
+                    typeof line === "string"
+                        ? line
+                        : line.gap
+                            ? "Lacuna nel testo"
+                            : line.text;
                 speechElement.appendChild(lineElement);
             });
             fragment.appendChild(speechElement);

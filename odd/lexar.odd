@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xml:id="lexar-odd">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>LexAr: personalizzazione TEI per il corpus aristofaneo</title>
+        <respStmt>
+          <resp>Progettazione e manutenzione della personalizzazione</resp>
+          <name>Progetto LexAr</name>
+        </respStmt>
+      </titleStmt>
+      <editionStmt>
+        <edition n="0.1">Prima versione di lavoro</edition>
+      </editionStmt>
+      <publicationStmt>
+        <p>Personalizzazione interna del progetto LexAr.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>
+          La personalizzazione deriva dalle TEI Guidelines P5 ed è stata
+          progettata a partire dalla codifica corrente degli
+          <title>Acarnesi</title> in LexAr.
+        </p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>
+          Lo schema conserva una base TEI ampia ma controllata, adeguata a testi
+          drammatici in versi, identificazione stabile dei frammenti, collegamenti
+          esterni, interventi editoriali e futura annotazione metrica.
+        </p>
+      </projectDesc>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2026-08-03">
+        Creazione della prima personalizzazione ODD di LexAr.
+      </change>
+    </revisionDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <div type="documentation" xml:lang="it">
+        <head>Principi della personalizzazione</head>
+        <p>
+          LexAr descrive ogni opera come un documento <gi>TEI</gi> completo di
+          intestazione. La struttura del testo distingue le divisioni dell'opera,
+          le battute con <gi>sp</gi>, i parlanti con <gi>speaker</gi>, i gruppi di
+          versi con <gi>lg</gi> e i frammenti di verso con <gi>l</gi>. Gli
+          identificatori XML sono stabili; <att>n</att> e <att>corresp</att>
+          registrano le coordinate editoriali e i riferimenti esterni senza
+          alterare la lezione greca.
+        </p>
+        <p>
+          I moduli <ident>tei</ident>, <ident>header</ident>,
+          <ident>core</ident> e <ident>textstructure</ident> forniscono la base
+          documentaria. <ident>drama</ident> e <ident>verse</ident> modellano la
+          commedia e i suoi versi; <ident>linking</ident> sostiene i rinvii tra
+          testo, personaggi e risorse. <ident>namesdates</ident> rende disponibili
+          le descrizioni dei personaggi già presenti nell'intestazione, mentre
+          <ident>transcr</ident> comprende gli interventi <gi>supplied</gi> e
+          <gi>surplus</gi> usati nel testo corrente. <ident>textcrit</ident> è
+          incluso in modo conservativo: <gi>app</gi>, <gi>lem</gi> e
+          <gi>rdg</gi> restano disponibili per un futuro apparato esplicito e
+          non sono obbligatori.
+        </p>
+        <p>
+          L'attributo <att>part</att> segnala soltanto un verso effettivamente
+          distribuito fra più elementi <gi>l</gi>: <val>I</val> identifica il
+          frammento iniziale, <val>M</val> un frammento mediano e <val>F</val> il
+          frammento finale. Un verso non frammentato omette l'attributo. Nel
+          profilo LexAr ogni frammento marcato con <att>part</att> conserva anche
+          una coordinata in <att>n</att> e un riferimento in
+          <att>corresp</att>.
+        </p>
+        <p>
+          Per la scansione metrica, <att>met</att> esprime lo schema
+          convenzionale e <att>real</att> la sua realizzazione nel verso. La
+          notazione sorgente è ASCII: <code>-</code> indica una sillaba lunga,
+          <code>u</code> una breve, <code>x</code> un elemento anceps,
+          <code>|</code> il confine di piede e <code>||</code> una cesura
+          editoriale, normalmente registrata in <att>real</att>. Gli attributi
+          usano una stringa compatta, priva di spazi; l'interfaccia può
+          trasformare questi segni in glifi tipografici. Ogni documento che
+          impiega <att>met</att> o <att>real</att> deve dichiarare la notazione con
+          <gi>metDecl</gi> in <gi>encodingDesc</gi>. La realizzazione può
+          ereditare lo schema convenzionale da un elemento antenato, per esempio
+          da <gi>lg</gi> a <gi>l</gi>.
+        </p>
+      </div>
+
+      <schemaSpec ident="lexar" start="TEI">
+        <moduleRef key="tei"/>
+        <moduleRef key="header"/>
+        <moduleRef key="core"/>
+        <moduleRef key="textstructure"/>
+        <moduleRef key="drama"/>
+        <moduleRef key="verse"/>
+        <moduleRef key="linking"/>
+        <moduleRef key="namesdates"/>
+        <moduleRef key="transcr"/>
+        <moduleRef key="textcrit"/>
+
+        <classSpec ident="att.fragmentable" type="atts" mode="change">
+          <attList>
+            <attDef ident="part" mode="change">
+              <desc xml:lang="it">
+                Posizione del frammento entro un verso distribuito fra più
+                elementi.
+              </desc>
+              <valList type="closed" mode="replace">
+                <valItem ident="I">
+                  <desc xml:lang="it">Frammento iniziale.</desc>
+                </valItem>
+                <valItem ident="M">
+                  <desc xml:lang="it">Frammento mediano.</desc>
+                </valItem>
+                <valItem ident="F">
+                  <desc xml:lang="it">Frammento finale.</desc>
+                </valItem>
+              </valList>
+            </attDef>
+          </attList>
+        </classSpec>
+
+        <elementSpec ident="l" mode="change">
+          <constraintSpec ident="lexar-fragment-coordinates"
+                          scheme="schematron">
+            <desc xml:lang="it">
+              Un frammento di verso deve mantenere la propria coordinata e il
+              riferimento editoriale.
+            </desc>
+            <constraint>
+              <sch:rule context="tei:l[@part]">
+                <sch:assert test="@n">
+                  In LexAr un elemento l con @part deve possedere anche @n.
+                </sch:assert>
+                <sch:assert test="@corresp">
+                  In LexAr un elemento l con @part deve possedere anche
+                  @corresp.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </elementSpec>
+
+        <classSpec ident="att.metrical" type="atts" mode="change">
+          <constraintSpec ident="lexar-metrical-notation"
+                          scheme="schematron">
+            <desc xml:lang="it">
+              Controlla l'alfabeto metrico LexAr e la presenza della relativa
+              dichiarazione nell'intestazione.
+            </desc>
+            <constraint>
+              <sch:rule context="tei:*[@met or @real]">
+                <sch:assert test="not(@met) or matches(@met, '^[-ux|]+$')">
+                  @met ammette soltanto i simboli LexAr -, u, x e |, senza
+                  spazi.
+                </sch:assert>
+                <sch:assert test="not(@real) or matches(@real, '^[-ux|]+$')">
+                  @real ammette soltanto i simboli LexAr -, u, x e |, senza
+                  spazi.
+                </sch:assert>
+                <sch:assert test="ancestor::tei:TEI/tei:teiHeader/tei:encodingDesc/tei:metDecl">
+                  L'uso di @met o @real richiede un metDecl nell'encodingDesc.
+                </sch:assert>
+                <sch:assert test="not(@real) or @met or ancestor::*[@met]">
+                  @real richiede uno schema @met sullo stesso elemento o su un
+                  suo antenato.
+                </sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </classSpec>
+      </schemaSpec>
+    </body>
+  </text>
+</TEI>
