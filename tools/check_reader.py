@@ -162,6 +162,8 @@ def main() -> int:
         errors.append("stato delle scansioni metriche non visibile")
     if 'addEventListener("click", applySearch)' in shared_script:
         errors.append("gestore lessicale collegato a una funzione fuori ambito")
+    if 'Elemento con data-bs-target="#testo-Acarnesi" non trovato' in shared_script:
+        errors.append("avviso spurio del caricatore TEI sulle pagine lessicali")
 
     check_lexicon_links(errors)
 

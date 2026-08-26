@@ -1139,8 +1139,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("📥 Bottone Acarnesi cliccato. Avvio caricamento TEI...");
             loadWorkContent("acarnesi");
         });
-    } else {
-        console.warn('⚠️ Elemento con data-bs-target="#testo-Acarnesi" non trovato.');
     }
 });
 
