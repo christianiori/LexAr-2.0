@@ -254,7 +254,9 @@ function metricVisibleLabel(metric) {
       : `${metricTitle(metric)} · ${status}`;
   }
   if (status === "non scansionabile") return status;
-  return "";
+  return standardMeters.has(meter)
+    ? status
+    : `${metricTitle(metric)} · ${status}`;
 }
 
 function metricAccessibleNotation(value) {
@@ -330,7 +332,7 @@ function createMetricElement(metric) {
 
   const accessible = document.createElement("span");
   accessible.className = "visually-hidden tei-metric-description";
-  const accessibleStatus = status === "proposta" ? "" : `, ${status}`;
+  const accessibleStatus = `, ${status}`;
   if (metric.real) {
     accessible.textContent = `Scansione metrica: ${title}${accessibleStatus}. ${metricAccessibleNotation(metric.real)}.`;
   } else if (metric.met) {

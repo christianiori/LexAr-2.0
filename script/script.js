@@ -900,20 +900,6 @@ document.querySelectorAll(".btn-check[data-filter]").forEach(button => {
 
     sortButtons.forEach(button => button.addEventListener("change", SortCards));
 
-    if (searchButton) {
-        searchButton.addEventListener("click", applySearch);
-    } else {
-        console.warn("⚠️ searchButton non esiste in questa pagina.");
-    }
-
-    searchInputs.forEach(input => {
-        input.addEventListener("keypress", event => {
-            if (event.key === "Enter") {
-                applySearch();
-            }
-        });
-    });
-
     if (showAllButton) {
         showAllButton.addEventListener("change", showAllItems);
     }

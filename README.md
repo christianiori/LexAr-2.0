@@ -28,9 +28,10 @@ python tools/check_project.py
 ```
 
 Il comando controlla sintassi Python, backend e database, validità TEI, pilot
-metrico, aggiornamento del fallback statico, collegamenti interni, ancore e
-risorse locali. Gli stessi controlli vengono eseguiti automaticamente da GitHub
-Actions a ogni push e pull request.
+metrico, aggiornamento del fallback statico, lettore degli *Acarnesi* (API,
+ricerca, versi e collegamenti lessicali), collegamenti interni, ancore e risorse
+locali. Gli stessi controlli vengono eseguiti automaticamente da GitHub Actions
+a ogni push e pull request.
 
 Per eseguire soltanto il controllo di pagine e risorse:
 

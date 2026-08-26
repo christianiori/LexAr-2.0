@@ -145,6 +145,7 @@ def main() -> int:
 
     reader_html = (ROOT / "item/acarnesi.html").read_text()
     reader_script = (ROOT / "script/work.js").read_text()
+    shared_script = (ROOT / "script/script.js").read_text()
     for expected in (
         'id="verse-jump" novalidate',
         'aria-describedby="reader-jump-status"',
@@ -157,6 +158,10 @@ def main() -> int:
         errors.append("modalità diagnostica del fallback non disponibile")
     if "articolato in ${fragmentCount} frammenti" not in reader_script:
         errors.append("messaggio per verso frammentato non disponibile")
+    if "`${metricTitle(metric)} · ${status}`" not in reader_script:
+        errors.append("stato delle scansioni metriche non visibile")
+    if 'addEventListener("click", applySearch)' in shared_script:
+        errors.append("gestore lessicale collegato a una funzione fuori ambito")
 
     check_lexicon_links(errors)
 

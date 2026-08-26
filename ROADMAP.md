@@ -64,30 +64,30 @@ contiene collegamenti interni interrotti e ha una struttura documentata.
 
 ### Lettore del testo
 
-- [ ] Provare caricamento tramite API e fallback statico.
-- [ ] Verificare ricerca con greco accentato, greco non accentato e nomi dei
+- [x] Provare caricamento tramite API e fallback statico.
+- [x] Verificare ricerca con greco accentato, greco non accentato e nomi dei
   personaggi.
-- [ ] Gestire chiaramente ricerche senza risultati.
-- [ ] Verificare il salto a un verso esistente, inesistente, frammentato e
+- [x] Gestire chiaramente ricerche senza risultati.
+- [x] Verificare il salto a un verso esistente, inesistente, frammentato e
   fuori intervallo.
-- [ ] Mantenere visibili numero del verso e parlante durante la lettura.
-- [ ] Verificare il lettore con tastiera e lettore di schermo.
+- [x] Mantenere visibili numero del verso e parlante durante la lettura.
+- [x] Verificare il lettore con tastiera e lettore di schermo.
 - [ ] Controllare il layout almeno a 360, 768, 1024 e 1440 pixel.
 
 ### Pilot metrico
 
 - [ ] Revisionare manualmente le scansioni dei vv. 1–46.
 - [ ] Risolvere o documentare i casi ancora aperti dei vv. 20, 37 e 43.
-- [ ] Distinguere nell'interfaccia scansioni proposte e scansioni verificate.
-- [ ] Aggiungere una breve legenda della notazione metrica.
-- [ ] Verificare che il testo resti leggibile con la metrica disattivata.
+- [x] Distinguere nell'interfaccia scansioni proposte e scansioni verificate.
+- [x] Aggiungere una breve legenda della notazione metrica.
+- [x] Verificare che il testo resti leggibile con la metrica disattivata.
 
 ### Collegamento con il lessico
 
-- [ ] Mostrare nella scheda i termini lessicali associati agli *Acarnesi*.
-- [ ] Collegare ogni termine alla relativa voce del lessico.
-- [ ] Permettere di tornare dalla voce lessicale all'opera di provenienza.
-- [ ] Definire il comportamento quando un termine non possiede ancora una
+- [x] Mostrare nella scheda i termini lessicali associati agli *Acarnesi*.
+- [x] Collegare ogni termine alla relativa voce del lessico.
+- [x] Permettere di tornare dalla voce lessicale all'opera di provenienza.
+- [x] Definire il comportamento quando un termine non possiede ancora una
   scheda completa.
 
 **Criterio di uscita:** gli *Acarnesi* funzionano su desktop e mobile tramite
