@@ -250,10 +250,11 @@
                     type="search"
                     placeholder="Forma greca o personaggio…"
                     autocomplete="off"
+                    aria-describedby="reader-count reader-empty"
                   >
                 </span>
               </label>
-              <form class="reader-jump" id="verse-jump">
+              <form class="reader-jump" id="verse-jump" novalidate>
                 <label for="verse-number">Vai al verso</label>
                 <span class="reader-jump-field">
                   <input
@@ -264,6 +265,7 @@
                     inputmode="numeric"
                     placeholder="es. 425"
                     autocomplete="off"
+                    aria-describedby="reader-jump-status"
                   >
                   <button type="submit">Vai</button>
                 </span>
@@ -282,7 +284,8 @@
               </button>
             </div>
             <div class="reader-meta">
-              <p id="reader-count" class="reader-count"></p>
+              <p id="reader-count" class="reader-count" role="status" aria-live="polite"></p>
+              <p id="reader-data-source" class="reader-source-note" role="status">Fonte dati: in attesa.</p>
               <p class="reader-source-note">Coordinate Hall–Geldart / Perseus</p>
             </div>
           </div>
@@ -292,9 +295,20 @@
             role="status"
             aria-live="polite"
           ></p>
+          <details class="reader-metric-legend">
+            <summary>Legenda della metrica</summary>
+            <p>
+              <span aria-hidden="true">–</span> lunga,
+              <span aria-hidden="true">⏑</span> breve,
+              <span aria-hidden="true">×</span> anceps,
+              <span aria-hidden="true">│</span> fine di piede,
+              <span aria-hidden="true">‖</span> cesura. Le scansioni non ancora
+              revisionate sono indicate come “da verificare”.
+            </p>
+          </details>
           <div id="text-status" class="data-status reader-status" role="status"></div>
           <div id="tei-content" class="tei-content" lang="grc"></div>
-          <div class="reader-empty" id="reader-empty" hidden>
+          <div class="reader-empty" id="reader-empty" role="status" aria-live="polite" hidden>
             <span lang="grc" aria-hidden="true">οὐδέν</span>
             <p>Nessun intervento corrisponde alla ricerca.</p>
           </div>

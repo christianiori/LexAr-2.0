@@ -9,6 +9,7 @@ const textStatus = document.getElementById("text-status");
 const textContent = document.getElementById("tei-content");
 const textSearch = document.getElementById("text-search");
 const readerCount = document.getElementById("reader-count");
+const readerDataSource = document.getElementById("reader-data-source");
 const readerEmpty = document.getElementById("reader-empty");
 const verseJump = document.getElementById("verse-jump");
 const verseNumber = document.getElementById("verse-number");
@@ -17,6 +18,7 @@ const metricToggle = document.getElementById("metric-toggle");
 
 const lexiconProfiles = {
   acarnesi: {
+    workFilter: "Acarnesi",
     terms: [
       { term: "πόλις", frequency: 19 },
       { term: "χοῖρος", frequency: 19 },
@@ -95,7 +97,28 @@ function renderTerms(terms) {
     frequencyLabel.textContent = " occorrenze";
     frequency.appendChild(frequencyLabel);
 
-    listItem.append(word, frequency);
+    const workFilter = lexiconProfiles[workSlug]?.workFilter;
+    if (item.hasEntry !== false && workFilter) {
+      const link = document.createElement("a");
+      const parameters = new URLSearchParams({
+        from: workSlug,
+        term: item.term,
+      });
+      link.className = "term-entry-link";
+      link.href = `../lessico/vocaboli.html?${parameters}`;
+      link.setAttribute(
+        "aria-label",
+        `${item.term}, ${item.frequency} occorrenze: apri la voce lessicale`
+      );
+      link.append(word, frequency);
+      listItem.appendChild(link);
+    } else {
+      listItem.classList.add("is-unavailable");
+      const unavailable = document.createElement("span");
+      unavailable.className = "visually-hidden";
+      unavailable.textContent = " Voce lessicale in preparazione.";
+      listItem.append(word, frequency, unavailable);
+    }
     fragment.appendChild(listItem);
   });
 
@@ -631,8 +654,13 @@ function jumpToVerse(verse, { updateHash = true } = {}) {
     .map(Number)
     .filter(Number.isInteger);
   const isGap = lineElement.classList.contains("is-gap");
+  const fragmentCount = verseIndex.get(verse)?.length || 0;
   if (isGap) {
     setJumpStatus(`Il v. ${verse} è conservato come lacuna.`);
+  } else if (fragmentCount > 1) {
+    setJumpStatus(
+      `Raggiunto il v. ${verse}, articolato in ${fragmentCount} frammenti.`
+    );
   } else if (references?.length > 1) {
     setJumpStatus(
       `Raggiunto il v. ${verse}; il frammento attraversa anche ${references
@@ -684,8 +712,13 @@ async function loadText() {
     const fallbackSpeeches =
       globalThis.LEXAR_WORK_DATA?.[workSlug]?.speeches;
     let speeches = fallbackSpeeches;
+    let dataSource = "fallback statico";
+    const requestedSource = new URLSearchParams(window.location.search).get(
+      "reader-source"
+    );
+    const useStaticFallback = requestedSource === "fallback";
 
-    if (window.location.protocol !== "file:") {
+    if (window.location.protocol !== "file:" && !useStaticFallback) {
       try {
         const payload = await fetchJson(
           `/api/works/${encodeURIComponent(workSlug)}/speeches`
@@ -712,6 +745,7 @@ async function loadText() {
             (fallbackHasMetrics && !apiHasMetrics);
           if (!fallbackIsRicher) {
             speeches = payload.speeches;
+            dataSource = "API";
           }
         }
       } catch (apiError) {
@@ -725,6 +759,9 @@ async function loadText() {
       throw new Error("Nessun intervento disponibile");
     }
     renderText(speeches);
+    if (readerDataSource) {
+      readerDataSource.textContent = `Fonte dati: ${dataSource}.`;
+    }
     textLoaded = true;
   } catch (error) {
     textStatus.classList.add("is-error");
