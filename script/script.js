@@ -18,6 +18,7 @@ const toggleFiltersButton = document.getElementById("toggleFilters");
 const container = document.querySelector(".row.row-cols-1.row-cols-md-3.g-4");
 const sortButtons = document.querySelectorAll(".btn-check[data-sort]");
 const searchButton = document.getElementById("searchButton");
+const searchButtonSidebar = document.getElementById("searchButtonSidebar");
 
 document.addEventListener("DOMContentLoaded", function () {
     let sidebar = document.getElementById("annotationSidebar");
@@ -495,6 +496,7 @@ function debounce(func, delay) {
 document.getElementById("search-bar")?.addEventListener("input", debounce(applyFiltersAndSearch, 100));
 document.getElementById("search-bar-colonnasx")?.addEventListener("input", debounce(applyFiltersAndSearch, 100));
 document.getElementById("searchButton")?.addEventListener("click", applyFiltersAndSearch);
+searchButtonSidebar?.addEventListener("click", applyFiltersAndSearch);
 
 document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
     checkbox.addEventListener("change", applyFiltersAndSearch);

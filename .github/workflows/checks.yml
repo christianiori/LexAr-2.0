@@ -1,0 +1,24 @@
+name: Controlli del progetto
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica la repository
+        uses: actions/checkout@v7
+
+      - name: Configura Python
+        uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+
+      - name: Esegui tutti i controlli
+        run: python tools/check_project.py
+

@@ -5,6 +5,9 @@ Sito dedicato al lessico nelle commedie aristofanee.
 Il percorso di sviluppo verso la prima versione stabile è descritto nella
 [roadmap del progetto](ROADMAP.md).
 
+L'elenco completo degli URL supportati è disponibile in
+[Pagine e rotte pubbliche](docs/PUBLIC_ROUTES.md).
+
 ## Avvio locale con API
 
 Il progetto include un backend locale senza dipendenze esterne. All'avvio importa
@@ -15,6 +18,25 @@ python server.py
 ```
 
 Apri quindi `http://localhost:8000/` nel browser.
+
+## Controlli del progetto
+
+Prima di pubblicare una modifica, esegui l'intera suite locale:
+
+```powershell
+python tools/check_project.py
+```
+
+Il comando controlla sintassi Python, backend e database, validità TEI, pilot
+metrico, aggiornamento del fallback statico, collegamenti interni, ancore e
+risorse locali. Gli stessi controlli vengono eseguiti automaticamente da GitHub
+Actions a ogni push e pull request.
+
+Per eseguire soltanto il controllo di pagine e risorse:
+
+```powershell
+python tools/check_internal_links.py
+```
 
 La scheda degli *Acarnesi* include anche un fallback statico del testo, utile
 quando il sito viene aperto direttamente dal disco o pubblicato senza backend.

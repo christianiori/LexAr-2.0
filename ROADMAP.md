@@ -40,20 +40,20 @@ sarà il principale percorso di espansione successivo.
 
 ### Struttura e collegamenti
 
-- [ ] Elencare le pagine pubbliche canoniche e i relativi URL.
-- [ ] Individuare riferimenti a pagine, stili e script non più utilizzati.
-- [ ] Correggere tutti i collegamenti interni non validi.
-- [ ] Verificare che ogni pagina permetta di tornare a Home, Opere e Lessico.
-- [ ] Aggiungere `tools/check_internal_links.py` per controllare automaticamente
+- [x] Elencare le pagine pubbliche canoniche e i relativi URL.
+- [x] Individuare riferimenti a pagine, stili e script non più utilizzati.
+- [x] Correggere tutti i collegamenti interni non validi.
+- [x] Verificare che ogni pagina permetta di tornare a Home, Opere e Lessico.
+- [x] Aggiungere `tools/check_internal_links.py` per controllare automaticamente
   collegamenti, immagini, fogli di stile e script locali.
-- [ ] Documentare nel README il comando per eseguire il controllo.
+- [x] Documentare nel README il comando per eseguire il controllo.
 
 ### Controlli automatici
 
-- [ ] Riunire in un unico comando i controlli su backend, TEI, metrica e link.
-- [ ] Aggiungere una GitHub Action che esegua i controlli a ogni push.
-- [ ] Fare fallire il controllo se i dati generati non corrispondono alle fonti.
-- [ ] Conservare nel repository soltanto i file generati necessari al fallback.
+- [x] Riunire in un unico comando i controlli su backend, TEI, metrica e link.
+- [x] Aggiungere una GitHub Action che esegua i controlli a ogni push.
+- [x] Fare fallire il controllo se i dati generati non corrispondono alle fonti.
+- [x] Conservare nel repository soltanto i file generati necessari al fallback.
 
 **Criterio di uscita:** la repository supera tutti i controlli automatici, non
 contiene collegamenti interni interrotti e ha una struttura documentata.
@@ -265,4 +265,3 @@ Alla conclusione di ogni gruppo di attività:
 3. creare un commit circoscritto e descrittivo;
 4. pubblicare il commit;
 5. aggiornare le checkbox di questa roadmap nello stesso ciclo di lavoro.
-
