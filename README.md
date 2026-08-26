@@ -2,6 +2,9 @@
 
 Sito dedicato al lessico nelle commedie aristofanee.
 
+Il percorso di sviluppo verso la prima versione stabile è descritto nella
+[roadmap del progetto](ROADMAP.md).
+
 ## Avvio locale con API
 
 Il progetto include un backend locale senza dipendenze esterne. All'avvio importa
