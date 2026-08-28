@@ -56,6 +56,7 @@ regola.
 | Elenco delle opere | `GET /api/works` |
 | Dati di un'opera | `GET /api/works/{slug}` |
 | Battute di un'opera | `GET /api/works/{slug}/speeches` |
+| Voci lessicali di un'opera | `GET /api/works/{slug}/lexicon` |
 | Termini frequenti | `GET /api/terms?work={slug}&limit={1-100}` |
 
 Attualmente `acarnesi` è l'unico slug con un testo TEI completo. Le rotte delle
@@ -69,9 +70,10 @@ ancora presente.
 - `/xml/mettesm.xml`: metadati delle *Donne alle Tesmoforie*.
 
 Il database `data/lexar.sqlite3` è generato localmente, escluso da Git e bloccato
-dal server HTTP. `script/data/work-texts.js` è invece il solo output generato
-conservato nel repository, perché permette al lettore degli *Acarnesi* di
-funzionare senza backend.
+dal server HTTP. `script/data/work-texts.js` e `script/data/lexicon-data.js` sono
+gli output generati conservati nel repository: permettono al lettore degli
+*Acarnesi* di funzionare senza backend mantenendo testo e schede lessicali
+allineati alle rispettive fonti.
 
 ## Inventario delle risorse
 

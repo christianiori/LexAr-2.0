@@ -93,21 +93,21 @@ contiene collegamenti interni interrotti e ha una struttura documentata.
 
 ### Interazione linguistica di base — requisito per LexAr 1.0
 
-- [ ] Definire una tokenizzazione stabile del greco che conservi punteggiatura,
+- [x] Definire una tokenizzazione stabile del greco che conservi punteggiatura,
   apostrofi, elisioni e testo TEI senza alterare ciò che viene visualizzato.
-- [ ] Rendere selezionabili con mouse, tocco e tastiera le parole riconosciute
+- [x] Rendere selezionabili con mouse, tocco e tastiera le parole riconosciute
   nel lessico.
-- [ ] Mostrare una scheda accessibile con forma nel testo, lemma, categoria
+- [x] Mostrare una scheda accessibile con forma nel testo, lemma, categoria
   grammaticale, significato essenziale e collegamento alla voce completa.
-- [ ] Evidenziare nel lettore le altre occorrenze della stessa voce e permettere
+- [x] Evidenziare nel lettore le altre occorrenze della stessa voce e permettere
   di rimuovere facilmente l'evidenziazione.
-- [ ] Gestire in modo chiaro le forme non riconosciute o prive di una scheda
+- [x] Gestire in modo chiaro le forme non riconosciute o prive di una scheda
   lessicale completa.
-- [ ] Garantire chiusura con `Escape`, ritorno del focus e una resa utilizzabile
+- [x] Garantire chiusura con `Escape`, ritorno del focus e una resa utilizzabile
   su mobile senza coprire il verso selezionato.
-- [ ] Conservare ricerca, salto al verso, metrica, API e fallback quando
+- [x] Conservare ricerca, salto al verso, metrica, API e fallback quando
   l'interazione lessicale è attiva.
-- [ ] Aggiungere controlli automatici per forme accentate e non accentate,
+- [x] Aggiungere controlli automatici per forme accentate e non accentate,
   punteggiatura, elisioni, parole ripetute e termini senza voce.
 
 Analisi morfologica completa, traduzione sincronizzata, annotazioni personali

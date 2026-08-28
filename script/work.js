@@ -15,6 +15,25 @@ const verseJump = document.getElementById("verse-jump");
 const verseNumber = document.getElementById("verse-number");
 const readerJumpStatus = document.getElementById("reader-jump-status");
 const metricToggle = document.getElementById("metric-toggle");
+const readerLexiconHelp = document.getElementById("reader-lexicon-help");
+const readerLexiconHelpText = document.getElementById(
+  "reader-lexicon-help-text"
+);
+const lexiconBackdrop = document.getElementById("lexicon-backdrop");
+const lexiconCard = document.getElementById("lexicon-card");
+const lexiconCardClose = document.getElementById("lexicon-card-close");
+const lexiconCardTitle = document.getElementById("lexicon-card-title");
+const lexiconCardForm = document.getElementById("lexicon-card-form");
+const lexiconCardLemma = document.getElementById("lexicon-card-lemma");
+const lexiconCardGrammar = document.getElementById("lexicon-card-grammar");
+const lexiconCardMeaning = document.getElementById("lexicon-card-meaning");
+const lexiconCardReferences = document.getElementById(
+  "lexicon-card-references"
+);
+const lexiconCardLink = document.getElementById("lexicon-card-link");
+const lexiconHighlightToggle = document.getElementById(
+  "lexicon-highlight-toggle"
+);
 
 const lexiconProfiles = {
   acarnesi: {
@@ -40,7 +59,15 @@ let lineElements = [];
 let highlightedLine = null;
 let highlightTimer = null;
 let metricsVisible = false;
+let interactiveLexiconLoaded = false;
+let lexiconIndex = new Map();
+let activeLexiconTrigger = null;
+let activeLexiconKey = "";
+let lexiconHighlightsVisible = false;
 const verseIndex = new Map();
+
+const GREEK_WORD_PATTERN = /[\p{Script=Greek}\p{M}]+(?:[’'᾽][\p{Script=Greek}\p{M}]*)?/gu;
+const MOBILE_LEXICON_QUERY = "(max-width: 760px)";
 
 const normaliseSearchText = (value) =>
   value
@@ -49,12 +76,207 @@ const normaliseSearchText = (value) =>
     .toLocaleLowerCase("el")
     .trim();
 
+const normaliseLexiconKey = (value) =>
+  value
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLocaleLowerCase("el")
+    .replaceAll("ς", "σ")
+    .trim();
+
 async function fetchJson(url) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Richiesta non riuscita: ${response.status}`);
   }
   return response.json();
+}
+
+async function loadInteractiveLexicon() {
+  if (interactiveLexiconLoaded || !workSlug) return;
+
+  const fallbackEntries =
+    globalThis.LEXAR_LEXICON_DATA?.[workSlug]?.entries || [];
+  let entries = fallbackEntries;
+  const requestedSource = new URLSearchParams(window.location.search).get(
+    "reader-source"
+  );
+
+  if (window.location.protocol !== "file:" && requestedSource !== "fallback") {
+    try {
+      const payload = await fetchJson(
+        `/api/works/${encodeURIComponent(workSlug)}/lexicon`
+      );
+      if (payload.entries?.length) entries = payload.entries;
+    } catch (error) {
+      if (!fallbackEntries.length) {
+        console.error("Errore nel caricamento del lessico:", error);
+      }
+    }
+  }
+
+  lexiconIndex = new Map(
+    entries
+      .filter((entry) => entry?.key && entry?.lemma)
+      .map((entry) => [entry.key, entry])
+  );
+  interactiveLexiconLoaded = true;
+}
+
+function appendInteractiveGreekText(container, value) {
+  let cursor = 0;
+  const pattern = new RegExp(GREEK_WORD_PATTERN);
+
+  for (const match of value.matchAll(pattern)) {
+    const token = match[0];
+    const start = match.index;
+    if (start > cursor) {
+      container.appendChild(document.createTextNode(value.slice(cursor, start)));
+    }
+
+    const key = normaliseLexiconKey(token);
+    const entry = lexiconIndex.get(key);
+    if (!entry) {
+      container.appendChild(document.createTextNode(token));
+    } else {
+      const trigger = document.createElement("button");
+      trigger.type = "button";
+      trigger.className = "tei-lexicon-token";
+      trigger.lang = "grc";
+      trigger.dataset.lexiconKey = key;
+      trigger.setAttribute("aria-haspopup", "dialog");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.setAttribute(
+        "aria-label",
+        `${token}: apri la scheda lessicale di ${entry.lemma}`
+      );
+      trigger.textContent = token;
+      container.appendChild(trigger);
+    }
+    cursor = start + token.length;
+  }
+
+  if (cursor < value.length) {
+    container.appendChild(document.createTextNode(value.slice(cursor)));
+  }
+}
+
+function interactiveTokensFor(key) {
+  if (!textContent || !key) return [];
+  return [...textContent.querySelectorAll(".tei-lexicon-token")].filter(
+    (token) => token.dataset.lexiconKey === key
+  );
+}
+
+function updateLexiconHighlightControl() {
+  if (!lexiconHighlightToggle || !activeLexiconKey) return;
+  const count = interactiveTokensFor(activeLexiconKey).length;
+  lexiconHighlightToggle.setAttribute(
+    "aria-pressed",
+    String(lexiconHighlightsVisible)
+  );
+  lexiconHighlightToggle.textContent = lexiconHighlightsVisible
+    ? `Rimuovi evidenziazione (${count})`
+    : `Evidenzia occorrenze (${count})`;
+}
+
+function setLexiconHighlights(visible) {
+  lexiconHighlightsVisible = Boolean(visible && activeLexiconKey);
+  interactiveTokensFor(activeLexiconKey).forEach((token) => {
+    token.classList.toggle("is-lexicon-match", lexiconHighlightsVisible);
+  });
+  updateLexiconHighlightControl();
+}
+
+function isMobileLexicon() {
+  return window.matchMedia(MOBILE_LEXICON_QUERY).matches;
+}
+
+function positionLexiconCard() {
+  if (!lexiconCard || lexiconCard.hidden || !activeLexiconTrigger) return;
+  const mobile = isMobileLexicon();
+  lexiconCard.setAttribute("aria-modal", String(mobile));
+  if (lexiconBackdrop) lexiconBackdrop.hidden = !mobile;
+  lexiconCard.style.removeProperty("left");
+  lexiconCard.style.removeProperty("top");
+  if (mobile) return;
+
+  const gap = 12;
+  const edge = 12;
+  const triggerBounds = activeLexiconTrigger.getBoundingClientRect();
+  const cardBounds = lexiconCard.getBoundingClientRect();
+  const maximumLeft = Math.max(edge, window.innerWidth - cardBounds.width - edge);
+  const left = Math.min(Math.max(edge, triggerBounds.left), maximumLeft);
+  const fitsBelow =
+    triggerBounds.bottom + gap + cardBounds.height <= window.innerHeight - edge;
+  const top = fitsBelow
+    ? triggerBounds.bottom + gap
+    : Math.max(edge, triggerBounds.top - cardBounds.height - gap);
+  lexiconCard.style.left = `${left}px`;
+  lexiconCard.style.top = `${top}px`;
+}
+
+function closeLexiconCard({ returnFocus = true } = {}) {
+  if (!lexiconCard || lexiconCard.hidden) return;
+  const trigger = activeLexiconTrigger;
+  setLexiconHighlights(false);
+  trigger?.setAttribute("aria-expanded", "false");
+  lexiconCard.hidden = true;
+  lexiconCard.style.removeProperty("left");
+  lexiconCard.style.removeProperty("top");
+  if (lexiconBackdrop) lexiconBackdrop.hidden = true;
+  activeLexiconTrigger = null;
+  activeLexiconKey = "";
+  if (returnFocus && trigger?.isConnected) trigger.focus({ preventScroll: true });
+}
+
+function openLexiconCard(trigger) {
+  const key = trigger.dataset.lexiconKey;
+  const entry = lexiconIndex.get(key);
+  if (!entry || !lexiconCard) return;
+
+  if (activeLexiconTrigger && activeLexiconTrigger !== trigger) {
+    activeLexiconTrigger.setAttribute("aria-expanded", "false");
+    setLexiconHighlights(false);
+  }
+  activeLexiconTrigger = trigger;
+  activeLexiconKey = key;
+  trigger.setAttribute("aria-expanded", "true");
+
+  if (lexiconCardTitle) lexiconCardTitle.textContent = entry.lemma;
+  if (lexiconCardForm) {
+    lexiconCardForm.textContent = `Forma nel testo: ${trigger.textContent}`;
+  }
+  if (lexiconCardLemma) lexiconCardLemma.textContent = entry.lemma;
+  if (lexiconCardGrammar) {
+    lexiconCardGrammar.textContent = entry.grammar.join(" · ");
+  }
+  if (lexiconCardMeaning) lexiconCardMeaning.textContent = entry.meaning;
+  if (lexiconCardReferences) {
+    lexiconCardReferences.textContent = entry.references || "Non indicate";
+  }
+  if (lexiconCardLink) {
+    const parameters = new URLSearchParams({
+      from: workSlug,
+      term: entry.lemma,
+    });
+    lexiconCardLink.href = `../lessico/vocaboli.html?${parameters}`;
+  }
+
+  lexiconCard.hidden = false;
+  setLexiconHighlights(true);
+  positionLexiconCard();
+  lexiconCard.focus({ preventScroll: true });
+}
+
+function updateLexiconHelp() {
+  if (!readerLexiconHelp || !readerLexiconHelpText || !textContent) return;
+  const tokens = [...textContent.querySelectorAll(".tei-lexicon-token")];
+  const lemmas = new Set(tokens.map((token) => token.dataset.lexiconKey));
+  readerLexiconHelp.hidden = tokens.length === 0;
+  readerLexiconHelpText.textContent = tokens.length
+    ? `${tokens.length} forme sono collegate a ${lemmas.size} voci: tocca o seleziona le parole sottolineate. Le altre forme restano testo normale.`
+    : "";
 }
 
 function renderTerms(terms) {
@@ -483,7 +705,7 @@ function createSpeechElement(speech) {
       text.lang = "it";
       text.textContent = "Lacuna nel testo";
     } else {
-      text.textContent = lineData.text;
+      appendInteractiveGreekText(text, lineData.text);
     }
 
     body.appendChild(text);
@@ -541,6 +763,7 @@ function renderText(speeches) {
   textContent.replaceChildren(fragment);
   markSharedVerseFragments();
   updateMetricToggleAvailability();
+  updateLexiconHelp();
   textStatus.hidden = true;
   updateReaderCount(speechElements.length);
   navigateToCurrentHash();
@@ -760,6 +983,7 @@ async function loadText() {
     if (!speeches?.length) {
       throw new Error("Nessun intervento disponibile");
     }
+    await loadInteractiveLexicon();
     renderText(speeches);
     if (readerDataSource) {
       readerDataSource.textContent = `Fonte dati: ${dataSource}.`;
@@ -787,6 +1011,8 @@ function setReaderOpen(isOpen) {
 
   if (isOpen) {
     loadText();
+  } else {
+    closeLexiconCard({ returnFocus: false });
   }
 }
 
@@ -810,6 +1036,72 @@ verseJump?.addEventListener("submit", (event) => {
 metricToggle?.addEventListener("click", () => {
   setMetricsVisible(metricToggle.getAttribute("aria-pressed") !== "true");
 });
+
+textContent?.addEventListener("click", (event) => {
+  const trigger =
+    event.target instanceof Element
+      ? event.target.closest(".tei-lexicon-token")
+      : null;
+  if (trigger) openLexiconCard(trigger);
+});
+
+lexiconCardClose?.addEventListener("click", () => closeLexiconCard());
+lexiconBackdrop?.addEventListener("click", () => closeLexiconCard());
+lexiconHighlightToggle?.addEventListener("click", () => {
+  setLexiconHighlights(!lexiconHighlightsVisible);
+});
+
+document.addEventListener("pointerdown", (event) => {
+  if (!lexiconCard || lexiconCard.hidden || isMobileLexicon()) return;
+  const target = event.target instanceof Element ? event.target : null;
+  if (
+    (target && lexiconCard.contains(target)) ||
+    target?.closest(".tei-lexicon-token")
+  ) {
+    return;
+  }
+  closeLexiconCard({ returnFocus: false });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!lexiconCard || lexiconCard.hidden) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeLexiconCard();
+    return;
+  }
+  if (event.key !== "Tab" || !isMobileLexicon()) return;
+
+  const focusable = [...lexiconCard.querySelectorAll("button, a[href]")].filter(
+    (element) => !element.disabled && !element.hidden
+  );
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (
+    event.shiftKey &&
+    (document.activeElement === first || document.activeElement === lexiconCard)
+  ) {
+    event.preventDefault();
+    last.focus();
+  } else if (
+    !event.shiftKey &&
+    (document.activeElement === last || document.activeElement === lexiconCard)
+  ) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+textContent?.addEventListener(
+  "scroll",
+  () => {
+    if (!isMobileLexicon()) closeLexiconCard({ returnFocus: false });
+  },
+  { passive: true }
+);
+
+window.addEventListener("resize", positionLexiconCard);
 
 window.addEventListener("hashchange", () => {
   const identifier = decodeURIComponent(window.location.hash.slice(1));

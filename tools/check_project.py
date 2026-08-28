@@ -16,8 +16,10 @@ CHECKS = (
     ("Pilot metrico", [PYTHON, "tools/apply_ach_metrics.py", "--check"]),
     ("Politica revisione metrica", [PYTHON, "tools/check_metric_review.py"]),
     ("Fallback statico", [PYTHON, "tools/generate_work_texts.py", "--check"]),
+    ("Fallback lessicale", [PYTHON, "tools/generate_lexicon_data.py", "--check"]),
     ("Backend", [PYTHON, "tools/check_backend.py"]),
     ("Lettore Acarnesi", [PYTHON, "tools/check_reader.py"]),
+    ("Interazione lessicale", [PYTHON, "tools/check_lexicon_interaction.py"]),
     ("Link e risorse", [PYTHON, "tools/check_internal_links.py"]),
 )
 

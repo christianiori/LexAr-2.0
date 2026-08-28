@@ -24,7 +24,8 @@
   <link rel="stylesheet" href="../style/work.css">
   <script src="../script/intro.js" defer></script>
   <script src="../script/data/work-texts.js" defer></script>
-  <script src="../script/work.js?v=20260828-2" defer></script>
+  <script src="../script/data/lexicon-data.js?v=20260828-1" defer></script>
+  <script src="../script/work.js?v=20260828-3" defer></script>
 </head>
 <body class="work-page" data-work="acarnesi">
   <a class="skip-link" href="#contenuto">Salta al contenuto</a>
@@ -306,6 +307,10 @@
               revisionate sono indicate come “da verificare”.
             </p>
           </details>
+          <p id="reader-lexicon-help" class="reader-lexicon-help" hidden>
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <span id="reader-lexicon-help-text"></span>
+          </p>
           <div id="text-status" class="data-status reader-status" role="status"></div>
           <div id="tei-content" class="tei-content" lang="grc"></div>
           <div class="reader-empty" id="reader-empty" role="status" aria-live="polite" hidden>
@@ -316,6 +321,55 @@
             Torna all’inizio del testo
             <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
           </a>
+          <div id="lexicon-backdrop" class="reader-lexicon-backdrop" hidden></div>
+          <aside
+            id="lexicon-card"
+            class="reader-lexicon-card"
+            role="dialog"
+            aria-modal="false"
+            aria-labelledby="lexicon-card-title"
+            aria-describedby="lexicon-card-meaning"
+            tabindex="-1"
+            hidden
+          >
+            <div class="reader-lexicon-heading">
+              <p>Dal testo al lessico</p>
+              <button id="lexicon-card-close" type="button" aria-label="Chiudi la scheda lessicale">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+              </button>
+            </div>
+            <h3 id="lexicon-card-title" lang="grc"></h3>
+            <p id="lexicon-card-form" class="reader-lexicon-form"></p>
+            <dl class="reader-lexicon-details">
+              <div>
+                <dt>Lemma</dt>
+                <dd id="lexicon-card-lemma" lang="grc"></dd>
+              </div>
+              <div>
+                <dt>Categoria</dt>
+                <dd id="lexicon-card-grammar"></dd>
+              </div>
+              <div>
+                <dt>Significato</dt>
+                <dd id="lexicon-card-meaning"></dd>
+              </div>
+              <div>
+                <dt>Attestazioni</dt>
+                <dd id="lexicon-card-references"></dd>
+              </div>
+            </dl>
+            <div class="reader-lexicon-actions">
+              <button
+                id="lexicon-highlight-toggle"
+                type="button"
+                aria-pressed="true"
+              ></button>
+              <a id="lexicon-card-link" href="../lessico/vocaboli.html">
+                Voce completa
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

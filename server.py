@@ -19,6 +19,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from tools.lexicon_source import lexicon_entries
+
 
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
@@ -375,6 +377,10 @@ class LexArHandler(SimpleHTTPRequestHandler):
             return self.send_json(work_summary(parts[2]))
         if len(parts) == 4 and parts[:2] == ["api", "works"] and parts[3] == "speeches":
             return self.send_json({"work": parts[2], "speeches": speeches_for(parts[2])})
+        if len(parts) == 4 and parts[:2] == ["api", "works"] and parts[3] == "lexicon":
+            return self.send_json(
+                {"work": parts[2], "entries": lexicon_entries(ROOT, parts[2])}
+            )
         raise KeyError
 
     def send_json(self, payload: dict, status: HTTPStatus = HTTPStatus.OK) -> None:

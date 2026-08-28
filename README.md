@@ -12,6 +12,10 @@ L'elenco completo degli URL supportati è disponibile in
 
 Il progetto include un backend locale senza dipendenze esterne. All'avvio importa
 il TEI degli *Acarnesi* in un database SQLite generato in `data/lexar.sqlite3`.
+Nel lettore, le forme greche che coincidono in modo sicuro con una voce curata
+sono selezionabili con mouse, tocco o tastiera: una scheda mostra lemma,
+categoria, significato e attestazioni, permette di evidenziare le occorrenze e
+rimanda alla voce completa. Le forme non riconosciute restano testo normale.
 
 ```powershell
 python server.py
@@ -28,8 +32,8 @@ python tools/check_project.py
 ```
 
 Il comando controlla sintassi Python, backend e database, validità TEI, pilot
-metrico, aggiornamento del fallback statico, lettore degli *Acarnesi* (API,
-ricerca, versi e collegamenti lessicali), collegamenti interni, ancore e risorse
+metrico, aggiornamento dei fallback statici, lettore degli *Acarnesi* (API,
+ricerca, versi e interazione lessicale), collegamenti interni, ancore e risorse
 locali. Gli stessi controlli vengono eseguiti automaticamente da GitHub Actions
 a ogni push e pull request.
 
@@ -46,6 +50,13 @@ Dopo una modifica al TEI, validalo e rigenera il fallback con:
 ```powershell
 python tools/validate_tei.py
 python tools/generate_work_texts.py
+```
+
+Dopo una modifica alle voci in `lessico/vocaboli.html`, rigenera il dataset
+statico usato dalla scheda lessicale del lettore:
+
+```powershell
+python tools/generate_lexicon_data.py
 ```
 
 La trascrizione greca di LexAr resta fondata su Coulon. Gli identificatori dei
@@ -122,4 +133,5 @@ API iniziali:
 - `GET /api/works` (catalogo completo con disponibilità di TEI e metadati)
 - `GET /api/works/acarnesi`
 - `GET /api/works/acarnesi/speeches`
+- `GET /api/works/acarnesi/lexicon`
 - `GET /api/terms?work=acarnesi&limit=30`
