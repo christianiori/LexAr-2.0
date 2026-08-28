@@ -1,5 +1,7 @@
 const workPage = document.querySelector(".work-page");
 const workSlug = workPage?.dataset.work;
+const menuToggle = document.querySelector(".menu-toggle");
+const menuLinks = document.querySelector(".work-nav-links");
 
 const termList = document.getElementById("term-list");
 const termStatus = document.getElementById("term-status");
@@ -41,6 +43,34 @@ let highlightedLine = null;
 let highlightTimer = null;
 let metricsVisible = false;
 const verseIndex = new Map();
+
+function setMobileMenuOpen(isOpen) {
+  if (!menuToggle || !menuLinks) return;
+
+  menuLinks.classList.toggle("is-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Chiudi il menu" : "Apri il menu");
+}
+
+menuToggle?.addEventListener("click", () => {
+  setMobileMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+});
+
+menuLinks?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMobileMenuOpen(false);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || menuToggle?.getAttribute("aria-expanded") !== "true") {
+    return;
+  }
+  setMobileMenuOpen(false);
+  menuToggle.focus();
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760) setMobileMenuOpen(false);
+});
 
 const normaliseSearchText = (value) =>
   value

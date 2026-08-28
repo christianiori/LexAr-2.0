@@ -156,6 +156,10 @@ def main() -> int:
             errors.append(f"marcatore del lettore mancante: {expected}")
     if 'requestedSource === "fallback"' not in reader_script:
         errors.append("modalità diagnostica del fallback non disponibile")
+    if 'menuLinks.classList.toggle("is-open", isOpen)' not in reader_script:
+        errors.append("menu mobile della pagina opera non collegato")
+    if 'event.key !== "Escape"' not in reader_script:
+        errors.append("chiusura da tastiera del menu mobile non disponibile")
     if "articolato in ${fragmentCount} frammenti" not in reader_script:
         errors.append("messaggio per verso frammentato non disponibile")
     if "`${metricTitle(metric)} · ${status}`" not in reader_script:
