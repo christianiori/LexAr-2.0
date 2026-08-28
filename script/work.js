@@ -1,7 +1,5 @@
 const workPage = document.querySelector(".work-page");
 const workSlug = workPage?.dataset.work;
-const workMenuToggle = document.querySelector(".menu-toggle");
-const workMenuLinks = document.querySelector(".work-nav-links");
 
 const termList = document.getElementById("term-list");
 const termStatus = document.getElementById("term-status");
@@ -43,34 +41,6 @@ let highlightedLine = null;
 let highlightTimer = null;
 let metricsVisible = false;
 const verseIndex = new Map();
-
-function setMobileMenuOpen(isOpen) {
-  if (!workMenuToggle || !workMenuLinks) return;
-
-  workMenuLinks.classList.toggle("is-open", isOpen);
-  workMenuToggle.setAttribute("aria-expanded", String(isOpen));
-  workMenuToggle.setAttribute("aria-label", isOpen ? "Chiudi il menu" : "Apri il menu");
-}
-
-workMenuToggle?.addEventListener("click", () => {
-  setMobileMenuOpen(workMenuToggle.getAttribute("aria-expanded") !== "true");
-});
-
-workMenuLinks?.addEventListener("click", (event) => {
-  if (event.target.closest("a")) setMobileMenuOpen(false);
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape" || workMenuToggle?.getAttribute("aria-expanded") !== "true") {
-    return;
-  }
-  setMobileMenuOpen(false);
-  workMenuToggle.focus();
-});
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 760) setMobileMenuOpen(false);
-});
 
 const normaliseSearchText = (value) =>
   value

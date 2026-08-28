@@ -145,6 +145,7 @@ def main() -> int:
 
     reader_html = (ROOT / "item/acarnesi.html").read_text()
     reader_script = (ROOT / "script/work.js").read_text()
+    navigation_script = (ROOT / "script/intro.js").read_text()
     shared_script = (ROOT / "script/script.js").read_text()
     for expected in (
         'id="verse-jump" novalidate',
@@ -157,11 +158,11 @@ def main() -> int:
             errors.append(f"marcatore del lettore mancante: {expected}")
     if 'requestedSource === "fallback"' not in reader_script:
         errors.append("modalità diagnostica del fallback non disponibile")
-    if 'workMenuLinks.classList.toggle("is-open", isOpen)' not in reader_script:
+    if 'mainMenu.classList.toggle("is-open", isOpen)' not in navigation_script:
         errors.append("menu mobile della pagina opera non collegato")
-    if re.search(r"^const menuToggle\s*=", reader_script, flags=re.MULTILINE):
-        errors.append("identificatore globale del menu in conflitto con intro.js")
-    if 'event.key !== "Escape"' not in reader_script:
+    if '.menu-toggle' in reader_script:
+        errors.append("gestore duplicato del menu mobile nello script del lettore")
+    if 'event.key === "Escape"' not in navigation_script:
         errors.append("chiusura da tastiera del menu mobile non disponibile")
     if "articolato in ${fragmentCount} frammenti" not in reader_script:
         errors.append("messaggio per verso frammentato non disponibile")
