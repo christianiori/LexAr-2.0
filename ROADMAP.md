@@ -12,7 +12,8 @@ LexAr 1.0 dovrà offrire:
 - un'interfaccia coerente, accessibile e responsive;
 - un catalogo funzionante delle undici commedie conservate;
 - gli *Acarnesi* come opera digitale pilota completa di testo TEI, ricerca,
-  navigazione per verso, metrica sperimentale e collegamenti lessicali;
+  navigazione per verso, metrica sperimentale e interazione lessicale di base
+  direttamente sul testo greco;
 - strumenti lessicali affidabili e collegati alle opere;
 - pagine informative aggiornate;
 - controlli automatici sui dati, sui collegamenti e sul backend;
@@ -90,9 +91,32 @@ contiene collegamenti interni interrotti e ha una struttura documentata.
 - [x] Definire il comportamento quando un termine non possiede ancora una
   scheda completa.
 
+### Interazione linguistica di base — requisito per LexAr 1.0
+
+- [ ] Definire una tokenizzazione stabile del greco che conservi punteggiatura,
+  apostrofi, elisioni e testo TEI senza alterare ciò che viene visualizzato.
+- [ ] Rendere selezionabili con mouse, tocco e tastiera le parole riconosciute
+  nel lessico.
+- [ ] Mostrare una scheda accessibile con forma nel testo, lemma, categoria
+  grammaticale, significato essenziale e collegamento alla voce completa.
+- [ ] Evidenziare nel lettore le altre occorrenze della stessa voce e permettere
+  di rimuovere facilmente l'evidenziazione.
+- [ ] Gestire in modo chiaro le forme non riconosciute o prive di una scheda
+  lessicale completa.
+- [ ] Garantire chiusura con `Escape`, ritorno del focus e una resa utilizzabile
+  su mobile senza coprire il verso selezionato.
+- [ ] Conservare ricerca, salto al verso, metrica, API e fallback quando
+  l'interazione lessicale è attiva.
+- [ ] Aggiungere controlli automatici per forme accentate e non accentate,
+  punteggiatura, elisioni, parole ripetute e termini senza voce.
+
+Analisi morfologica completa, traduzione sincronizzata, annotazioni personali
+ed esercizi didattici restano ampliamenti successivi: non bloccano LexAr 1.0.
+
 **Criterio di uscita:** gli *Acarnesi* funzionano su desktop e mobile tramite
-API e fallback, sono navigabili da tastiera e rappresentano il modello completo
-di una pagina-opera.
+API e fallback, sono navigabili da tastiera, permettono di esplorare dal testo
+le parole presenti nel lessico e rappresentano il modello completo di una
+pagina-opera.
 
 ---
 
