@@ -14,6 +14,7 @@ CHECKS = (
     ("Sintassi Python", [PYTHON, "-m", "compileall", "-q", "server.py", "tools"]),
     ("Validazione TEI", [PYTHON, "tools/validate_tei.py"]),
     ("Pilot metrico", [PYTHON, "tools/apply_ach_metrics.py", "--check"]),
+    ("Politica revisione metrica", [PYTHON, "tools/check_metric_review.py"]),
     ("Fallback statico", [PYTHON, "tools/generate_work_texts.py", "--check"]),
     ("Backend", [PYTHON, "tools/check_backend.py"]),
     ("Lettore Acarnesi", [PYTHON, "tools/check_reader.py"]),
