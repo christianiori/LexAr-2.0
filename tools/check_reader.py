@@ -151,6 +151,7 @@ def main() -> int:
         'aria-describedby="reader-jump-status"',
         'id="reader-data-source"',
         'class="reader-metric-legend"',
+        'script/work.js?v=',
     ):
         if expected not in reader_html:
             errors.append(f"marcatore del lettore mancante: {expected}")

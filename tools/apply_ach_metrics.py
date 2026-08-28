@@ -127,6 +127,21 @@ def load_and_validate(
             raise ValueError(f"v. {label}: @cert non ammesso {cert!r}")
         if not METRIC_PATTERN.fullmatch(met):
             raise ValueError(f"v. {label}: schema metrico non valido {met!r}")
+        if status == "verified":
+            review = entry.get("review")
+            required_review_fields = {"reviewer", "date", "source_note"}
+            if not isinstance(review, dict) or any(
+                not str(review.get(field) or "").strip()
+                for field in required_review_fields
+            ):
+                raise ValueError(
+                    f"v. {label}: scansione verificata senza revisore, data "
+                    "e nota sulla fonte"
+                )
+            if cert != "high":
+                raise ValueError(
+                    f"v. {label}: scansione verificata senza @cert='high'"
+                )
 
         fragments = entry.get("fragments")
         if not isinstance(fragments, list) or not fragments:
@@ -153,6 +168,10 @@ def load_and_validate(
             real = str(fragment.get("real") or "")
             if real and not METRIC_PATTERN.fullmatch(real):
                 raise ValueError(f"{target}: realizzazione non valida {real!r}")
+            if status == "verified" and not real:
+                raise ValueError(
+                    f"{target}: scansione verificata senza realizzazione"
+                )
             if (
                 status != "unscannable"
                 and not real

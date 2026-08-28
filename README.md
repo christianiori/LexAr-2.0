@@ -78,6 +78,9 @@ metrico degli *Acarnesi* copre i vv. 1–46 e usa come superficie di revisione i
 sidecar versionato `tools/data/ach-metrics.json`: ogni scansione è ancorata agli
 `xml:id` dei frammenti e accompagnata da stato, certezza, responsabilità e
 fonti. Le annotazioni sono proposte di lavoro, non scansioni già verificate.
+La scheda [di revisione metrica](docs/REVISIONE_METRICA_ACARNESI.md) registra
+lo stato del pilot, i casi aperti e il protocollo necessario per promuovere una
+proposta a scansione verificata.
 Nel lettore i casi standard con scansione presente e certezza media mostrano
 soltanto la notazione: l'assenza di un avviso non equivale allo stato
 `verified`. I casi a bassa certezza conservano invece l'etichetta «da

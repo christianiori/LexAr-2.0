@@ -72,12 +72,12 @@ contiene collegamenti interni interrotti e ha una struttura documentata.
   fuori intervallo.
 - [x] Mantenere visibili numero del verso e parlante durante la lettura.
 - [x] Verificare il lettore con tastiera e lettore di schermo.
-- [ ] Controllare il layout almeno a 360, 768, 1024 e 1440 pixel.
+- [x] Controllare il layout almeno a 360, 768, 1024 e 1440 pixel.
 
 ### Pilot metrico
 
 - [ ] Revisionare manualmente le scansioni dei vv. 1–46.
-- [ ] Risolvere o documentare i casi ancora aperti dei vv. 20, 37 e 43.
+- [x] Risolvere o documentare i casi ancora aperti dei vv. 20, 37 e 43.
 - [x] Distinguere nell'interfaccia scansioni proposte e scansioni verificate.
 - [x] Aggiungere una breve legenda della notazione metrica.
 - [x] Verificare che il testo resti leggibile con la metrica disattivata.
