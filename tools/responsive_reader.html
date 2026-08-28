@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verifica responsive del lettore — LexAr</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      background: #eaf5f8;
+      color: #0b2e4f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 1rem clamp(1rem, 3vw, 2.5rem);
+      border-bottom: 1px solid #bddce7;
+      background: rgba(255, 255, 255, .96);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.65rem);
+    }
+
+    header p {
+      max-width: 72ch;
+      margin: .45rem 0 0;
+      color: #42627b;
+      line-height: 1.45;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: .8rem;
+    }
+
+    nav a {
+      color: #124b75;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    main {
+      display: grid;
+      gap: 2rem;
+      padding: 2rem clamp(1rem, 3vw, 2.5rem) 3rem;
+    }
+
+    section {
+      width: max-content;
+      max-width: none;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 .65rem;
+      font-size: 1rem;
+    }
+
+    output {
+      padding: .25rem .55rem;
+      border-radius: 999px;
+      background: #fff4d7;
+      color: #765000;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    output[data-result="pass"] {
+      background: #dff5e8;
+      color: #17613a;
+    }
+
+    output[data-result="fail"] {
+      background: #fde4df;
+      color: #8e3d35;
+    }
+
+    iframe {
+      display: block;
+      height: 900px;
+      border: 2px solid #124b75;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 12px 32px rgba(11, 46, 79, .12);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Verifica responsive del lettore degli <i>Acarnesi</i></h1>
+    <p>
+      Ogni riquadro usa una viewport reale della larghezza indicata. Il
+      risultato segnala automaticamente l’eventuale overflow orizzontale
+      dell’intera pagina.
+    </p>
+    <nav aria-label="Navigazione del progetto">
+      <a href="../index.html">Home</a>
+      <a href="../catalogo/catalogo1.html">Opere</a>
+      <a href="../lessico/lessicogen.html">Lessico</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>360 px <output id="result-360">Controllo…</output></h2>
+      <iframe
+        title="Lettore degli Acarnesi a 360 pixel"
+        src="../item/acarnesi.html"
+        width="360"
+        data-viewport="360"
+      ></iframe>
+    </section>
+    <section>
+      <h2>768 px <output id="result-768">Controllo…</output></h2>
+      <iframe
+        title="Lettore degli Acarnesi a 768 pixel"
+        src="../item/acarnesi.html"
+        width="768"
+        data-viewport="768"
+      ></iframe>
+    </section>
+    <section>
+      <h2>1024 px <output id="result-1024">Controllo…</output></h2>
+      <iframe
+        title="Lettore degli Acarnesi a 1024 pixel"
+        src="../item/acarnesi.html"
+        width="1024"
+        data-viewport="1024"
+      ></iframe>
+    </section>
+    <section>
+      <h2>1440 px <output id="result-1440">Controllo…</output></h2>
+      <iframe
+        title="Lettore degli Acarnesi a 1440 pixel"
+        src="../item/acarnesi.html"
+        width="1440"
+        data-viewport="1440"
+      ></iframe>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll("iframe[data-viewport]").forEach((frame) => {
+      frame.addEventListener("load", () => {
+        const width = frame.dataset.viewport;
+        const result = document.getElementById(`result-${width}`);
+        const root = frame.contentDocument?.documentElement;
+
+        if (!root || !result) return;
+
+        const overflow = root.scrollWidth > root.clientWidth + 1;
+        result.dataset.result = overflow ? "fail" : "pass";
+        result.textContent = overflow
+          ? `Overflow: ${root.scrollWidth - root.clientWidth} px`
+          : "Nessun overflow";
+      });
+    });
+  </script>
+</body>
+</html>
